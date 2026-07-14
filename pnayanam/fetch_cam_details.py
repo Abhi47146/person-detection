@@ -18,9 +18,26 @@ camera_details_cache = []
 config_out = configparser.ConfigParser()
 config_out.read("/var/pnayanam/pnayanam.ini")
 cycle_time = config_out.getint("cycle_time", "time") 
-gui_ip = config_out.get('gui_ip_address', 'ip_address')
 
-CAMERA_API_URL = f"http://{gui_ip}:8000/api/cameras"
+protocol = config_out.get(
+    "gui_ip_address",
+    "protocol",
+    fallback="http"
+)
+
+gui_ip = config_out.get(
+    "gui_ip_address",
+    "ip_address",
+    fallback="127.0.0.1"
+)
+
+port = config_out.get(
+    "gui_ip_address",
+    "port",
+    fallback="8000"
+)
+
+CAMERA_API_URL = f"{protocol}://{gui_ip}:{port}/api/cameras"
 
 logger = Logger("fetch_cam_details")
 
@@ -72,7 +89,7 @@ def print_camera_details(camera_data):
         logger.info("==========================\n")
         return
 
-    logger.info(json.dumps(camera_data, indent=4))
+    # logger.info(json.dumps(camera_data, indent=4))
     logger.info("==========================\n")
 
 
@@ -279,7 +296,7 @@ def camera_monitor():
 
             if data is not None:
                 camera_details_cache = data
-                logger.info_camera_details(camera_details_cache)
+                # logger.info(camera_details_cache)
 
                 if isinstance(data, list):
                     sync_camera_config(data)

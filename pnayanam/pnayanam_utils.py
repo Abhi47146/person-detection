@@ -65,7 +65,28 @@ class Requirements:
 
         self.DB_PATH = os.path.join(os.path.dirname(__file__), "users.db")
 
-        self.gui_ip = self.config_out.get('gui_ip_address', 'ip_address')
+        self.protocol = self.config_out.get(
+            "gui_ip_address",
+            "protocol",
+            fallback="http"
+        )
+
+        self.gui_ip = self.config_out.get(
+            "gui_ip_address",
+            "ip_address",
+            fallback="127.0.0.1"
+        )
+
+        self.gui_port = self.config_out.get(
+            "gui_ip_address",
+            "port",
+            fallback="8000"
+        )
+
+        self.alerts_url = (
+            f"{self.protocol}://{self.gui_ip}:{self.gui_port}/api/alerts"
+        )
+
         self.debug = self.config_in.getboolean('logs_debug','debug')
 
         # self.send_to_grafana = self.config.getint('GRAFANA', 'send_to_grafana')

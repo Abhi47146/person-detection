@@ -11,7 +11,25 @@ config_out = configparser.ConfigParser()
 config_path = os.path.join(os.path.dirname(__file__), 'resources', 'config.ini')
 config_out.read('/var/pnayanam/pnayanam.ini')
 
-gui_ip = config_out.get('gui_ip_address', 'ip_address')
+protocol = config_out.get(
+    "gui_ip_address",
+    "protocol",
+    fallback="http"
+)
+
+gui_ip = config_out.get(
+    "gui_ip_address",
+    "ip_address",
+    fallback="127.0.0.1"
+)
+
+port = config_out.get(
+    "gui_ip_address",
+    "port",
+    fallback="8000"
+)
+
+EDGE_HEALTH_URL = f"{protocol}://{gui_ip}:{port}/api/edge-health"
 
 CONFIG_FILE = "/var/pnayanam/pnayanam.ini"
 
@@ -138,7 +156,7 @@ def edge_health_monitor():
             start = time.perf_counter()
 
             response = requests.post(
-                f"http://{gui_ip}/api/edge-health",
+                EDGE_HEALTH_URL,
                 json=payload,
                 timeout=10
             )
