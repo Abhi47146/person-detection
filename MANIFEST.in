@@ -1,0 +1,3 @@
+recursive-include pnayanam/resources *
+include pnayanam/__init__.py
+include solar_cam/__init__.py
