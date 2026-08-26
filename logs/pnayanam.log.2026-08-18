@@ -1,0 +1,1824 @@
+[2026-08-18 11:23:14] [INFO] [pnayanam_utils] Grafana alerting is disabled (grafana=0 in config_in.ini)
+[2026-08-18 11:23:14] [INFO] [pnayanam_utils] Grafana alerting is disabled (grafana=0 in config_in.ini)
+[2026-08-18 11:23:14] [INFO] [pnayanam_utils] Grafana alerting is disabled (grafana=0 in config_in.ini)
+[2026-08-18 11:23:14] [INFO] [person_detection] SUBSCRIBER THREAD IS ACTIVATED
+[2026-08-18 11:23:14] [INFO] [collect_subscribers] Existing subscribers: {'1980972331': 'Ram@me', '1716951841': 'Sudhanshu Tiwari'}
+[2026-08-18 11:23:14] [INFO] [person_detection] GPU RESOURCE MONITOR THREAD IS ACTIVATED
+[2026-08-18 11:23:14] [INFO] [person_detection] Loading config from: {config_path}
+[2026-08-18 11:23:14] [INFO] [person_detection] Frame Bytes used: 2764800
+[2026-08-18 11:23:14] [INFO] [person_detection] [RESULT SHM READY] result_shm_CAM005
+[2026-08-18 11:23:14] [INFO] [person_detection] [RESULT SHM READY] result_shm_CAM003
+[2026-08-18 11:23:14] [INFO] [person_detection] [RESULT SHM READY] result_shm_CAM004
+[2026-08-18 11:23:14] [INFO] [camera_reading] [CAM005] Source: SOLAR CAMERA (/var/pnayanam/cctv/outdoor store)
+[2026-08-18 11:23:14] [INFO] [camera_reading] [CAM005] Started _camera_reader_thread_solarcam
+[2026-08-18 11:23:14] [INFO] [camera_reading] [CAM003] Source: SOLAR CAMERA (/var/pnayanam/cctv/Entrance 1)
+[2026-08-18 11:23:14] [INFO] [camera_reading] [CAM003] Started _camera_reader_thread_solarcam
+[2026-08-18 11:23:14] [INFO] [camera_reading] [CAM004] Source: SOLAR CAMERA (/var/pnayanam/cctv/indoor store)
+[2026-08-18 11:23:14] [INFO] [camera_reading] [CAM004] Started _camera_reader_thread_solarcam
+[2026-08-18 11:23:14] [INFO] [send_gpu_details] 11, 55, 4096, 47
+[2026-08-18 11:23:14] [INFO] [send_gpu_details] [GPU] Utilization: 11% | Memory: 0.05/4.00 GB | GPU Temp: 47.0°C
+[2026-08-18 11:23:14] [INFO] [person_detection] Started inference process pid=193221
+[2026-08-18 11:23:14] [INFO] [person_detection] Inference worker starting. model=/home/sriram/Desktop/p_nayanam/pnayanam/resources/yolo_models/yolo11m.pt device="cuda" batch_size=5
+[2026-08-18 11:23:14] [INFO] [person_detection] Pipeline started. Press Ctrl+C to stop.
+[2026-08-18 11:23:14] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 10.18 ms
+[2026-08-18 11:23:14] [INFO] [camera_reading] Frame Path is : /var/pnayanam/cctv/outdoor store/latest_frame.png
+[2026-08-18 11:23:14] [INFO] [camera_reading] [CAM005] Reading frames from: /var/pnayanam/cctv/outdoor store/latest_frame.png
+[2026-08-18 11:23:14] [INFO] [camera_reading] Frame Path is : /var/pnayanam/cctv/indoor store/latest_frame.png
+[2026-08-18 11:23:14] [INFO] [camera_reading] [CAM004] Reading frames from: /var/pnayanam/cctv/indoor store/latest_frame.png
+[2026-08-18 11:23:14] [INFO] [camera_reading] Frame Path is : /var/pnayanam/cctv/Entrance 1/latest_frame.png
+[2026-08-18 11:23:14] [INFO] [camera_reading] [CAM003] Reading frames from: /var/pnayanam/cctv/Entrance 1/latest_frame.png
+[2026-08-18 11:23:14] [INFO] [camera_reading] [CAM003] Loaded new frame.
+[2026-08-18 11:23:14] [INFO] [camera_reading] [CAM005] Loaded new frame.
+[2026-08-18 11:23:14] [INFO] [camera_reading] [CAM004] Loaded new frame.
+[2026-08-18 11:23:15] [WARNING] [pnayanam_utils] Deleted old file: /var/pnayanam/data/images/2026/07/17/CAM003/frame_17-07-2026_16-02-27-706788.png
+[2026-08-18 11:23:15] [WARNING] [pnayanam_utils] Deleted old file: /var/pnayanam/data/images/2026/07/17/CAM003/frame_17-07-2026_16-02-11-918391.png
+[2026-08-18 11:23:15] [WARNING] [pnayanam_utils] Deleted old file: /var/pnayanam/data/images/2026/07/17/CAM003/frame_17-07-2026_16-02-36-888605.png
+[2026-08-18 11:23:15] [WARNING] [pnayanam_utils] Deleted old file: /var/pnayanam/data/images/2026/07/17/CAM003/frame_17-07-2026_16-02-19-861219.png
+[2026-08-18 11:23:15] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 12.17 ms
+[2026-08-18 11:23:16] [INFO] [send_gpu_details] 11, 426, 4096, 49
+[2026-08-18 11:23:16] [INFO] [send_gpu_details] [GPU] Utilization: 11% | Memory: 0.42/4.00 GB | GPU Temp: 49.0°C
+[2026-08-18 11:23:16] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 6.54 ms
+[2026-08-18 11:23:17] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 2115.49 ms
+[2026-08-18 11:23:17] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 4.13 ms
+[2026-08-18 11:23:17] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 339.70 ms
+[2026-08-18 11:23:17] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 10.27 ms
+[2026-08-18 11:23:18] [WARNING] [camera_reading] [CAM003] No new frame received for the last 3 seconds. Skipping SHM write and YOLO processing.
+[2026-08-18 11:23:18] [WARNING] [camera_reading] [CAM005] No new frame received for the last 3 seconds. Skipping SHM write and YOLO processing.
+[2026-08-18 11:23:18] [WARNING] [camera_reading] [CAM004] No new frame received for the last 3 seconds. Skipping SHM write and YOLO processing.
+[2026-08-18 11:23:18] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 353.03 ms
+[2026-08-18 11:23:18] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 4.22 ms
+[2026-08-18 11:23:18] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 326.94 ms
+[2026-08-18 11:23:18] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 3.83 ms
+[2026-08-18 11:23:19] [INFO] [send_gpu_details] 59, 426, 4096, 52
+[2026-08-18 11:23:19] [INFO] [send_gpu_details] [GPU] Utilization: 59% | Memory: 0.42/4.00 GB | GPU Temp: 52.0°C
+[2026-08-18 11:23:19] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 6.61 ms
+[2026-08-18 11:23:19] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 329.69 ms
+[2026-08-18 11:23:19] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 1.95 ms
+[2026-08-18 11:23:19] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 327.32 ms
+[2026-08-18 11:23:19] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 4.30 ms
+[2026-08-18 11:23:19] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 331.47 ms
+[2026-08-18 11:23:19] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 4.49 ms
+[2026-08-18 11:23:20] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 332.56 ms
+[2026-08-18 11:23:20] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 5.60 ms
+[2026-08-18 11:23:20] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 336.91 ms
+[2026-08-18 11:23:20] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 2.67 ms
+[2026-08-18 11:23:21] [WARNING] [camera_reading] [CAM003] No new frame received for the last 3 seconds. Skipping SHM write and YOLO processing.
+[2026-08-18 11:23:21] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 333.19 ms
+[2026-08-18 11:23:21] [WARNING] [camera_reading] [CAM005] No new frame received for the last 3 seconds. Skipping SHM write and YOLO processing.
+[2026-08-18 11:23:21] [WARNING] [camera_reading] [CAM004] No new frame received for the last 3 seconds. Skipping SHM write and YOLO processing.
+[2026-08-18 11:23:21] [INFO] [send_gpu_details] 86, 426, 4096, 54
+[2026-08-18 11:23:21] [INFO] [send_gpu_details] [GPU] Utilization: 86% | Memory: 0.42/4.00 GB | GPU Temp: 54.0°C
+[2026-08-18 11:23:21] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 6.14 ms
+[2026-08-18 11:23:21] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 2.86 ms
+[2026-08-18 11:23:21] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 328.78 ms
+[2026-08-18 11:23:21] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 4.53 ms
+[2026-08-18 11:23:21] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 328.51 ms
+[2026-08-18 11:23:21] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 3.79 ms
+[2026-08-18 11:23:22] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 335.97 ms
+[2026-08-18 11:23:22] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 4.50 ms
+[2026-08-18 11:23:22] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 329.15 ms
+[2026-08-18 11:23:22] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 1.99 ms
+[2026-08-18 11:23:22] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 333.47 ms
+[2026-08-18 11:23:23] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 4.52 ms
+[2026-08-18 11:23:23] [INFO] [send_gpu_details] 81, 426, 4096, 55
+[2026-08-18 11:23:23] [INFO] [send_gpu_details] [GPU] Utilization: 81% | Memory: 0.42/4.00 GB | GPU Temp: 55.0°C
+[2026-08-18 11:23:23] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 2.84 ms
+[2026-08-18 11:23:23] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 337.48 ms
+[2026-08-18 11:23:23] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 1.44 ms
+[2026-08-18 11:23:23] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 328.00 ms
+[2026-08-18 11:23:23] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 1.60 ms
+[2026-08-18 11:23:24] [WARNING] [camera_reading] [CAM003] No new frame received for the last 3 seconds. Skipping SHM write and YOLO processing.
+[2026-08-18 11:23:24] [WARNING] [camera_reading] [CAM005] No new frame received for the last 3 seconds. Skipping SHM write and YOLO processing.
+[2026-08-18 11:23:24] [WARNING] [camera_reading] [CAM004] No new frame received for the last 3 seconds. Skipping SHM write and YOLO processing.
+[2026-08-18 11:23:24] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 330.95 ms
+[2026-08-18 11:23:24] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 2.20 ms
+[2026-08-18 11:23:24] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 332.39 ms
+[2026-08-18 11:23:24] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 1.20 ms
+[2026-08-18 11:23:24] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 328.36 ms
+[2026-08-18 11:23:24] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 2.21 ms
+[2026-08-18 11:23:25] [INFO] [send_gpu_details] 82, 426, 4096, 56
+[2026-08-18 11:23:25] [INFO] [send_gpu_details] [GPU] Utilization: 82% | Memory: 0.42/4.00 GB | GPU Temp: 56.0°C
+[2026-08-18 11:23:25] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 6.78 ms
+[2026-08-18 11:23:25] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 333.67 ms
+[2026-08-18 11:23:25] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 2.27 ms
+[2026-08-18 11:23:25] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 326.61 ms
+[2026-08-18 11:23:25] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 1.39 ms
+[2026-08-18 11:23:25] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 328.34 ms
+[2026-08-18 11:23:26] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 1.29 ms
+[2026-08-18 11:23:26] [INFO] [collect_subscribers] Updated subscribers: {'1980972331': 'Ram@me', '1716951841': 'Sudhanshu Tiwari'}
+[2026-08-18 11:23:26] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 327.78 ms
+[2026-08-18 11:23:26] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 1.26 ms
+[2026-08-18 11:23:26] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 326.32 ms
+[2026-08-18 11:23:26] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 1.56 ms
+[2026-08-18 11:23:27] [WARNING] [camera_reading] [CAM003] No new frame received for the last 3 seconds. Skipping SHM write and YOLO processing.
+[2026-08-18 11:23:27] [WARNING] [camera_reading] [CAM005] No new frame received for the last 3 seconds. Skipping SHM write and YOLO processing.
+[2026-08-18 11:23:27] [WARNING] [camera_reading] [CAM004] No new frame received for the last 3 seconds. Skipping SHM write and YOLO processing.
+[2026-08-18 11:23:27] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 336.91 ms
+[2026-08-18 11:23:27] [INFO] [send_gpu_details] 91, 426, 4096, 57
+[2026-08-18 11:23:27] [INFO] [send_gpu_details] [GPU] Utilization: 91% | Memory: 0.42/4.00 GB | GPU Temp: 57.0°C
+[2026-08-18 11:23:27] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 4.31 ms
+[2026-08-18 11:23:27] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 6.09 ms
+[2026-08-18 11:23:27] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 333.25 ms
+[2026-08-18 11:23:27] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 2.00 ms
+[2026-08-18 11:23:27] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 327.02 ms
+[2026-08-18 11:23:27] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 4.55 ms
+[2026-08-18 11:23:28] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 332.95 ms
+[2026-08-18 11:23:28] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 2.50 ms
+[2026-08-18 11:23:28] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 329.05 ms
+[2026-08-18 11:23:28] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 1.53 ms
+[2026-08-18 11:23:29] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 327.68 ms
+[2026-08-18 11:23:29] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 1.94 ms
+[2026-08-18 11:23:29] [INFO] [send_gpu_details] 86, 426, 4096, 58
+[2026-08-18 11:23:29] [INFO] [send_gpu_details] [GPU] Utilization: 86% | Memory: 0.42/4.00 GB | GPU Temp: 58.0°C
+[2026-08-18 11:23:29] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 5.77 ms
+[2026-08-18 11:23:29] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 327.81 ms
+[2026-08-18 11:23:29] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 1.14 ms
+[2026-08-18 11:23:29] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 327.26 ms
+[2026-08-18 11:23:29] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 2.46 ms
+[2026-08-18 11:23:30] [WARNING] [camera_reading] [CAM003] No new frame received for the last 3 seconds. Skipping SHM write and YOLO processing.
+[2026-08-18 11:23:30] [WARNING] [camera_reading] [CAM005] No new frame received for the last 3 seconds. Skipping SHM write and YOLO processing.
+[2026-08-18 11:23:30] [WARNING] [camera_reading] [CAM004] No new frame received for the last 3 seconds. Skipping SHM write and YOLO processing.
+[2026-08-18 11:23:30] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 340.05 ms
+[2026-08-18 11:23:30] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 4.35 ms
+[2026-08-18 11:23:30] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 334.72 ms
+[2026-08-18 11:23:30] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 1.29 ms
+[2026-08-18 11:23:30] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 327.68 ms
+[2026-08-18 11:23:30] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 4.96 ms
+[2026-08-18 11:23:31] [INFO] [send_gpu_details] 83, 426, 4096, 59
+[2026-08-18 11:23:31] [INFO] [send_gpu_details] [GPU] Utilization: 83% | Memory: 0.42/4.00 GB | GPU Temp: 59.0°C
+[2026-08-18 11:23:31] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 5.11 ms
+[2026-08-18 11:23:31] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 336.71 ms
+[2026-08-18 11:23:31] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 4.43 ms
+[2026-08-18 11:23:31] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 330.73 ms
+[2026-08-18 11:23:31] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 1.83 ms
+[2026-08-18 11:23:32] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 337.67 ms
+[2026-08-18 11:23:32] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 5.99 ms
+[2026-08-18 11:23:32] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 333.72 ms
+[2026-08-18 11:23:32] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 3.03 ms
+[2026-08-18 11:23:32] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 333.96 ms
+[2026-08-18 11:23:32] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 4.63 ms
+[2026-08-18 11:23:33] [WARNING] [camera_reading] [CAM003] No new frame received for the last 3 seconds. Skipping SHM write and YOLO processing.
+[2026-08-18 11:23:33] [WARNING] [camera_reading] [CAM005] No new frame received for the last 3 seconds. Skipping SHM write and YOLO processing.
+[2026-08-18 11:23:33] [WARNING] [camera_reading] [CAM004] No new frame received for the last 3 seconds. Skipping SHM write and YOLO processing.
+[2026-08-18 11:23:33] [INFO] [send_gpu_details] 80, 426, 4096, 60
+[2026-08-18 11:23:33] [INFO] [send_gpu_details] [GPU] Utilization: 80% | Memory: 0.42/4.00 GB | GPU Temp: 60.0°C
+[2026-08-18 11:23:33] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 7.6 ms
+[2026-08-18 11:23:33] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 335.48 ms
+[2026-08-18 11:23:33] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 1.74 ms
+[2026-08-18 11:23:33] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 330.51 ms
+[2026-08-18 11:23:33] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 1.50 ms
+[2026-08-18 11:23:34] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 337.34 ms
+[2026-08-18 11:23:34] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 2.83 ms
+[2026-08-18 11:23:34] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 326.89 ms
+[2026-08-18 11:23:34] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 1.28 ms
+[2026-08-18 11:23:34] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 326.78 ms
+[2026-08-18 11:23:34] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 1.16 ms
+[2026-08-18 11:23:35] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 330.89 ms
+[2026-08-18 11:23:35] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 2.07 ms
+[2026-08-18 11:23:35] [INFO] [send_gpu_details] 92, 426, 4096, 60
+[2026-08-18 11:23:35] [INFO] [send_gpu_details] [GPU] Utilization: 92% | Memory: 0.42/4.00 GB | GPU Temp: 60.0°C
+[2026-08-18 11:23:35] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 5.52 ms
+[2026-08-18 11:23:35] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 331.85 ms
+[2026-08-18 11:23:35] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 8.45 ms
+[2026-08-18 11:23:35] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 351.46 ms
+[2026-08-18 11:23:35] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 3.72 ms
+[2026-08-18 11:23:36] [WARNING] [camera_reading] [CAM003] No new frame received for the last 3 seconds. Skipping SHM write and YOLO processing.
+[2026-08-18 11:23:36] [WARNING] [camera_reading] [CAM005] No new frame received for the last 3 seconds. Skipping SHM write and YOLO processing.
+[2026-08-18 11:23:36] [WARNING] [camera_reading] [CAM004] No new frame received for the last 3 seconds. Skipping SHM write and YOLO processing.
+[2026-08-18 11:23:36] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 334.57 ms
+[2026-08-18 11:23:36] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 4.83 ms
+[2026-08-18 11:23:36] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 338.74 ms
+[2026-08-18 11:23:36] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 2.62 ms
+[2026-08-18 11:23:37] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 334.24 ms
+[2026-08-18 11:23:37] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 2.24 ms
+[2026-08-18 11:23:37] [INFO] [send_gpu_details] 85, 426, 4096, 61
+[2026-08-18 11:23:37] [INFO] [send_gpu_details] [GPU] Utilization: 85% | Memory: 0.42/4.00 GB | GPU Temp: 61.0°C
+[2026-08-18 11:23:37] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 2.77 ms
+[2026-08-18 11:23:37] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 331.86 ms
+[2026-08-18 11:23:37] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 1.54 ms
+[2026-08-18 11:23:37] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 328.22 ms
+[2026-08-18 11:23:37] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 3.62 ms
+[2026-08-18 11:23:38] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 329.05 ms
+[2026-08-18 11:23:38] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 1.65 ms
+[2026-08-18 11:23:38] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 327.98 ms
+[2026-08-18 11:23:38] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 1.30 ms
+[2026-08-18 11:23:38] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 331.80 ms
+[2026-08-18 11:23:39] [WARNING] [camera_reading] [CAM003] No new frame received for the last 3 seconds. Skipping SHM write and YOLO processing.
+[2026-08-18 11:23:39] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 4.93 ms
+[2026-08-18 11:23:39] [WARNING] [camera_reading] [CAM005] No new frame received for the last 3 seconds. Skipping SHM write and YOLO processing.
+[2026-08-18 11:23:39] [WARNING] [camera_reading] [CAM004] No new frame received for the last 3 seconds. Skipping SHM write and YOLO processing.
+[2026-08-18 11:23:39] [INFO] [send_gpu_details] 82, 426, 4096, 61
+[2026-08-18 11:23:39] [INFO] [send_gpu_details] [GPU] Utilization: 82% | Memory: 0.42/4.00 GB | GPU Temp: 61.0°C
+[2026-08-18 11:23:39] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 6.81 ms
+[2026-08-18 11:23:39] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 335.29 ms
+[2026-08-18 11:23:39] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 2.53 ms
+[2026-08-18 11:23:39] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 328.16 ms
+[2026-08-18 11:23:39] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 1.92 ms
+[2026-08-18 11:23:40] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 339.80 ms
+[2026-08-18 11:23:40] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 1.45 ms
+[2026-08-18 11:23:40] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 331.24 ms
+[2026-08-18 11:23:40] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 3.02 ms
+[2026-08-18 11:23:40] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 328.35 ms
+[2026-08-18 11:23:40] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 2.91 ms
+[2026-08-18 11:23:41] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 330.43 ms
+[2026-08-18 11:23:41] [INFO] [send_gpu_details] 82, 426, 4096, 62
+[2026-08-18 11:23:41] [INFO] [send_gpu_details] [GPU] Utilization: 82% | Memory: 0.42/4.00 GB | GPU Temp: 62.0°C
+[2026-08-18 11:23:41] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 7.37 ms
+[2026-08-18 11:23:41] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 3.96 ms
+[2026-08-18 11:23:41] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 334.46 ms
+[2026-08-18 11:23:41] [INFO] [collect_subscribers] Updated subscribers: {'1980972331': 'Ram@me', '1716951841': 'Sudhanshu Tiwari'}
+[2026-08-18 11:23:41] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 2.72 ms
+[2026-08-18 11:23:42] [WARNING] [camera_reading] [CAM003] No new frame received for the last 3 seconds. Skipping SHM write and YOLO processing.
+[2026-08-18 11:23:42] [WARNING] [camera_reading] [CAM005] No new frame received for the last 3 seconds. Skipping SHM write and YOLO processing.
+[2026-08-18 11:23:42] [WARNING] [camera_reading] [CAM004] No new frame received for the last 3 seconds. Skipping SHM write and YOLO processing.
+[2026-08-18 11:23:42] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 330.68 ms
+[2026-08-18 11:23:42] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 4.06 ms
+[2026-08-18 11:23:42] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 344.71 ms
+[2026-08-18 11:23:42] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 6.42 ms
+[2026-08-18 11:23:42] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 337.17 ms
+[2026-08-18 11:23:42] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 2.38 ms
+[2026-08-18 11:23:43] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 331.04 ms
+[2026-08-18 11:23:43] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 5.50 ms
+[2026-08-18 11:23:43] [INFO] [send_gpu_details] 80, 426, 4096, 63
+[2026-08-18 11:23:43] [INFO] [send_gpu_details] [GPU] Utilization: 80% | Memory: 0.42/4.00 GB | GPU Temp: 63.0°C
+[2026-08-18 11:23:43] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 5.69 ms
+[2026-08-18 11:23:43] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 344.12 ms
+[2026-08-18 11:23:43] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 10.20 ms
+[2026-08-18 11:23:44] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 353.85 ms
+[2026-08-18 11:23:44] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 1.71 ms
+[2026-08-18 11:23:44] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 329.38 ms
+[2026-08-18 11:23:44] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 2.66 ms
+[2026-08-18 11:23:44] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 329.18 ms
+[2026-08-18 11:23:45] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 6.53 ms
+[2026-08-18 11:23:45] [WARNING] [camera_reading] [CAM003] No new frame received for the last 3 seconds. Skipping SHM write and YOLO processing.
+[2026-08-18 11:23:45] [WARNING] [camera_reading] [CAM005] No new frame received for the last 3 seconds. Skipping SHM write and YOLO processing.
+[2026-08-18 11:23:45] [WARNING] [camera_reading] [CAM004] No new frame received for the last 3 seconds. Skipping SHM write and YOLO processing.
+[2026-08-18 11:23:45] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 343.94 ms
+[2026-08-18 11:23:45] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 1.27 ms
+[2026-08-18 11:23:45] [INFO] [send_gpu_details] 82, 426, 4096, 63
+[2026-08-18 11:23:45] [INFO] [send_gpu_details] [GPU] Utilization: 82% | Memory: 0.42/4.00 GB | GPU Temp: 63.0°C
+[2026-08-18 11:23:45] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 2.87 ms
+[2026-08-18 11:23:45] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 327.02 ms
+[2026-08-18 11:23:45] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 2.23 ms
+[2026-08-18 11:23:46] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 330.40 ms
+[2026-08-18 11:23:46] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 2.30 ms
+[2026-08-18 11:23:46] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 326.76 ms
+[2026-08-18 11:23:46] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 2.83 ms
+[2026-08-18 11:23:46] [INFO] [person_detection] Total time taken by YOLO model for 3 frames: 338.59 ms
+[2026-08-18 11:23:46] [INFO] [person_detection] Total time taken for reading 3 frames from SHM: 1.50 ms
+[2026-08-18 11:23:47] [INFO] [person_detection] Stopping pipeline...
+[2026-08-18 11:23:47] [INFO] [person_detection] 
+Stopping all processes...
+[2026-08-18 11:23:47] [WARNING] [camera_reading] [CAM003] Camera reader exited.
+[2026-08-18 11:23:47] [WARNING] [camera_reading] [CAM005] Camera reader exited.
+[2026-08-18 11:23:47] [WARNING] [camera_reading] [CAM004] Camera reader exited.
+[2026-08-18 11:23:47] [INFO] [person_detection] Terminating: inference
+[2026-08-18 11:24:32] [INFO] [pnayanam_utils] Grafana alerting is disabled (grafana=0 in config_in.ini)
+[2026-08-18 11:24:33] [INFO] [pnayanam_utils] Grafana alerting is disabled (grafana=0 in config_in.ini)
+[2026-08-18 11:24:33] [INFO] [pnayanam_utils] Grafana alerting is disabled (grafana=0 in config_in.ini)
+[2026-08-18 11:24:33] [INFO] [person_detection] SUBSCRIBER THREAD IS ACTIVATED
+[2026-08-18 11:24:33] [INFO] [collect_subscribers] Existing subscribers: {'1980972331': 'Ram@me', '1716951841': 'Sudhanshu Tiwari'}
+[2026-08-18 11:24:33] [INFO] [person_detection] GPU RESOURCE MONITOR THREAD IS ACTIVATED
+[2026-08-18 11:24:33] [INFO] [person_detection] Loading config from: {config_path}
+[2026-08-18 11:24:33] [INFO] [person_detection] Frame Bytes used: 2764800
+[2026-08-18 11:24:33] [INFO] [person_detection] [RESULT SHM READY] result_shm_CAM003
+[2026-08-18 11:24:33] [INFO] [camera_reading] [CAM003] Source: RTSP (/home/sriram/Desktop/5_Railway_Theft_rtsp/recording2_trimmed.mp4)
+[2026-08-18 11:24:33] [INFO] [camera_reading] [CAM003] Started _camera_reader_thread_rtsp
+[2026-08-18 11:24:33] [INFO] [person_detection] Started inference process pid=194410
+[2026-08-18 11:24:33] [INFO] [person_detection] Pipeline started. Press Ctrl+C to stop.
+[2026-08-18 11:24:33] [INFO] [person_detection] Inference worker starting. model=/home/sriram/Desktop/p_nayanam/pnayanam/resources/yolo_models/yolo11m.pt device="cuda" batch_size=5
+[2026-08-18 11:24:33] [INFO] [send_gpu_details] 14, 55, 4096, 51
+[2026-08-18 11:24:33] [INFO] [send_gpu_details] [GPU] Utilization: 14% | Memory: 0.05/4.00 GB | GPU Temp: 51.0°C
+[2026-08-18 11:24:33] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 9.21 ms
+[2026-08-18 11:24:33] [INFO] [camera_reading] Successfully connected to camera stream for [CAM003]
+[2026-08-18 11:24:33] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.30 ms
+[2026-08-18 11:24:35] [INFO] [send_gpu_details] 10, 350, 4096, 54
+[2026-08-18 11:24:35] [INFO] [send_gpu_details] [GPU] Utilization: 10% | Memory: 0.34/4.00 GB | GPU Temp: 54.0°C
+[2026-08-18 11:24:35] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 7.18 ms
+[2026-08-18 11:24:35] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 1921.62 ms
+[2026-08-18 11:24:35] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.23 ms
+[2026-08-18 11:24:35] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 119.79 ms
+[2026-08-18 11:24:35] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.02 ms
+[2026-08-18 11:24:35] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.64 ms
+[2026-08-18 11:24:35] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.81 ms
+[2026-08-18 11:24:35] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 121.83 ms
+[2026-08-18 11:24:35] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.42 ms
+[2026-08-18 11:24:35] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.78 ms
+[2026-08-18 11:24:35] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.97 ms
+[2026-08-18 11:24:35] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 118.43 ms
+[2026-08-18 11:24:36] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.40 ms
+[2026-08-18 11:24:36] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.08 ms
+[2026-08-18 11:24:36] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.70 ms
+[2026-08-18 11:24:36] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.64 ms
+[2026-08-18 11:24:36] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.07 ms
+[2026-08-18 11:24:36] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 118.34 ms
+[2026-08-18 11:24:36] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.48 ms
+[2026-08-18 11:24:36] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.52 ms
+[2026-08-18 11:24:36] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.23 ms
+[2026-08-18 11:24:36] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.56 ms
+[2026-08-18 11:24:36] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.54 ms
+[2026-08-18 11:24:36] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.46 ms
+[2026-08-18 11:24:36] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.78 ms
+[2026-08-18 11:24:36] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 119.52 ms
+[2026-08-18 11:24:36] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.27 ms
+[2026-08-18 11:24:37] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 119.14 ms
+[2026-08-18 11:24:37] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.04 ms
+[2026-08-18 11:24:37] [INFO] [send_gpu_details] 78, 350, 4096, 56
+[2026-08-18 11:24:37] [INFO] [send_gpu_details] [GPU] Utilization: 78% | Memory: 0.34/4.00 GB | GPU Temp: 56.0°C
+[2026-08-18 11:24:37] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 2.79 ms
+[2026-08-18 11:24:37] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.87 ms
+[2026-08-18 11:24:37] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.11 ms
+[2026-08-18 11:24:37] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 118.65 ms
+[2026-08-18 11:24:37] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.66 ms
+[2026-08-18 11:24:37] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.70 ms
+[2026-08-18 11:24:37] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.52 ms
+[2026-08-18 11:24:37] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 120.11 ms
+[2026-08-18 11:24:37] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.86 ms
+[2026-08-18 11:24:37] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.67 ms
+[2026-08-18 11:24:37] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.66 ms
+[2026-08-18 11:24:37] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.18 ms
+[2026-08-18 11:24:37] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.67 ms
+[2026-08-18 11:24:38] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.11 ms
+[2026-08-18 11:24:38] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.53 ms
+[2026-08-18 11:24:38] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.98 ms
+[2026-08-18 11:24:38] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.48 ms
+[2026-08-18 11:24:38] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.53 ms
+[2026-08-18 11:24:38] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.94 ms
+[2026-08-18 11:24:38] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 118.47 ms
+[2026-08-18 11:24:38] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.29 ms
+[2026-08-18 11:24:38] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.69 ms
+[2026-08-18 11:24:38] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.33 ms
+[2026-08-18 11:24:38] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.57 ms
+[2026-08-18 11:24:38] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.48 ms
+[2026-08-18 11:24:38] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.68 ms
+[2026-08-18 11:24:38] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.85 ms
+[2026-08-18 11:24:39] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 119.62 ms
+[2026-08-18 11:24:39] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.62 ms
+[2026-08-18 11:24:39] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 119.18 ms
+[2026-08-18 11:24:39] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.79 ms
+[2026-08-18 11:24:39] [INFO] [send_gpu_details] 81, 350, 4096, 57
+[2026-08-18 11:24:39] [INFO] [send_gpu_details] [GPU] Utilization: 81% | Memory: 0.34/4.00 GB | GPU Temp: 57.0°C
+[2026-08-18 11:24:39] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 2.57 ms
+[2026-08-18 11:24:39] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.48 ms
+[2026-08-18 11:24:39] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.87 ms
+[2026-08-18 11:24:39] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.98 ms
+[2026-08-18 11:24:39] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.90 ms
+[2026-08-18 11:24:39] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.62 ms
+[2026-08-18 11:24:39] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.67 ms
+[2026-08-18 11:24:39] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 120.21 ms
+[2026-08-18 11:24:39] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.89 ms
+[2026-08-18 11:24:39] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.00 ms
+[2026-08-18 11:24:39] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.78 ms
+[2026-08-18 11:24:40] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 118.05 ms
+[2026-08-18 11:24:40] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.00 ms
+[2026-08-18 11:24:40] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 118.35 ms
+[2026-08-18 11:24:40] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.11 ms
+[2026-08-18 11:24:40] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.21 ms
+[2026-08-18 11:24:40] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.18 ms
+[2026-08-18 11:24:40] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.34 ms
+[2026-08-18 11:24:40] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.36 ms
+[2026-08-18 11:24:40] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.44 ms
+[2026-08-18 11:24:40] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.34 ms
+[2026-08-18 11:24:40] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.30 ms
+[2026-08-18 11:24:40] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.78 ms
+[2026-08-18 11:24:40] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 113.87 ms
+[2026-08-18 11:24:40] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.20 ms
+[2026-08-18 11:24:41] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 118.42 ms
+[2026-08-18 11:24:41] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.71 ms
+[2026-08-18 11:24:41] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 113.38 ms
+[2026-08-18 11:24:41] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.78 ms
+[2026-08-18 11:24:41] [INFO] [send_gpu_details] 80, 350, 4096, 58
+[2026-08-18 11:24:41] [INFO] [send_gpu_details] [GPU] Utilization: 80% | Memory: 0.34/4.00 GB | GPU Temp: 58.0°C
+[2026-08-18 11:24:41] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 5.79 ms
+[2026-08-18 11:24:41] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 120.54 ms
+[2026-08-18 11:24:41] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.37 ms
+[2026-08-18 11:24:41] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.84 ms
+[2026-08-18 11:24:41] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.94 ms
+[2026-08-18 11:24:41] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.80 ms
+[2026-08-18 11:24:41] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.88 ms
+[2026-08-18 11:24:41] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.02 ms
+[2026-08-18 11:24:41] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.34 ms
+[2026-08-18 11:24:41] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.20 ms
+[2026-08-18 11:24:41] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.89 ms
+[2026-08-18 11:24:42] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.89 ms
+[2026-08-18 11:24:42] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.40 ms
+[2026-08-18 11:24:42] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.21 ms
+[2026-08-18 11:24:42] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.82 ms
+[2026-08-18 11:24:42] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.80 ms
+[2026-08-18 11:24:42] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.98 ms
+[2026-08-18 11:24:42] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.25 ms
+[2026-08-18 11:24:42] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.93 ms
+[2026-08-18 11:24:42] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.01 ms
+[2026-08-18 11:24:42] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.58 ms
+[2026-08-18 11:24:42] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.37 ms
+[2026-08-18 11:24:42] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.04 ms
+[2026-08-18 11:24:42] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.37 ms
+[2026-08-18 11:24:42] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.03 ms
+[2026-08-18 11:24:43] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 125.27 ms
+[2026-08-18 11:24:43] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.04 ms
+[2026-08-18 11:24:43] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.16 ms
+[2026-08-18 11:24:43] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.87 ms
+[2026-08-18 11:24:43] [INFO] [send_gpu_details] 79, 350, 4096, 59
+[2026-08-18 11:24:43] [INFO] [send_gpu_details] [GPU] Utilization: 79% | Memory: 0.34/4.00 GB | GPU Temp: 59.0°C
+[2026-08-18 11:24:43] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 6.92 ms
+[2026-08-18 11:24:43] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 122.21 ms
+[2026-08-18 11:24:43] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.57 ms
+[2026-08-18 11:24:43] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 113.90 ms
+[2026-08-18 11:24:43] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.50 ms
+[2026-08-18 11:24:43] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 118.25 ms
+[2026-08-18 11:24:43] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.48 ms
+[2026-08-18 11:24:43] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 113.71 ms
+[2026-08-18 11:24:43] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.28 ms
+[2026-08-18 11:24:43] [INFO] [collect_subscribers] Updated subscribers: {'1980972331': 'Ram@me', '1716951841': 'Sudhanshu Tiwari'}
+[2026-08-18 11:24:43] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 119.70 ms
+[2026-08-18 11:24:43] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.93 ms
+[2026-08-18 11:24:43] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 121.43 ms
+[2026-08-18 11:24:44] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.35 ms
+[2026-08-18 11:24:44] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 120.17 ms
+[2026-08-18 11:24:44] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.97 ms
+[2026-08-18 11:24:44] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.34 ms
+[2026-08-18 11:24:44] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.46 ms
+[2026-08-18 11:24:44] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.38 ms
+[2026-08-18 11:24:44] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.05 ms
+[2026-08-18 11:24:44] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.36 ms
+[2026-08-18 11:24:44] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.09 ms
+[2026-08-18 11:24:44] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.62 ms
+[2026-08-18 11:24:44] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.73 ms
+[2026-08-18 11:24:44] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 120.12 ms
+[2026-08-18 11:24:44] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.96 ms
+[2026-08-18 11:24:44] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 122.15 ms
+[2026-08-18 11:24:45] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.84 ms
+[2026-08-18 11:24:45] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 120.27 ms
+[2026-08-18 11:24:45] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.80 ms
+[2026-08-18 11:24:45] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.15 ms
+[2026-08-18 11:24:45] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.86 ms
+[2026-08-18 11:24:45] [INFO] [send_gpu_details] 81, 350, 4096, 60
+[2026-08-18 11:24:45] [INFO] [send_gpu_details] [GPU] Utilization: 81% | Memory: 0.34/4.00 GB | GPU Temp: 60.0°C
+[2026-08-18 11:24:45] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 5.76 ms
+[2026-08-18 11:24:45] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.86 ms
+[2026-08-18 11:24:45] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.80 ms
+[2026-08-18 11:24:45] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 119.07 ms
+[2026-08-18 11:24:45] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.01 ms
+[2026-08-18 11:24:45] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 113.18 ms
+[2026-08-18 11:24:45] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.86 ms
+[2026-08-18 11:24:45] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.13 ms
+[2026-08-18 11:24:45] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.91 ms
+[2026-08-18 11:24:45] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.31 ms
+[2026-08-18 11:24:46] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.23 ms
+[2026-08-18 11:24:46] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 121.15 ms
+[2026-08-18 11:24:46] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.69 ms
+[2026-08-18 11:24:46] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.28 ms
+[2026-08-18 11:24:46] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.11 ms
+[2026-08-18 11:24:46] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.23 ms
+[2026-08-18 11:24:46] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.59 ms
+[2026-08-18 11:24:46] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.79 ms
+[2026-08-18 11:24:46] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.48 ms
+[2026-08-18 11:24:46] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.54 ms
+[2026-08-18 11:24:46] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.02 ms
+[2026-08-18 11:24:46] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 120.09 ms
+[2026-08-18 11:24:46] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.82 ms
+[2026-08-18 11:24:46] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.13 ms
+[2026-08-18 11:24:46] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.55 ms
+[2026-08-18 11:24:47] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.65 ms
+[2026-08-18 11:24:47] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.06 ms
+[2026-08-18 11:24:47] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.10 ms
+[2026-08-18 11:24:47] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.26 ms
+[2026-08-18 11:24:47] [INFO] [send_gpu_details] 80, 350, 4096, 61
+[2026-08-18 11:24:47] [INFO] [send_gpu_details] [GPU] Utilization: 80% | Memory: 0.34/4.00 GB | GPU Temp: 61.0°C
+[2026-08-18 11:24:47] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 4.32 ms
+[2026-08-18 11:24:47] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 119.20 ms
+[2026-08-18 11:24:47] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.95 ms
+[2026-08-18 11:24:47] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.46 ms
+[2026-08-18 11:24:47] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.09 ms
+[2026-08-18 11:24:47] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.46 ms
+[2026-08-18 11:24:47] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.66 ms
+[2026-08-18 11:24:47] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.53 ms
+[2026-08-18 11:24:47] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 3.10 ms
+[2026-08-18 11:24:47] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 120.75 ms
+[2026-08-18 11:24:47] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.61 ms
+[2026-08-18 11:24:48] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 125.87 ms
+[2026-08-18 11:24:48] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.36 ms
+[2026-08-18 11:24:48] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.28 ms
+[2026-08-18 11:24:48] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.71 ms
+[2026-08-18 11:24:48] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.76 ms
+[2026-08-18 11:24:48] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.49 ms
+[2026-08-18 11:24:48] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.86 ms
+[2026-08-18 11:24:48] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.03 ms
+[2026-08-18 11:24:48] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 119.93 ms
+[2026-08-18 11:24:48] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.52 ms
+[2026-08-18 11:24:48] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.87 ms
+[2026-08-18 11:24:48] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.67 ms
+[2026-08-18 11:24:48] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 113.54 ms
+[2026-08-18 11:24:48] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.04 ms
+[2026-08-18 11:24:49] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.51 ms
+[2026-08-18 11:24:49] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.44 ms
+[2026-08-18 11:24:49] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 113.30 ms
+[2026-08-18 11:24:49] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.86 ms
+[2026-08-18 11:24:49] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 113.56 ms
+[2026-08-18 11:24:49] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.13 ms
+[2026-08-18 11:24:49] [INFO] [send_gpu_details] 79, 350, 4096, 62
+[2026-08-18 11:24:49] [INFO] [send_gpu_details] [GPU] Utilization: 79% | Memory: 0.34/4.00 GB | GPU Temp: 62.0°C
+[2026-08-18 11:24:49] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 7.11 ms
+[2026-08-18 11:24:49] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.64 ms
+[2026-08-18 11:24:49] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.82 ms
+[2026-08-18 11:24:49] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.70 ms
+[2026-08-18 11:24:49] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.72 ms
+[2026-08-18 11:24:49] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 113.74 ms
+[2026-08-18 11:24:49] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.78 ms
+[2026-08-18 11:24:49] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 112.82 ms
+[2026-08-18 11:24:49] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.34 ms
+[2026-08-18 11:24:49] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.92 ms
+[2026-08-18 11:24:50] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.09 ms
+[2026-08-18 11:24:50] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.83 ms
+[2026-08-18 11:24:50] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.64 ms
+[2026-08-18 11:24:50] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.59 ms
+[2026-08-18 11:24:50] [INFO] [pnayanam_utils] Saved frame image: /var/pnayanam/data/images/2026/08/18/CAM003/frame_18-08-2026_11-24-50-317769.png
+[2026-08-18 11:24:50] [INFO] [pnayanam_utils] Loaded subscribers: ['1980972331', '1716951841']
+[2026-08-18 11:24:50] [INFO] [telegram_alerts] The subscribers are: ['1980972331', '1716951841']
+[2026-08-18 11:24:51] [INFO] [send_gpu_details] 2, 350, 4096, 61
+[2026-08-18 11:24:51] [INFO] [send_gpu_details] [GPU] Utilization: 2% | Memory: 0.34/4.00 GB | GPU Temp: 61.0°C
+[2026-08-18 11:24:51] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 6.48 ms
+[2026-08-18 11:24:51] [INFO] [telegram_alerts] Chat ID: 1716951841 | Status: 403 | Response: {"ok":false,"error_code":403,"description":"Forbidden: user is deactivated"}
+[2026-08-18 11:24:52] [INFO] [telegram_alerts] Chat ID: 1980972331 | Status: 200 | Response: {"ok":true,"result":{"message_id":213,"from":{"id":8765296969,"is_bot":true,"first_name":"ITSPE_TestingBot","username":"ITSPE_Testing_bot"},"chat":{"id":1980972331,"first_name":"Ram@me","username":"Ram_174","type":"private"},"date":1787032492,"photo":[{"file_id":"AgACAgUAAxkDAAPVaoPzrE9wJyXnuEafinsKT_6HfY0AAkQTaxtcHSFU6lldu_7aKyABAAMCAANzAAM9BA","file_unique_id":"AQADRBNrG1wdIVR4","file_size":1243,"width":90,"height":51},{"file_id":"AgACAgUAAxkDAAPVaoPzrE9wJyXnuEafinsKT_6HfY0AAkQTaxtcHSFU6lldu_7aKyABAAMCAANtAAM9BA","file_unique_id":"AQADRBNrG1wdIVRy","file_size":15787,"width":320,"height":180},{"file_id":"AgACAgUAAxkDAAPVaoPzrE9wJyXnuEafinsKT_6HfY0AAkQTaxtcHSFU6lldu_7aKyABAAMCAAN4AAM9BA","file_unique_id":"AQADRBNrG1wdIVR9","file_size":58760,"width":800,"height":450},{"file_id":"AgACAgUAAxkDAAPVaoPzrE9wJyXnuEafinsKT_6HfY0AAkQTaxtcHSFU6lldu_7aKyABAAMCAAN5AAM9BA","file_unique_id":"AQADRBNrG1wdIVR-","file_size":105468,"width":1280,"height":720}],"caption":"HUMAN DETECTION ALERT!\n\nTotal persons detceted: 2\nTime : 18-08-2026 11:24:50\n\nCamera SCN: CAM003\nCamera Name: Entrance 1\nSite Name: solar based sites"}}
+[2026-08-18 11:24:52] [INFO] [person_detection] Time taken to send the alert 2622.21 MilliSeconds for image: (720, 1280, 3)..!
+[2026-08-18 11:24:52] [INFO] [person_detection] send_to_gui flag:1
+[2026-08-18 11:24:52] [INFO] [person_detection] called for sendingh data
+[2026-08-18 11:24:53] [INFO] [pnayanam_utils] GUI data sent successfully to: 192.168.3.152 with PAYLOAD: 
+[2026-08-18 11:24:53] [INFO] [person_detection] Done !
+[2026-08-18 11:24:53] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.23 ms
+[2026-08-18 11:24:53] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 149.22 ms
+[2026-08-18 11:24:53] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.28 ms
+[2026-08-18 11:24:53] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 126.18 ms
+[2026-08-18 11:24:53] [INFO] [pnayanam_utils] Saved frame image: /var/pnayanam/data/images/2026/08/18/CAM003/frame_18-08-2026_11-24-53-367738.png
+[2026-08-18 11:24:53] [INFO] [pnayanam_utils] Loaded subscribers: ['1980972331', '1716951841']
+[2026-08-18 11:24:53] [INFO] [telegram_alerts] The subscribers are: ['1980972331', '1716951841']
+[2026-08-18 11:24:53] [INFO] [send_gpu_details] 28, 350, 4096, 60
+[2026-08-18 11:24:53] [INFO] [send_gpu_details] [GPU] Utilization: 28% | Memory: 0.34/4.00 GB | GPU Temp: 60.0°C
+[2026-08-18 11:24:53] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 5.61 ms
+[2026-08-18 11:24:54] [INFO] [telegram_alerts] Chat ID: 1716951841 | Status: 403 | Response: {"ok":false,"error_code":403,"description":"Forbidden: user is deactivated"}
+[2026-08-18 11:24:55] [INFO] [send_gpu_details] 2, 350, 4096, 61
+[2026-08-18 11:24:55] [INFO] [send_gpu_details] [GPU] Utilization: 2% | Memory: 0.34/4.00 GB | GPU Temp: 61.0°C
+[2026-08-18 11:24:55] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 6.19 ms
+[2026-08-18 11:24:55] [INFO] [telegram_alerts] Chat ID: 1980972331 | Status: 200 | Response: {"ok":true,"result":{"message_id":214,"from":{"id":8765296969,"is_bot":true,"first_name":"ITSPE_TestingBot","username":"ITSPE_Testing_bot"},"chat":{"id":1980972331,"first_name":"Ram@me","username":"Ram_174","type":"private"},"date":1787032495,"photo":[{"file_id":"AgACAgUAAxkDAAPWaoPzr2wERecw-YrHLNLSitFgWQIAAkUTaxtcHSFUyRN4TfVG3LsBAAMCAANzAAM9BA","file_unique_id":"AQADRRNrG1wdIVR4","file_size":1246,"width":90,"height":51},{"file_id":"AgACAgUAAxkDAAPWaoPzr2wERecw-YrHLNLSitFgWQIAAkUTaxtcHSFUyRN4TfVG3LsBAAMCAANtAAM9BA","file_unique_id":"AQADRRNrG1wdIVRy","file_size":16103,"width":320,"height":180},{"file_id":"AgACAgUAAxkDAAPWaoPzr2wERecw-YrHLNLSitFgWQIAAkUTaxtcHSFUyRN4TfVG3LsBAAMCAAN4AAM9BA","file_unique_id":"AQADRRNrG1wdIVR9","file_size":59462,"width":800,"height":450},{"file_id":"AgACAgUAAxkDAAPWaoPzr2wERecw-YrHLNLSitFgWQIAAkUTaxtcHSFUyRN4TfVG3LsBAAMCAAN5AAM9BA","file_unique_id":"AQADRRNrG1wdIVR-","file_size":107323,"width":1280,"height":720}],"caption":"HUMAN DETECTION ALERT!\n\nTotal persons detceted: 4\nTime : 18-08-2026 11:24:53\n\nCamera SCN: CAM003\nCamera Name: Entrance 1\nSite Name: solar based sites"}}
+[2026-08-18 11:24:55] [INFO] [person_detection] Time taken to send the alert 2288.12 MilliSeconds for image: (720, 1280, 3)..!
+[2026-08-18 11:24:55] [INFO] [person_detection] send_to_gui flag:1
+[2026-08-18 11:24:55] [INFO] [person_detection] called for sendingh data
+[2026-08-18 11:24:55] [INFO] [pnayanam_utils] GUI data sent successfully to: 192.168.3.152 with PAYLOAD: 
+[2026-08-18 11:24:55] [INFO] [person_detection] Done !
+[2026-08-18 11:24:55] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.93 ms
+[2026-08-18 11:24:55] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 145.96 ms
+[2026-08-18 11:24:55] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.02 ms
+[2026-08-18 11:24:56] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 118.02 ms
+[2026-08-18 11:24:56] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.91 ms
+[2026-08-18 11:24:56] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.92 ms
+[2026-08-18 11:24:56] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.22 ms
+[2026-08-18 11:24:56] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.04 ms
+[2026-08-18 11:24:56] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.82 ms
+[2026-08-18 11:24:56] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 118.07 ms
+[2026-08-18 11:24:56] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.76 ms
+[2026-08-18 11:24:56] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.39 ms
+[2026-08-18 11:24:56] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.55 ms
+[2026-08-18 11:24:56] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.48 ms
+[2026-08-18 11:24:56] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.91 ms
+[2026-08-18 11:24:56] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.71 ms
+[2026-08-18 11:24:56] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.11 ms
+[2026-08-18 11:24:57] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 122.44 ms
+[2026-08-18 11:24:57] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.09 ms
+[2026-08-18 11:24:57] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 121.54 ms
+[2026-08-18 11:24:57] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.16 ms
+[2026-08-18 11:24:57] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 113.67 ms
+[2026-08-18 11:24:57] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.16 ms
+[2026-08-18 11:24:57] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.62 ms
+[2026-08-18 11:24:57] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.29 ms
+[2026-08-18 11:24:57] [INFO] [send_gpu_details] 80, 350, 4096, 61
+[2026-08-18 11:24:57] [INFO] [send_gpu_details] [GPU] Utilization: 80% | Memory: 0.34/4.00 GB | GPU Temp: 61.0°C
+[2026-08-18 11:24:57] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 6.45 ms
+[2026-08-18 11:24:57] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.96 ms
+[2026-08-18 11:24:57] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.56 ms
+[2026-08-18 11:24:57] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 113.88 ms
+[2026-08-18 11:24:57] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.49 ms
+[2026-08-18 11:24:57] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.11 ms
+[2026-08-18 11:24:57] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.89 ms
+[2026-08-18 11:24:57] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.27 ms
+[2026-08-18 11:24:58] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.15 ms
+[2026-08-18 11:24:58] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 119.28 ms
+[2026-08-18 11:24:58] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.06 ms
+[2026-08-18 11:24:58] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.98 ms
+[2026-08-18 11:24:58] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.54 ms
+[2026-08-18 11:24:58] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.56 ms
+[2026-08-18 11:24:58] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.60 ms
+[2026-08-18 11:24:58] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.97 ms
+[2026-08-18 11:24:58] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.95 ms
+[2026-08-18 11:24:58] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 119.99 ms
+[2026-08-18 11:24:58] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.91 ms
+[2026-08-18 11:24:58] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 113.31 ms
+[2026-08-18 11:24:58] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.68 ms
+[2026-08-18 11:24:58] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 119.91 ms
+[2026-08-18 11:24:58] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.01 ms
+[2026-08-18 11:24:59] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.11 ms
+[2026-08-18 11:24:59] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.23 ms
+[2026-08-18 11:24:59] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.80 ms
+[2026-08-18 11:24:59] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.43 ms
+[2026-08-18 11:24:59] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.66 ms
+[2026-08-18 11:24:59] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.37 ms
+[2026-08-18 11:24:59] [INFO] [collect_subscribers] Updated subscribers: {'1980972331': 'Ram@me', '1716951841': 'Sudhanshu Tiwari'}
+[2026-08-18 11:24:59] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.19 ms
+[2026-08-18 11:24:59] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.58 ms
+[2026-08-18 11:24:59] [INFO] [send_gpu_details] 81, 350, 4096, 62
+[2026-08-18 11:24:59] [INFO] [send_gpu_details] [GPU] Utilization: 81% | Memory: 0.34/4.00 GB | GPU Temp: 62.0°C
+[2026-08-18 11:24:59] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 4.98 ms
+[2026-08-18 11:24:59] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 119.33 ms
+[2026-08-18 11:24:59] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.81 ms
+[2026-08-18 11:24:59] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.23 ms
+[2026-08-18 11:24:59] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.38 ms
+[2026-08-18 11:24:59] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 118.63 ms
+[2026-08-18 11:24:59] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.92 ms
+[2026-08-18 11:25:00] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.00 ms
+[2026-08-18 11:25:00] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.54 ms
+[2026-08-18 11:25:00] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.47 ms
+[2026-08-18 11:25:00] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.72 ms
+[2026-08-18 11:25:00] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 118.45 ms
+[2026-08-18 11:25:00] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.88 ms
+[2026-08-18 11:25:00] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.67 ms
+[2026-08-18 11:25:00] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.98 ms
+[2026-08-18 11:25:00] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.25 ms
+[2026-08-18 11:25:00] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.64 ms
+[2026-08-18 11:25:00] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.25 ms
+[2026-08-18 11:25:00] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.30 ms
+[2026-08-18 11:25:00] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.26 ms
+[2026-08-18 11:25:00] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.65 ms
+[2026-08-18 11:25:01] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 119.16 ms
+[2026-08-18 11:25:01] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.23 ms
+[2026-08-18 11:25:01] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.38 ms
+[2026-08-18 11:25:01] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.63 ms
+[2026-08-18 11:25:01] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.75 ms
+[2026-08-18 11:25:01] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.31 ms
+[2026-08-18 11:25:01] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.23 ms
+[2026-08-18 11:25:01] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.57 ms
+[2026-08-18 11:25:01] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.60 ms
+[2026-08-18 11:25:01] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.02 ms
+[2026-08-18 11:25:01] [INFO] [send_gpu_details] 83, 350, 4096, 63
+[2026-08-18 11:25:01] [INFO] [send_gpu_details] [GPU] Utilization: 83% | Memory: 0.34/4.00 GB | GPU Temp: 63.0°C
+[2026-08-18 11:25:01] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 6.95 ms
+[2026-08-18 11:25:01] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.20 ms
+[2026-08-18 11:25:01] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.04 ms
+[2026-08-18 11:25:01] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.38 ms
+[2026-08-18 11:25:01] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.06 ms
+[2026-08-18 11:25:01] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.18 ms
+[2026-08-18 11:25:01] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.67 ms
+[2026-08-18 11:25:02] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 119.83 ms
+[2026-08-18 11:25:02] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.60 ms
+[2026-08-18 11:25:02] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.40 ms
+[2026-08-18 11:25:02] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.59 ms
+[2026-08-18 11:25:02] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.65 ms
+[2026-08-18 11:25:02] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.12 ms
+[2026-08-18 11:25:02] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.24 ms
+[2026-08-18 11:25:02] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.07 ms
+[2026-08-18 11:25:02] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 121.39 ms
+[2026-08-18 11:25:02] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.03 ms
+[2026-08-18 11:25:02] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 121.47 ms
+[2026-08-18 11:25:02] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 3.17 ms
+[2026-08-18 11:25:02] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 121.28 ms
+[2026-08-18 11:25:02] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.95 ms
+[2026-08-18 11:25:03] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.56 ms
+[2026-08-18 11:25:03] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.99 ms
+[2026-08-18 11:25:03] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.00 ms
+[2026-08-18 11:25:03] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.88 ms
+[2026-08-18 11:25:03] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.22 ms
+[2026-08-18 11:25:03] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.85 ms
+[2026-08-18 11:25:03] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.35 ms
+[2026-08-18 11:25:03] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.63 ms
+[2026-08-18 11:25:03] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.53 ms
+[2026-08-18 11:25:03] [INFO] [send_gpu_details] 81, 350, 4096, 64
+[2026-08-18 11:25:03] [INFO] [send_gpu_details] [GPU] Utilization: 81% | Memory: 0.34/4.00 GB | GPU Temp: 64.0°C
+[2026-08-18 11:25:03] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 9.44 ms
+[2026-08-18 11:25:03] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.66 ms
+[2026-08-18 11:25:03] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.31 ms
+[2026-08-18 11:25:03] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.55 ms
+[2026-08-18 11:25:03] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 120.21 ms
+[2026-08-18 11:25:03] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.51 ms
+[2026-08-18 11:25:04] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.89 ms
+[2026-08-18 11:25:04] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.40 ms
+[2026-08-18 11:25:04] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 119.29 ms
+[2026-08-18 11:25:04] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.67 ms
+[2026-08-18 11:25:04] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.92 ms
+[2026-08-18 11:25:04] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.00 ms
+[2026-08-18 11:25:04] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 113.59 ms
+[2026-08-18 11:25:04] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.23 ms
+[2026-08-18 11:25:04] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.44 ms
+[2026-08-18 11:25:04] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.21 ms
+[2026-08-18 11:25:04] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.90 ms
+[2026-08-18 11:25:04] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.02 ms
+[2026-08-18 11:25:04] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 119.44 ms
+[2026-08-18 11:25:04] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.56 ms
+[2026-08-18 11:25:05] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 121.98 ms
+[2026-08-18 11:25:05] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.52 ms
+[2026-08-18 11:25:05] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 118.91 ms
+[2026-08-18 11:25:05] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.43 ms
+[2026-08-18 11:25:05] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 120.56 ms
+[2026-08-18 11:25:05] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.32 ms
+[2026-08-18 11:25:05] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.84 ms
+[2026-08-18 11:25:05] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.45 ms
+[2026-08-18 11:25:05] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.49 ms
+[2026-08-18 11:25:05] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.56 ms
+[2026-08-18 11:25:05] [INFO] [send_gpu_details] 79, 350, 4096, 64
+[2026-08-18 11:25:05] [INFO] [send_gpu_details] [GPU] Utilization: 79% | Memory: 0.34/4.00 GB | GPU Temp: 64.0°C
+[2026-08-18 11:25:05] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 6.08 ms
+[2026-08-18 11:25:05] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.62 ms
+[2026-08-18 11:25:05] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.59 ms
+[2026-08-18 11:25:05] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.75 ms
+[2026-08-18 11:25:05] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.74 ms
+[2026-08-18 11:25:06] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 120.84 ms
+[2026-08-18 11:25:06] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.27 ms
+[2026-08-18 11:25:06] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.62 ms
+[2026-08-18 11:25:06] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.73 ms
+[2026-08-18 11:25:06] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.64 ms
+[2026-08-18 11:25:06] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.70 ms
+[2026-08-18 11:25:06] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.94 ms
+[2026-08-18 11:25:06] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.89 ms
+[2026-08-18 11:25:06] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.74 ms
+[2026-08-18 11:25:06] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.07 ms
+[2026-08-18 11:25:06] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.98 ms
+[2026-08-18 11:25:06] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 3.19 ms
+[2026-08-18 11:25:06] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.74 ms
+[2026-08-18 11:25:06] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.73 ms
+[2026-08-18 11:25:07] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 120.11 ms
+[2026-08-18 11:25:07] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.17 ms
+[2026-08-18 11:25:07] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.45 ms
+[2026-08-18 11:25:07] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.81 ms
+[2026-08-18 11:25:07] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 113.75 ms
+[2026-08-18 11:25:07] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.22 ms
+[2026-08-18 11:25:07] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.15 ms
+[2026-08-18 11:25:07] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.46 ms
+[2026-08-18 11:25:07] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.87 ms
+[2026-08-18 11:25:07] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.61 ms
+[2026-08-18 11:25:07] [INFO] [send_gpu_details] 81, 350, 4096, 65
+[2026-08-18 11:25:07] [INFO] [send_gpu_details] [GPU] Utilization: 81% | Memory: 0.34/4.00 GB | GPU Temp: 65.0°C
+[2026-08-18 11:25:07] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 3.33 ms
+[2026-08-18 11:25:07] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.61 ms
+[2026-08-18 11:25:07] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.16 ms
+[2026-08-18 11:25:07] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 118.51 ms
+[2026-08-18 11:25:07] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.54 ms
+[2026-08-18 11:25:08] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 121.16 ms
+[2026-08-18 11:25:08] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.70 ms
+[2026-08-18 11:25:08] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.38 ms
+[2026-08-18 11:25:08] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.12 ms
+[2026-08-18 11:25:08] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 121.95 ms
+[2026-08-18 11:25:08] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.90 ms
+[2026-08-18 11:25:08] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.79 ms
+[2026-08-18 11:25:08] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.44 ms
+[2026-08-18 11:25:08] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.55 ms
+[2026-08-18 11:25:08] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.71 ms
+[2026-08-18 11:25:08] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.88 ms
+[2026-08-18 11:25:08] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.84 ms
+[2026-08-18 11:25:08] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.80 ms
+[2026-08-18 11:25:08] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.32 ms
+[2026-08-18 11:25:09] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 121.17 ms
+[2026-08-18 11:25:09] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.40 ms
+[2026-08-18 11:25:09] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.24 ms
+[2026-08-18 11:25:09] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.72 ms
+[2026-08-18 11:25:09] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.25 ms
+[2026-08-18 11:25:09] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.80 ms
+[2026-08-18 11:25:09] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.49 ms
+[2026-08-18 11:25:09] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.07 ms
+[2026-08-18 11:25:09] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.06 ms
+[2026-08-18 11:25:09] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.06 ms
+[2026-08-18 11:25:09] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.07 ms
+[2026-08-18 11:25:09] [INFO] [send_gpu_details] 81, 350, 4096, 65
+[2026-08-18 11:25:09] [INFO] [send_gpu_details] [GPU] Utilization: 81% | Memory: 0.34/4.00 GB | GPU Temp: 65.0°C
+[2026-08-18 11:25:09] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 7.45 ms
+[2026-08-18 11:25:09] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.19 ms
+[2026-08-18 11:25:09] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 120.83 ms
+[2026-08-18 11:25:09] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 3.00 ms
+[2026-08-18 11:25:10] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 121.11 ms
+[2026-08-18 11:25:10] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 4.48 ms
+[2026-08-18 11:25:10] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 125.26 ms
+[2026-08-18 11:25:10] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.92 ms
+[2026-08-18 11:25:10] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 121.26 ms
+[2026-08-18 11:25:10] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.19 ms
+[2026-08-18 11:25:10] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.92 ms
+[2026-08-18 11:25:10] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.90 ms
+[2026-08-18 11:25:10] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 118.35 ms
+[2026-08-18 11:25:10] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.24 ms
+[2026-08-18 11:25:10] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.86 ms
+[2026-08-18 11:25:10] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.46 ms
+[2026-08-18 11:25:10] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 120.26 ms
+[2026-08-18 11:25:10] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.64 ms
+[2026-08-18 11:25:11] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 119.95 ms
+[2026-08-18 11:25:11] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.66 ms
+[2026-08-18 11:25:11] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.04 ms
+[2026-08-18 11:25:11] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.68 ms
+[2026-08-18 11:25:11] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.86 ms
+[2026-08-18 11:25:11] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 3.88 ms
+[2026-08-18 11:25:11] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 119.61 ms
+[2026-08-18 11:25:11] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.86 ms
+[2026-08-18 11:25:11] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.03 ms
+[2026-08-18 11:25:11] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.65 ms
+[2026-08-18 11:25:11] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.58 ms
+[2026-08-18 11:25:11] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.15 ms
+[2026-08-18 11:25:11] [INFO] [send_gpu_details] 81, 350, 4096, 66
+[2026-08-18 11:25:11] [INFO] [send_gpu_details] [GPU] Utilization: 81% | Memory: 0.34/4.00 GB | GPU Temp: 66.0°C
+[2026-08-18 11:25:11] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 5.5 ms
+[2026-08-18 11:25:11] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 118.51 ms
+[2026-08-18 11:25:11] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.38 ms
+[2026-08-18 11:25:11] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.94 ms
+[2026-08-18 11:25:12] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.11 ms
+[2026-08-18 11:25:12] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 118.97 ms
+[2026-08-18 11:25:12] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.94 ms
+[2026-08-18 11:25:12] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 113.99 ms
+[2026-08-18 11:25:12] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.61 ms
+[2026-08-18 11:25:12] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.79 ms
+[2026-08-18 11:25:12] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.98 ms
+[2026-08-18 11:25:12] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 118.29 ms
+[2026-08-18 11:25:12] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.09 ms
+[2026-08-18 11:25:12] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.46 ms
+[2026-08-18 11:25:12] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.82 ms
+[2026-08-18 11:25:12] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.78 ms
+[2026-08-18 11:25:12] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.86 ms
+[2026-08-18 11:25:12] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 119.72 ms
+[2026-08-18 11:25:12] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.87 ms
+[2026-08-18 11:25:13] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.27 ms
+[2026-08-18 11:25:13] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.98 ms
+[2026-08-18 11:25:13] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.05 ms
+[2026-08-18 11:25:13] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.33 ms
+[2026-08-18 11:25:13] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.11 ms
+[2026-08-18 11:25:13] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.56 ms
+[2026-08-18 11:25:13] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.05 ms
+[2026-08-18 11:25:13] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 3.84 ms
+[2026-08-18 11:25:13] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 118.85 ms
+[2026-08-18 11:25:13] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.83 ms
+[2026-08-18 11:25:13] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.98 ms
+[2026-08-18 11:25:13] [INFO] [send_gpu_details] 82, 350, 4096, 66
+[2026-08-18 11:25:13] [INFO] [send_gpu_details] [GPU] Utilization: 82% | Memory: 0.34/4.00 GB | GPU Temp: 66.0°C
+[2026-08-18 11:25:13] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 7.41 ms
+[2026-08-18 11:25:13] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.94 ms
+[2026-08-18 11:25:13] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 118.34 ms
+[2026-08-18 11:25:13] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.19 ms
+[2026-08-18 11:25:14] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 123.97 ms
+[2026-08-18 11:25:14] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.14 ms
+[2026-08-18 11:25:14] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 118.31 ms
+[2026-08-18 11:25:14] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.46 ms
+[2026-08-18 11:25:14] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 120.69 ms
+[2026-08-18 11:25:14] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.65 ms
+[2026-08-18 11:25:14] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.76 ms
+[2026-08-18 11:25:14] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.06 ms
+[2026-08-18 11:25:14] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.66 ms
+[2026-08-18 11:25:14] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.60 ms
+[2026-08-18 11:25:14] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.15 ms
+[2026-08-18 11:25:14] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.76 ms
+[2026-08-18 11:25:14] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.20 ms
+[2026-08-18 11:25:14] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.27 ms
+[2026-08-18 11:25:15] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 120.10 ms
+[2026-08-18 11:25:15] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 4.60 ms
+[2026-08-18 11:25:15] [INFO] [collect_subscribers] Updated subscribers: {'1980972331': 'Ram@me', '1716951841': 'Sudhanshu Tiwari'}
+[2026-08-18 11:25:15] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.84 ms
+[2026-08-18 11:25:15] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.42 ms
+[2026-08-18 11:25:15] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.96 ms
+[2026-08-18 11:25:15] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 3.04 ms
+[2026-08-18 11:25:15] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.62 ms
+[2026-08-18 11:25:15] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.83 ms
+[2026-08-18 11:25:15] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.17 ms
+[2026-08-18 11:25:15] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.09 ms
+[2026-08-18 11:25:15] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.90 ms
+[2026-08-18 11:25:15] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.12 ms
+[2026-08-18 11:25:15] [INFO] [send_gpu_details] 79, 350, 4096, 66
+[2026-08-18 11:25:15] [INFO] [send_gpu_details] [GPU] Utilization: 79% | Memory: 0.34/4.00 GB | GPU Temp: 66.0°C
+[2026-08-18 11:25:15] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 5.82 ms
+[2026-08-18 11:25:15] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.11 ms
+[2026-08-18 11:25:15] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.62 ms
+[2026-08-18 11:25:16] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 122.35 ms
+[2026-08-18 11:25:16] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.29 ms
+[2026-08-18 11:25:16] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 121.27 ms
+[2026-08-18 11:25:16] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.07 ms
+[2026-08-18 11:25:16] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.22 ms
+[2026-08-18 11:25:16] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.17 ms
+[2026-08-18 11:25:16] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 118.26 ms
+[2026-08-18 11:25:16] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.42 ms
+[2026-08-18 11:25:16] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 119.74 ms
+[2026-08-18 11:25:16] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.00 ms
+[2026-08-18 11:25:16] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.49 ms
+[2026-08-18 11:25:16] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.36 ms
+[2026-08-18 11:25:16] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.86 ms
+[2026-08-18 11:25:16] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.29 ms
+[2026-08-18 11:25:16] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 113.74 ms
+[2026-08-18 11:25:17] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.78 ms
+[2026-08-18 11:25:17] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 124.24 ms
+[2026-08-18 11:25:17] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.70 ms
+[2026-08-18 11:25:17] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.89 ms
+[2026-08-18 11:25:17] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.76 ms
+[2026-08-18 11:25:17] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 113.61 ms
+[2026-08-18 11:25:17] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.58 ms
+[2026-08-18 11:25:17] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.33 ms
+[2026-08-18 11:25:17] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.65 ms
+[2026-08-18 11:25:17] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.02 ms
+[2026-08-18 11:25:17] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.06 ms
+[2026-08-18 11:25:17] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 122.70 ms
+[2026-08-18 11:25:17] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.74 ms
+[2026-08-18 11:25:17] [INFO] [send_gpu_details] 81, 350, 4096, 66
+[2026-08-18 11:25:17] [INFO] [send_gpu_details] [GPU] Utilization: 81% | Memory: 0.34/4.00 GB | GPU Temp: 66.0°C
+[2026-08-18 11:25:17] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 5.02 ms
+[2026-08-18 11:25:17] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 125.45 ms
+[2026-08-18 11:25:18] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.15 ms
+[2026-08-18 11:25:18] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 122.07 ms
+[2026-08-18 11:25:18] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.43 ms
+[2026-08-18 11:25:18] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.86 ms
+[2026-08-18 11:25:18] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.92 ms
+[2026-08-18 11:25:18] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.58 ms
+[2026-08-18 11:25:18] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.81 ms
+[2026-08-18 11:25:18] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.78 ms
+[2026-08-18 11:25:18] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.37 ms
+[2026-08-18 11:25:18] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.74 ms
+[2026-08-18 11:25:18] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.07 ms
+[2026-08-18 11:25:18] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.10 ms
+[2026-08-18 11:25:18] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.07 ms
+[2026-08-18 11:25:18] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.30 ms
+[2026-08-18 11:25:18] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.14 ms
+[2026-08-18 11:25:19] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.32 ms
+[2026-08-18 11:25:19] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.11 ms
+[2026-08-18 11:25:19] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 118.07 ms
+[2026-08-18 11:25:19] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.82 ms
+[2026-08-18 11:25:19] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.16 ms
+[2026-08-18 11:25:19] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.65 ms
+[2026-08-18 11:25:19] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.31 ms
+[2026-08-18 11:25:19] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.64 ms
+[2026-08-18 11:25:19] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 118.40 ms
+[2026-08-18 11:25:19] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.88 ms
+[2026-08-18 11:25:19] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 113.00 ms
+[2026-08-18 11:25:19] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.28 ms
+[2026-08-18 11:25:19] [INFO] [send_gpu_details] 82, 350, 4096, 66
+[2026-08-18 11:25:19] [INFO] [send_gpu_details] [GPU] Utilization: 82% | Memory: 0.34/4.00 GB | GPU Temp: 66.0°C
+[2026-08-18 11:25:19] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 5.88 ms
+[2026-08-18 11:25:19] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 118.73 ms
+[2026-08-18 11:25:19] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.74 ms
+[2026-08-18 11:25:20] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 121.20 ms
+[2026-08-18 11:25:20] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.29 ms
+[2026-08-18 11:25:20] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 119.25 ms
+[2026-08-18 11:25:20] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.24 ms
+[2026-08-18 11:25:20] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.78 ms
+[2026-08-18 11:25:20] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.09 ms
+[2026-08-18 11:25:20] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.79 ms
+[2026-08-18 11:25:20] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.17 ms
+[2026-08-18 11:25:20] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.19 ms
+[2026-08-18 11:25:20] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.21 ms
+[2026-08-18 11:25:20] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.27 ms
+[2026-08-18 11:25:20] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.69 ms
+[2026-08-18 11:25:20] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.86 ms
+[2026-08-18 11:25:20] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.51 ms
+[2026-08-18 11:25:21] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 118.72 ms
+[2026-08-18 11:25:21] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 3.13 ms
+[2026-08-18 11:25:21] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 119.54 ms
+[2026-08-18 11:25:21] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.71 ms
+[2026-08-18 11:25:21] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.51 ms
+[2026-08-18 11:25:21] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.16 ms
+[2026-08-18 11:25:21] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 118.20 ms
+[2026-08-18 11:25:21] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.95 ms
+[2026-08-18 11:25:21] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 119.22 ms
+[2026-08-18 11:25:21] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.96 ms
+[2026-08-18 11:25:21] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.97 ms
+[2026-08-18 11:25:21] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.28 ms
+[2026-08-18 11:25:21] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.46 ms
+[2026-08-18 11:25:21] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.52 ms
+[2026-08-18 11:25:21] [INFO] [send_gpu_details] 79, 350, 4096, 67
+[2026-08-18 11:25:21] [INFO] [send_gpu_details] [GPU] Utilization: 79% | Memory: 0.34/4.00 GB | GPU Temp: 67.0°C
+[2026-08-18 11:25:21] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 4.95 ms
+[2026-08-18 11:25:22] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 123.60 ms
+[2026-08-18 11:25:22] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.48 ms
+[2026-08-18 11:25:22] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.34 ms
+[2026-08-18 11:25:22] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.33 ms
+[2026-08-18 11:25:22] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.43 ms
+[2026-08-18 11:25:22] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.57 ms
+[2026-08-18 11:25:22] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 123.74 ms
+[2026-08-18 11:25:22] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.00 ms
+[2026-08-18 11:25:22] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.40 ms
+[2026-08-18 11:25:22] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.67 ms
+[2026-08-18 11:25:22] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.55 ms
+[2026-08-18 11:25:22] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.64 ms
+[2026-08-18 11:25:22] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.60 ms
+[2026-08-18 11:25:22] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.45 ms
+[2026-08-18 11:25:23] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 126.69 ms
+[2026-08-18 11:25:23] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.81 ms
+[2026-08-18 11:25:23] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.36 ms
+[2026-08-18 11:25:23] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.00 ms
+[2026-08-18 11:25:23] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 118.86 ms
+[2026-08-18 11:25:23] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.52 ms
+[2026-08-18 11:25:23] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.30 ms
+[2026-08-18 11:25:23] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.66 ms
+[2026-08-18 11:25:23] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 118.99 ms
+[2026-08-18 11:25:23] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.07 ms
+[2026-08-18 11:25:23] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 118.31 ms
+[2026-08-18 11:25:23] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.12 ms
+[2026-08-18 11:25:23] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.54 ms
+[2026-08-18 11:25:23] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.70 ms
+[2026-08-18 11:25:23] [INFO] [send_gpu_details] 78, 350, 4096, 67
+[2026-08-18 11:25:23] [INFO] [send_gpu_details] [GPU] Utilization: 78% | Memory: 0.34/4.00 GB | GPU Temp: 67.0°C
+[2026-08-18 11:25:23] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 7.6 ms
+[2026-08-18 11:25:24] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 120.19 ms
+[2026-08-18 11:25:24] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 3.25 ms
+[2026-08-18 11:25:24] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.72 ms
+[2026-08-18 11:25:24] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.61 ms
+[2026-08-18 11:25:24] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.75 ms
+[2026-08-18 11:25:24] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.96 ms
+[2026-08-18 11:25:24] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 118.76 ms
+[2026-08-18 11:25:24] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.09 ms
+[2026-08-18 11:25:24] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.93 ms
+[2026-08-18 11:25:24] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.17 ms
+[2026-08-18 11:25:24] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.57 ms
+[2026-08-18 11:25:24] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.06 ms
+[2026-08-18 11:25:24] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.07 ms
+[2026-08-18 11:25:24] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.24 ms
+[2026-08-18 11:25:25] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 128.48 ms
+[2026-08-18 11:25:25] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 3.49 ms
+[2026-08-18 11:25:25] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 120.19 ms
+[2026-08-18 11:25:25] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.04 ms
+[2026-08-18 11:25:25] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.60 ms
+[2026-08-18 11:25:25] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.84 ms
+[2026-08-18 11:25:25] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.54 ms
+[2026-08-18 11:25:25] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.81 ms
+[2026-08-18 11:25:25] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.07 ms
+[2026-08-18 11:25:25] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.58 ms
+[2026-08-18 11:25:25] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 113.09 ms
+[2026-08-18 11:25:25] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.67 ms
+[2026-08-18 11:25:25] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.19 ms
+[2026-08-18 11:25:25] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.84 ms
+[2026-08-18 11:25:25] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.23 ms
+[2026-08-18 11:25:26] [INFO] [send_gpu_details] 78, 350, 4096, 67
+[2026-08-18 11:25:26] [INFO] [send_gpu_details] [GPU] Utilization: 78% | Memory: 0.34/4.00 GB | GPU Temp: 67.0°C
+[2026-08-18 11:25:26] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.08 ms
+[2026-08-18 11:25:26] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 11.85 ms
+[2026-08-18 11:25:26] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 119.77 ms
+[2026-08-18 11:25:26] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.02 ms
+[2026-08-18 11:25:26] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.12 ms
+[2026-08-18 11:25:26] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.63 ms
+[2026-08-18 11:25:26] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.51 ms
+[2026-08-18 11:25:26] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.35 ms
+[2026-08-18 11:25:26] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.28 ms
+[2026-08-18 11:25:26] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.78 ms
+[2026-08-18 11:25:26] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.60 ms
+[2026-08-18 11:25:26] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.16 ms
+[2026-08-18 11:25:26] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 118.24 ms
+[2026-08-18 11:25:26] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.74 ms
+[2026-08-18 11:25:26] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.61 ms
+[2026-08-18 11:25:27] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.53 ms
+[2026-08-18 11:25:27] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.91 ms
+[2026-08-18 11:25:27] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.44 ms
+[2026-08-18 11:25:27] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.94 ms
+[2026-08-18 11:25:27] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.82 ms
+[2026-08-18 11:25:27] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 113.56 ms
+[2026-08-18 11:25:27] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.39 ms
+[2026-08-18 11:25:27] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.80 ms
+[2026-08-18 11:25:27] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.34 ms
+[2026-08-18 11:25:27] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.63 ms
+[2026-08-18 11:25:27] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.39 ms
+[2026-08-18 11:25:27] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.76 ms
+[2026-08-18 11:25:27] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.61 ms
+[2026-08-18 11:25:27] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.12 ms
+[2026-08-18 11:25:28] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.43 ms
+[2026-08-18 11:25:28] [INFO] [send_gpu_details] 78, 350, 4096, 67
+[2026-08-18 11:25:28] [INFO] [send_gpu_details] [GPU] Utilization: 78% | Memory: 0.34/4.00 GB | GPU Temp: 67.0°C
+[2026-08-18 11:25:28] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 2.39 ms
+[2026-08-18 11:25:28] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 121.66 ms
+[2026-08-18 11:25:28] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.33 ms
+[2026-08-18 11:25:28] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.69 ms
+[2026-08-18 11:25:28] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.91 ms
+[2026-08-18 11:25:28] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.45 ms
+[2026-08-18 11:25:28] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.01 ms
+[2026-08-18 11:25:28] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.05 ms
+[2026-08-18 11:25:28] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.55 ms
+[2026-08-18 11:25:28] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.10 ms
+[2026-08-18 11:25:28] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.45 ms
+[2026-08-18 11:25:28] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 112.52 ms
+[2026-08-18 11:25:28] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.37 ms
+[2026-08-18 11:25:28] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.68 ms
+[2026-08-18 11:25:28] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.64 ms
+[2026-08-18 11:25:29] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 122.11 ms
+[2026-08-18 11:25:29] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.53 ms
+[2026-08-18 11:25:29] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.99 ms
+[2026-08-18 11:25:29] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.18 ms
+[2026-08-18 11:25:29] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.70 ms
+[2026-08-18 11:25:29] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.61 ms
+[2026-08-18 11:25:29] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.18 ms
+[2026-08-18 11:25:29] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.88 ms
+[2026-08-18 11:25:29] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.92 ms
+[2026-08-18 11:25:29] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.87 ms
+[2026-08-18 11:25:29] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 113.25 ms
+[2026-08-18 11:25:29] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.24 ms
+[2026-08-18 11:25:29] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 118.82 ms
+[2026-08-18 11:25:29] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.93 ms
+[2026-08-18 11:25:30] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 121.16 ms
+[2026-08-18 11:25:30] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.67 ms
+[2026-08-18 11:25:30] [INFO] [send_gpu_details] 82, 350, 4096, 68
+[2026-08-18 11:25:30] [INFO] [send_gpu_details] [GPU] Utilization: 82% | Memory: 0.34/4.00 GB | GPU Temp: 68.0°C
+[2026-08-18 11:25:30] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 7.53 ms
+[2026-08-18 11:25:30] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 120.12 ms
+[2026-08-18 11:25:30] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.62 ms
+[2026-08-18 11:25:30] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 118.88 ms
+[2026-08-18 11:25:30] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.86 ms
+[2026-08-18 11:25:30] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.60 ms
+[2026-08-18 11:25:30] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 3.00 ms
+[2026-08-18 11:25:30] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 118.25 ms
+[2026-08-18 11:25:30] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.95 ms
+[2026-08-18 11:25:30] [INFO] [collect_subscribers] Updated subscribers: {'1980972331': 'Ram@me', '1716951841': 'Sudhanshu Tiwari'}
+[2026-08-18 11:25:30] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.00 ms
+[2026-08-18 11:25:30] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.02 ms
+[2026-08-18 11:25:30] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 113.33 ms
+[2026-08-18 11:25:30] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.52 ms
+[2026-08-18 11:25:31] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.22 ms
+[2026-08-18 11:25:31] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.66 ms
+[2026-08-18 11:25:31] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.49 ms
+[2026-08-18 11:25:31] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.85 ms
+[2026-08-18 11:25:31] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 118.00 ms
+[2026-08-18 11:25:31] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.70 ms
+[2026-08-18 11:25:31] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 122.02 ms
+[2026-08-18 11:25:31] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.60 ms
+[2026-08-18 11:25:31] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.48 ms
+[2026-08-18 11:25:31] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.35 ms
+[2026-08-18 11:25:31] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 118.03 ms
+[2026-08-18 11:25:31] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.01 ms
+[2026-08-18 11:25:31] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.97 ms
+[2026-08-18 11:25:31] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.24 ms
+[2026-08-18 11:25:32] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.29 ms
+[2026-08-18 11:25:32] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.61 ms
+[2026-08-18 11:25:32] [INFO] [send_gpu_details] 79, 350, 4096, 68
+[2026-08-18 11:25:32] [INFO] [send_gpu_details] [GPU] Utilization: 79% | Memory: 0.34/4.00 GB | GPU Temp: 68.0°C
+[2026-08-18 11:25:32] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 7.99 ms
+[2026-08-18 11:25:32] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 122.01 ms
+[2026-08-18 11:25:32] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.36 ms
+[2026-08-18 11:25:32] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.40 ms
+[2026-08-18 11:25:32] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.53 ms
+[2026-08-18 11:25:32] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.90 ms
+[2026-08-18 11:25:32] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 3.01 ms
+[2026-08-18 11:25:32] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 118.46 ms
+[2026-08-18 11:25:32] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.42 ms
+[2026-08-18 11:25:32] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.44 ms
+[2026-08-18 11:25:32] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.65 ms
+[2026-08-18 11:25:32] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.54 ms
+[2026-08-18 11:25:32] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.39 ms
+[2026-08-18 11:25:33] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.82 ms
+[2026-08-18 11:25:33] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.08 ms
+[2026-08-18 11:25:33] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 120.01 ms
+[2026-08-18 11:25:33] [INFO] [pnayanam_utils] Saved frame image: /var/pnayanam/data/images/2026/08/18/CAM003/frame_18-08-2026_11-25-33-173405.png
+[2026-08-18 11:25:33] [INFO] [pnayanam_utils] Loaded subscribers: ['1980972331', '1716951841']
+[2026-08-18 11:25:33] [INFO] [telegram_alerts] The subscribers are: ['1980972331', '1716951841']
+[2026-08-18 11:25:34] [INFO] [send_gpu_details] 57, 350, 4096, 67
+[2026-08-18 11:25:34] [INFO] [send_gpu_details] [GPU] Utilization: 57% | Memory: 0.34/4.00 GB | GPU Temp: 67.0°C
+[2026-08-18 11:25:34] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 6.54 ms
+[2026-08-18 11:25:34] [INFO] [telegram_alerts] Chat ID: 1716951841 | Status: 403 | Response: {"ok":false,"error_code":403,"description":"Forbidden: user is deactivated"}
+[2026-08-18 11:25:35] [INFO] [telegram_alerts] Chat ID: 1980972331 | Status: 200 | Response: {"ok":true,"result":{"message_id":215,"from":{"id":8765296969,"is_bot":true,"first_name":"ITSPE_TestingBot","username":"ITSPE_Testing_bot"},"chat":{"id":1980972331,"first_name":"Ram@me","username":"Ram_174","type":"private"},"date":1787032535,"photo":[{"file_id":"AgACAgUAAxkDAAPXaoPz11y79ImGDuSP3wmqXrGBL-UAAkYTaxtcHSFUx15VQWVI3VIBAAMCAANzAAM9BA","file_unique_id":"AQADRhNrG1wdIVR4","file_size":1231,"width":90,"height":51},{"file_id":"AgACAgUAAxkDAAPXaoPz11y79ImGDuSP3wmqXrGBL-UAAkYTaxtcHSFUx15VQWVI3VIBAAMCAANtAAM9BA","file_unique_id":"AQADRhNrG1wdIVRy","file_size":15791,"width":320,"height":180},{"file_id":"AgACAgUAAxkDAAPXaoPz11y79ImGDuSP3wmqXrGBL-UAAkYTaxtcHSFUx15VQWVI3VIBAAMCAAN4AAM9BA","file_unique_id":"AQADRhNrG1wdIVR9","file_size":58320,"width":800,"height":450},{"file_id":"AgACAgUAAxkDAAPXaoPz11y79ImGDuSP3wmqXrGBL-UAAkYTaxtcHSFUx15VQWVI3VIBAAMCAAN5AAM9BA","file_unique_id":"AQADRhNrG1wdIVR-","file_size":105702,"width":1280,"height":720}],"caption":"HUMAN DETECTION ALERT!\n\nTotal persons detceted: 1\nTime : 18-08-2026 11:25:33\n\nCamera SCN: CAM003\nCamera Name: Entrance 1\nSite Name: solar based sites"}}
+[2026-08-18 11:25:35] [INFO] [person_detection] Time taken to send the alert 2471.83 MilliSeconds for image: (720, 1280, 3)..!
+[2026-08-18 11:25:35] [INFO] [person_detection] send_to_gui flag:1
+[2026-08-18 11:25:35] [INFO] [person_detection] called for sendingh data
+[2026-08-18 11:25:35] [INFO] [pnayanam_utils] GUI data sent successfully to: 192.168.3.152 with PAYLOAD: 
+[2026-08-18 11:25:35] [INFO] [person_detection] Done !
+[2026-08-18 11:25:35] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.33 ms
+[2026-08-18 11:25:35] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 146.49 ms
+[2026-08-18 11:25:35] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.17 ms
+[2026-08-18 11:25:36] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 135.16 ms
+[2026-08-18 11:25:36] [INFO] [pnayanam_utils] Saved frame image: /var/pnayanam/data/images/2026/08/18/CAM003/frame_18-08-2026_11-25-36-054423.png
+[2026-08-18 11:25:36] [INFO] [pnayanam_utils] Loaded subscribers: ['1980972331', '1716951841']
+[2026-08-18 11:25:36] [INFO] [telegram_alerts] The subscribers are: ['1980972331', '1716951841']
+[2026-08-18 11:25:36] [INFO] [send_gpu_details] 2, 350, 4096, 66
+[2026-08-18 11:25:36] [INFO] [send_gpu_details] [GPU] Utilization: 2% | Memory: 0.34/4.00 GB | GPU Temp: 66.0°C
+[2026-08-18 11:25:36] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 6.91 ms
+[2026-08-18 11:25:37] [INFO] [telegram_alerts] Chat ID: 1716951841 | Status: 403 | Response: {"ok":false,"error_code":403,"description":"Forbidden: user is deactivated"}
+[2026-08-18 11:25:38] [INFO] [telegram_alerts] Chat ID: 1980972331 | Status: 200 | Response: {"ok":true,"result":{"message_id":216,"from":{"id":8765296969,"is_bot":true,"first_name":"ITSPE_TestingBot","username":"ITSPE_Testing_bot"},"chat":{"id":1980972331,"first_name":"Ram@me","username":"Ram_174","type":"private"},"date":1787032537,"photo":[{"file_id":"AgACAgUAAxkDAAPYaoPz2V_qTNKE3pipb2imZupXk6kAAkcTaxtcHSFUI_Pu-QP42PoBAAMCAANzAAM9BA","file_unique_id":"AQADRxNrG1wdIVR4","file_size":1229,"width":90,"height":51},{"file_id":"AgACAgUAAxkDAAPYaoPz2V_qTNKE3pipb2imZupXk6kAAkcTaxtcHSFUI_Pu-QP42PoBAAMCAANtAAM9BA","file_unique_id":"AQADRxNrG1wdIVRy","file_size":15685,"width":320,"height":180},{"file_id":"AgACAgUAAxkDAAPYaoPz2V_qTNKE3pipb2imZupXk6kAAkcTaxtcHSFUI_Pu-QP42PoBAAMCAAN4AAM9BA","file_unique_id":"AQADRxNrG1wdIVR9","file_size":58196,"width":800,"height":450},{"file_id":"AgACAgUAAxkDAAPYaoPz2V_qTNKE3pipb2imZupXk6kAAkcTaxtcHSFUI_Pu-QP42PoBAAMCAAN5AAM9BA","file_unique_id":"AQADRxNrG1wdIVR-","file_size":105216,"width":1280,"height":720}],"caption":"HUMAN DETECTION ALERT!\n\nTotal persons detceted: 3\nTime : 18-08-2026 11:25:36\n\nCamera SCN: CAM003\nCamera Name: Entrance 1\nSite Name: solar based sites"}}
+[2026-08-18 11:25:38] [INFO] [person_detection] Time taken to send the alert 2012.30 MilliSeconds for image: (720, 1280, 3)..!
+[2026-08-18 11:25:38] [INFO] [person_detection] send_to_gui flag:1
+[2026-08-18 11:25:38] [INFO] [person_detection] called for sendingh data
+[2026-08-18 11:25:38] [INFO] [pnayanam_utils] GUI data sent successfully to: 192.168.3.152 with PAYLOAD: 
+[2026-08-18 11:25:38] [INFO] [person_detection] Done !
+[2026-08-18 11:25:38] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.99 ms
+[2026-08-18 11:25:38] [INFO] [send_gpu_details] 3, 350, 4096, 65
+[2026-08-18 11:25:38] [INFO] [send_gpu_details] [GPU] Utilization: 3% | Memory: 0.34/4.00 GB | GPU Temp: 65.0°C
+[2026-08-18 11:25:38] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 6.43 ms
+[2026-08-18 11:25:38] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 147.42 ms
+[2026-08-18 11:25:38] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.85 ms
+[2026-08-18 11:25:38] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 133.78 ms
+[2026-08-18 11:25:38] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.09 ms
+[2026-08-18 11:25:38] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.36 ms
+[2026-08-18 11:25:38] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.60 ms
+[2026-08-18 11:25:38] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.35 ms
+[2026-08-18 11:25:38] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.60 ms
+[2026-08-18 11:25:38] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 119.87 ms
+[2026-08-18 11:25:38] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.92 ms
+[2026-08-18 11:25:39] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.27 ms
+[2026-08-18 11:25:39] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.35 ms
+[2026-08-18 11:25:39] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.62 ms
+[2026-08-18 11:25:39] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.96 ms
+[2026-08-18 11:25:39] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.35 ms
+[2026-08-18 11:25:39] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.74 ms
+[2026-08-18 11:25:39] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 121.55 ms
+[2026-08-18 11:25:39] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.85 ms
+[2026-08-18 11:25:39] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.83 ms
+[2026-08-18 11:25:39] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.60 ms
+[2026-08-18 11:25:39] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.16 ms
+[2026-08-18 11:25:39] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.43 ms
+[2026-08-18 11:25:39] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.91 ms
+[2026-08-18 11:25:39] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.06 ms
+[2026-08-18 11:25:39] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.51 ms
+[2026-08-18 11:25:40] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.72 ms
+[2026-08-18 11:25:40] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 113.88 ms
+[2026-08-18 11:25:40] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.52 ms
+[2026-08-18 11:25:40] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.07 ms
+[2026-08-18 11:25:40] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.96 ms
+[2026-08-18 11:25:40] [INFO] [send_gpu_details] 82, 350, 4096, 66
+[2026-08-18 11:25:40] [INFO] [send_gpu_details] [GPU] Utilization: 82% | Memory: 0.34/4.00 GB | GPU Temp: 66.0°C
+[2026-08-18 11:25:40] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 4.63 ms
+[2026-08-18 11:25:40] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.28 ms
+[2026-08-18 11:25:40] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.30 ms
+[2026-08-18 11:25:40] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.34 ms
+[2026-08-18 11:25:40] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 3.41 ms
+[2026-08-18 11:25:40] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.88 ms
+[2026-08-18 11:25:40] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.85 ms
+[2026-08-18 11:25:40] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 119.86 ms
+[2026-08-18 11:25:40] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.30 ms
+[2026-08-18 11:25:40] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 119.71 ms
+[2026-08-18 11:25:40] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.60 ms
+[2026-08-18 11:25:41] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 118.07 ms
+[2026-08-18 11:25:41] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.02 ms
+[2026-08-18 11:25:41] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.75 ms
+[2026-08-18 11:25:41] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.51 ms
+[2026-08-18 11:25:41] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 118.69 ms
+[2026-08-18 11:25:41] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.45 ms
+[2026-08-18 11:25:41] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 113.12 ms
+[2026-08-18 11:25:41] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.41 ms
+[2026-08-18 11:25:41] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.32 ms
+[2026-08-18 11:25:41] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.92 ms
+[2026-08-18 11:25:41] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.01 ms
+[2026-08-18 11:25:41] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.93 ms
+[2026-08-18 11:25:41] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.12 ms
+[2026-08-18 11:25:41] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.31 ms
+[2026-08-18 11:25:42] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 118.72 ms
+[2026-08-18 11:25:42] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.76 ms
+[2026-08-18 11:25:42] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.38 ms
+[2026-08-18 11:25:42] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.85 ms
+[2026-08-18 11:25:42] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.47 ms
+[2026-08-18 11:25:42] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.74 ms
+[2026-08-18 11:25:42] [INFO] [send_gpu_details] 80, 350, 4096, 66
+[2026-08-18 11:25:42] [INFO] [send_gpu_details] [GPU] Utilization: 80% | Memory: 0.34/4.00 GB | GPU Temp: 66.0°C
+[2026-08-18 11:25:42] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 3.78 ms
+[2026-08-18 11:25:42] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 122.05 ms
+[2026-08-18 11:25:42] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.03 ms
+[2026-08-18 11:25:42] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 113.93 ms
+[2026-08-18 11:25:42] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.76 ms
+[2026-08-18 11:25:42] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.70 ms
+[2026-08-18 11:25:42] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.26 ms
+[2026-08-18 11:25:42] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 120.06 ms
+[2026-08-18 11:25:42] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.90 ms
+[2026-08-18 11:25:42] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.22 ms
+[2026-08-18 11:25:43] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.97 ms
+[2026-08-18 11:25:43] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.12 ms
+[2026-08-18 11:25:43] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.39 ms
+[2026-08-18 11:25:43] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.71 ms
+[2026-08-18 11:25:43] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.21 ms
+[2026-08-18 11:25:43] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.89 ms
+[2026-08-18 11:25:43] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.98 ms
+[2026-08-18 11:25:43] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.18 ms
+[2026-08-18 11:25:43] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.66 ms
+[2026-08-18 11:25:43] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.27 ms
+[2026-08-18 11:25:43] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.95 ms
+[2026-08-18 11:25:43] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.97 ms
+[2026-08-18 11:25:43] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.92 ms
+[2026-08-18 11:25:43] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 119.24 ms
+[2026-08-18 11:25:44] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.45 ms
+[2026-08-18 11:25:44] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.81 ms
+[2026-08-18 11:25:44] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.75 ms
+[2026-08-18 11:25:44] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.27 ms
+[2026-08-18 11:25:44] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.01 ms
+[2026-08-18 11:25:44] [INFO] [send_gpu_details] 80, 350, 4096, 67
+[2026-08-18 11:25:44] [INFO] [send_gpu_details] [GPU] Utilization: 80% | Memory: 0.34/4.00 GB | GPU Temp: 67.0°C
+[2026-08-18 11:25:44] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 6.29 ms
+[2026-08-18 11:25:44] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.71 ms
+[2026-08-18 11:25:44] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.69 ms
+[2026-08-18 11:25:44] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 119.46 ms
+[2026-08-18 11:25:44] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.93 ms
+[2026-08-18 11:25:44] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 118.64 ms
+[2026-08-18 11:25:44] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.63 ms
+[2026-08-18 11:25:44] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.83 ms
+[2026-08-18 11:25:44] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.64 ms
+[2026-08-18 11:25:44] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.55 ms
+[2026-08-18 11:25:44] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.85 ms
+[2026-08-18 11:25:45] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.58 ms
+[2026-08-18 11:25:45] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.00 ms
+[2026-08-18 11:25:45] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.53 ms
+[2026-08-18 11:25:45] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.90 ms
+[2026-08-18 11:25:45] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.84 ms
+[2026-08-18 11:25:45] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.65 ms
+[2026-08-18 11:25:45] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.73 ms
+[2026-08-18 11:25:45] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.92 ms
+[2026-08-18 11:25:45] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 120.19 ms
+[2026-08-18 11:25:45] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.26 ms
+[2026-08-18 11:25:45] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.64 ms
+[2026-08-18 11:25:45] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.10 ms
+[2026-08-18 11:25:45] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 119.64 ms
+[2026-08-18 11:25:45] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.80 ms
+[2026-08-18 11:25:46] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 118.05 ms
+[2026-08-18 11:25:46] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.64 ms
+[2026-08-18 11:25:46] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 113.20 ms
+[2026-08-18 11:25:46] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.10 ms
+[2026-08-18 11:25:46] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.30 ms
+[2026-08-18 11:25:46] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.36 ms
+[2026-08-18 11:25:46] [INFO] [send_gpu_details] 78, 350, 4096, 67
+[2026-08-18 11:25:46] [INFO] [send_gpu_details] [GPU] Utilization: 78% | Memory: 0.34/4.00 GB | GPU Temp: 67.0°C
+[2026-08-18 11:25:46] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 6.34 ms
+[2026-08-18 11:25:46] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.03 ms
+[2026-08-18 11:25:46] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.07 ms
+[2026-08-18 11:25:46] [INFO] [collect_subscribers] Updated subscribers: {'1980972331': 'Ram@me', '1716951841': 'Sudhanshu Tiwari'}
+[2026-08-18 11:25:46] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.30 ms
+[2026-08-18 11:25:46] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.87 ms
+[2026-08-18 11:25:46] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.94 ms
+[2026-08-18 11:25:46] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.15 ms
+[2026-08-18 11:25:46] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.68 ms
+[2026-08-18 11:25:46] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.44 ms
+[2026-08-18 11:25:46] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.50 ms
+[2026-08-18 11:25:47] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.46 ms
+[2026-08-18 11:25:47] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.65 ms
+[2026-08-18 11:25:47] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.53 ms
+[2026-08-18 11:25:47] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.33 ms
+[2026-08-18 11:25:47] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.42 ms
+[2026-08-18 11:25:47] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 113.28 ms
+[2026-08-18 11:25:47] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.46 ms
+[2026-08-18 11:25:47] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 125.97 ms
+[2026-08-18 11:25:47] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.81 ms
+[2026-08-18 11:25:47] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.53 ms
+[2026-08-18 11:25:47] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 4.19 ms
+[2026-08-18 11:25:47] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.73 ms
+[2026-08-18 11:25:47] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.83 ms
+[2026-08-18 11:25:47] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 123.26 ms
+[2026-08-18 11:25:47] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 3.14 ms
+[2026-08-18 11:25:48] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 120.25 ms
+[2026-08-18 11:25:48] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.19 ms
+[2026-08-18 11:25:48] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.83 ms
+[2026-08-18 11:25:48] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.85 ms
+[2026-08-18 11:25:48] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.28 ms
+[2026-08-18 11:25:48] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.57 ms
+[2026-08-18 11:25:48] [INFO] [send_gpu_details] 82, 350, 4096, 68
+[2026-08-18 11:25:48] [INFO] [send_gpu_details] [GPU] Utilization: 82% | Memory: 0.34/4.00 GB | GPU Temp: 68.0°C
+[2026-08-18 11:25:48] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 5.29 ms
+[2026-08-18 11:25:48] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 120.51 ms
+[2026-08-18 11:25:48] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.06 ms
+[2026-08-18 11:25:48] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 119.13 ms
+[2026-08-18 11:25:48] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.11 ms
+[2026-08-18 11:25:48] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.70 ms
+[2026-08-18 11:25:48] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.22 ms
+[2026-08-18 11:25:48] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.93 ms
+[2026-08-18 11:25:48] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.69 ms
+[2026-08-18 11:25:49] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.51 ms
+[2026-08-18 11:25:49] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 3.03 ms
+[2026-08-18 11:25:49] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.40 ms
+[2026-08-18 11:25:49] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.12 ms
+[2026-08-18 11:25:49] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.49 ms
+[2026-08-18 11:25:49] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.19 ms
+[2026-08-18 11:25:49] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 113.57 ms
+[2026-08-18 11:25:49] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.17 ms
+[2026-08-18 11:25:49] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 119.65 ms
+[2026-08-18 11:25:49] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.57 ms
+[2026-08-18 11:25:49] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.81 ms
+[2026-08-18 11:25:49] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.77 ms
+[2026-08-18 11:25:49] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.04 ms
+[2026-08-18 11:25:49] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.02 ms
+[2026-08-18 11:25:50] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.97 ms
+[2026-08-18 11:25:50] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.12 ms
+[2026-08-18 11:25:50] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.01 ms
+[2026-08-18 11:25:50] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.74 ms
+[2026-08-18 11:25:50] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.15 ms
+[2026-08-18 11:25:50] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.03 ms
+[2026-08-18 11:25:50] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.83 ms
+[2026-08-18 11:25:50] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 3.35 ms
+[2026-08-18 11:25:50] [INFO] [send_gpu_details] 79, 350, 4096, 68
+[2026-08-18 11:25:50] [INFO] [send_gpu_details] [GPU] Utilization: 79% | Memory: 0.34/4.00 GB | GPU Temp: 68.0°C
+[2026-08-18 11:25:50] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 6.83 ms
+[2026-08-18 11:25:50] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 121.16 ms
+[2026-08-18 11:25:50] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.89 ms
+[2026-08-18 11:25:50] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.42 ms
+[2026-08-18 11:25:50] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.65 ms
+[2026-08-18 11:25:50] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.29 ms
+[2026-08-18 11:25:50] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.01 ms
+[2026-08-18 11:25:50] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.61 ms
+[2026-08-18 11:25:51] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 3.20 ms
+[2026-08-18 11:25:51] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 121.08 ms
+[2026-08-18 11:25:51] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.36 ms
+[2026-08-18 11:25:51] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.83 ms
+[2026-08-18 11:25:51] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.69 ms
+[2026-08-18 11:25:51] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.46 ms
+[2026-08-18 11:25:51] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.71 ms
+[2026-08-18 11:25:51] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 120.60 ms
+[2026-08-18 11:25:51] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.14 ms
+[2026-08-18 11:25:51] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.50 ms
+[2026-08-18 11:25:51] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.41 ms
+[2026-08-18 11:25:51] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 113.50 ms
+[2026-08-18 11:25:51] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.65 ms
+[2026-08-18 11:25:51] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.02 ms
+[2026-08-18 11:25:51] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.67 ms
+[2026-08-18 11:25:52] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.64 ms
+[2026-08-18 11:25:52] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.12 ms
+[2026-08-18 11:25:52] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 113.82 ms
+[2026-08-18 11:25:52] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.96 ms
+[2026-08-18 11:25:52] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.72 ms
+[2026-08-18 11:25:52] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.71 ms
+[2026-08-18 11:25:52] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.26 ms
+[2026-08-18 11:25:52] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.86 ms
+[2026-08-18 11:25:52] [INFO] [send_gpu_details] 81, 350, 4096, 68
+[2026-08-18 11:25:52] [INFO] [send_gpu_details] [GPU] Utilization: 81% | Memory: 0.34/4.00 GB | GPU Temp: 68.0°C
+[2026-08-18 11:25:52] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 4.23 ms
+[2026-08-18 11:25:52] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 120.51 ms
+[2026-08-18 11:25:52] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.93 ms
+[2026-08-18 11:25:52] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.75 ms
+[2026-08-18 11:25:52] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.71 ms
+[2026-08-18 11:25:52] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 112.82 ms
+[2026-08-18 11:25:52] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.14 ms
+[2026-08-18 11:25:53] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.49 ms
+[2026-08-18 11:25:53] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.56 ms
+[2026-08-18 11:25:53] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 120.72 ms
+[2026-08-18 11:25:53] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.12 ms
+[2026-08-18 11:25:53] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.83 ms
+[2026-08-18 11:25:53] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.52 ms
+[2026-08-18 11:25:53] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.65 ms
+[2026-08-18 11:25:53] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.23 ms
+[2026-08-18 11:25:53] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.83 ms
+[2026-08-18 11:25:53] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.21 ms
+[2026-08-18 11:25:53] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.09 ms
+[2026-08-18 11:25:53] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.08 ms
+[2026-08-18 11:25:53] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.80 ms
+[2026-08-18 11:25:53] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.64 ms
+[2026-08-18 11:25:53] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.73 ms
+[2026-08-18 11:25:53] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.67 ms
+[2026-08-18 11:25:54] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 120.48 ms
+[2026-08-18 11:25:54] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.29 ms
+[2026-08-18 11:25:54] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 118.49 ms
+[2026-08-18 11:25:54] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.71 ms
+[2026-08-18 11:25:54] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 113.82 ms
+[2026-08-18 11:25:54] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.23 ms
+[2026-08-18 11:25:54] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 113.57 ms
+[2026-08-18 11:25:54] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.58 ms
+[2026-08-18 11:25:54] [INFO] [send_gpu_details] 79, 350, 4096, 68
+[2026-08-18 11:25:54] [INFO] [send_gpu_details] [GPU] Utilization: 79% | Memory: 0.34/4.00 GB | GPU Temp: 68.0°C
+[2026-08-18 11:25:54] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 5.94 ms
+[2026-08-18 11:25:54] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 118.05 ms
+[2026-08-18 11:25:54] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.63 ms
+[2026-08-18 11:25:54] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 118.99 ms
+[2026-08-18 11:25:54] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.82 ms
+[2026-08-18 11:25:54] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.61 ms
+[2026-08-18 11:25:54] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 3.19 ms
+[2026-08-18 11:25:55] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.60 ms
+[2026-08-18 11:25:55] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.54 ms
+[2026-08-18 11:25:55] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.66 ms
+[2026-08-18 11:25:55] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.06 ms
+[2026-08-18 11:25:55] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 120.49 ms
+[2026-08-18 11:25:55] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.39 ms
+[2026-08-18 11:25:55] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.84 ms
+[2026-08-18 11:25:55] [INFO] [pnayanam_utils] Saved frame image: /var/pnayanam/data/images/2026/08/18/CAM003/frame_18-08-2026_11-25-55-496629.png
+[2026-08-18 11:25:55] [INFO] [pnayanam_utils] Loaded subscribers: ['1980972331', '1716951841']
+[2026-08-18 11:25:55] [INFO] [telegram_alerts] The subscribers are: ['1980972331', '1716951841']
+[2026-08-18 11:25:56] [INFO] [send_gpu_details] 3, 350, 4096, 67
+[2026-08-18 11:25:56] [INFO] [send_gpu_details] [GPU] Utilization: 3% | Memory: 0.34/4.00 GB | GPU Temp: 67.0°C
+[2026-08-18 11:25:56] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 5.79 ms
+[2026-08-18 11:25:56] [INFO] [telegram_alerts] Chat ID: 1716951841 | Status: 403 | Response: {"ok":false,"error_code":403,"description":"Forbidden: user is deactivated"}
+[2026-08-18 11:25:58] [INFO] [telegram_alerts] Chat ID: 1980972331 | Status: 200 | Response: {"ok":true,"result":{"message_id":217,"from":{"id":8765296969,"is_bot":true,"first_name":"ITSPE_TestingBot","username":"ITSPE_Testing_bot"},"chat":{"id":1980972331,"first_name":"Ram@me","username":"Ram_174","type":"private"},"date":1787032557,"photo":[{"file_id":"AgACAgUAAxkDAAPZaoPz7cWanSrh6jAMoZ4NtpSvQfQAAkgTaxtcHSFUzYlaXK91gMIBAAMCAANzAAM9BA","file_unique_id":"AQADSBNrG1wdIVR4","file_size":1224,"width":90,"height":51},{"file_id":"AgACAgUAAxkDAAPZaoPz7cWanSrh6jAMoZ4NtpSvQfQAAkgTaxtcHSFUzYlaXK91gMIBAAMCAANtAAM9BA","file_unique_id":"AQADSBNrG1wdIVRy","file_size":15739,"width":320,"height":180},{"file_id":"AgACAgUAAxkDAAPZaoPz7cWanSrh6jAMoZ4NtpSvQfQAAkgTaxtcHSFUzYlaXK91gMIBAAMCAAN4AAM9BA","file_unique_id":"AQADSBNrG1wdIVR9","file_size":58393,"width":800,"height":450},{"file_id":"AgACAgUAAxkDAAPZaoPz7cWanSrh6jAMoZ4NtpSvQfQAAkgTaxtcHSFUzYlaXK91gMIBAAMCAAN5AAM9BA","file_unique_id":"AQADSBNrG1wdIVR-","file_size":104830,"width":1280,"height":720}],"caption":"HUMAN DETECTION ALERT!\n\nTotal persons detceted: 3\nTime : 18-08-2026 11:25:55\n\nCamera SCN: CAM003\nCamera Name: Entrance 1\nSite Name: solar based sites"}}
+[2026-08-18 11:25:58] [INFO] [person_detection] Time taken to send the alert 2671.74 MilliSeconds for image: (720, 1280, 3)..!
+[2026-08-18 11:25:58] [INFO] [person_detection] send_to_gui flag:1
+[2026-08-18 11:25:58] [INFO] [person_detection] called for sendingh data
+[2026-08-18 11:25:58] [INFO] [pnayanam_utils] GUI data sent successfully to: 192.168.3.152 with PAYLOAD: 
+[2026-08-18 11:25:58] [INFO] [person_detection] Done !
+[2026-08-18 11:25:58] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.73 ms
+[2026-08-18 11:25:58] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 147.45 ms
+[2026-08-18 11:25:58] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.36 ms
+[2026-08-18 11:25:58] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 120.13 ms
+[2026-08-18 11:25:58] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.16 ms
+[2026-08-18 11:25:58] [INFO] [send_gpu_details] 28, 350, 4096, 67
+[2026-08-18 11:25:58] [INFO] [send_gpu_details] [GPU] Utilization: 28% | Memory: 0.34/4.00 GB | GPU Temp: 67.0°C
+[2026-08-18 11:25:58] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 5.58 ms
+[2026-08-18 11:25:58] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 118.13 ms
+[2026-08-18 11:25:58] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 3.05 ms
+[2026-08-18 11:25:58] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.92 ms
+[2026-08-18 11:25:58] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.69 ms
+[2026-08-18 11:25:58] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 118.15 ms
+[2026-08-18 11:25:59] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 3.10 ms
+[2026-08-18 11:25:59] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 118.41 ms
+[2026-08-18 11:25:59] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.74 ms
+[2026-08-18 11:25:59] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.70 ms
+[2026-08-18 11:25:59] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.34 ms
+[2026-08-18 11:25:59] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 120.18 ms
+[2026-08-18 11:25:59] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.58 ms
+[2026-08-18 11:25:59] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.76 ms
+[2026-08-18 11:25:59] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.18 ms
+[2026-08-18 11:25:59] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.28 ms
+[2026-08-18 11:25:59] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.70 ms
+[2026-08-18 11:25:59] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.55 ms
+[2026-08-18 11:25:59] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.98 ms
+[2026-08-18 11:25:59] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 122.27 ms
+[2026-08-18 11:25:59] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.78 ms
+[2026-08-18 11:26:00] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.51 ms
+[2026-08-18 11:26:00] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.38 ms
+[2026-08-18 11:26:00] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.99 ms
+[2026-08-18 11:26:00] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.89 ms
+[2026-08-18 11:26:00] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 113.51 ms
+[2026-08-18 11:26:00] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.59 ms
+[2026-08-18 11:26:00] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 113.72 ms
+[2026-08-18 11:26:00] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.31 ms
+[2026-08-18 11:26:00] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 113.74 ms
+[2026-08-18 11:26:00] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 3.11 ms
+[2026-08-18 11:26:00] [INFO] [send_gpu_details] 82, 350, 4096, 68
+[2026-08-18 11:26:00] [INFO] [send_gpu_details] [GPU] Utilization: 82% | Memory: 0.34/4.00 GB | GPU Temp: 68.0°C
+[2026-08-18 11:26:00] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 5.83 ms
+[2026-08-18 11:26:00] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.84 ms
+[2026-08-18 11:26:00] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.39 ms
+[2026-08-18 11:26:00] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.70 ms
+[2026-08-18 11:26:00] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.23 ms
+[2026-08-18 11:26:01] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.13 ms
+[2026-08-18 11:26:01] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.66 ms
+[2026-08-18 11:26:01] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 119.66 ms
+[2026-08-18 11:26:01] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.07 ms
+[2026-08-18 11:26:01] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.20 ms
+[2026-08-18 11:26:01] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.24 ms
+[2026-08-18 11:26:01] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.88 ms
+[2026-08-18 11:26:01] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.59 ms
+[2026-08-18 11:26:01] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.48 ms
+[2026-08-18 11:26:01] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.64 ms
+[2026-08-18 11:26:01] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 120.00 ms
+[2026-08-18 11:26:01] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.92 ms
+[2026-08-18 11:26:01] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 113.37 ms
+[2026-08-18 11:26:01] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.88 ms
+[2026-08-18 11:26:02] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 120.72 ms
+[2026-08-18 11:26:02] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.77 ms
+[2026-08-18 11:26:02] [INFO] [collect_subscribers] Updated subscribers: {'1980972331': 'Ram@me', '1716951841': 'Sudhanshu Tiwari'}
+[2026-08-18 11:26:02] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.92 ms
+[2026-08-18 11:26:02] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.70 ms
+[2026-08-18 11:26:02] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.24 ms
+[2026-08-18 11:26:02] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.95 ms
+[2026-08-18 11:26:02] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 120.02 ms
+[2026-08-18 11:26:02] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.00 ms
+[2026-08-18 11:26:02] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.52 ms
+[2026-08-18 11:26:02] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.15 ms
+[2026-08-18 11:26:02] [INFO] [send_gpu_details] 80, 350, 4096, 68
+[2026-08-18 11:26:02] [INFO] [send_gpu_details] [GPU] Utilization: 80% | Memory: 0.34/4.00 GB | GPU Temp: 68.0°C
+[2026-08-18 11:26:02] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 4.28 ms
+[2026-08-18 11:26:02] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.92 ms
+[2026-08-18 11:26:02] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.17 ms
+[2026-08-18 11:26:02] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 113.46 ms
+[2026-08-18 11:26:02] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.15 ms
+[2026-08-18 11:26:02] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 119.98 ms
+[2026-08-18 11:26:03] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.98 ms
+[2026-08-18 11:26:03] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 118.08 ms
+[2026-08-18 11:26:03] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.77 ms
+[2026-08-18 11:26:03] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.16 ms
+[2026-08-18 11:26:03] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.51 ms
+[2026-08-18 11:26:03] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 113.89 ms
+[2026-08-18 11:26:03] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.94 ms
+[2026-08-18 11:26:03] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.81 ms
+[2026-08-18 11:26:03] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.68 ms
+[2026-08-18 11:26:03] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 119.39 ms
+[2026-08-18 11:26:03] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.72 ms
+[2026-08-18 11:26:03] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.00 ms
+[2026-08-18 11:26:03] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.68 ms
+[2026-08-18 11:26:03] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.63 ms
+[2026-08-18 11:26:04] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.74 ms
+[2026-08-18 11:26:04] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.83 ms
+[2026-08-18 11:26:04] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.03 ms
+[2026-08-18 11:26:04] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.29 ms
+[2026-08-18 11:26:04] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.03 ms
+[2026-08-18 11:26:04] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.21 ms
+[2026-08-18 11:26:04] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.65 ms
+[2026-08-18 11:26:04] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 113.69 ms
+[2026-08-18 11:26:04] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.42 ms
+[2026-08-18 11:26:04] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.18 ms
+[2026-08-18 11:26:04] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.34 ms
+[2026-08-18 11:26:04] [INFO] [send_gpu_details] 81, 350, 4096, 68
+[2026-08-18 11:26:04] [INFO] [send_gpu_details] [GPU] Utilization: 81% | Memory: 0.34/4.00 GB | GPU Temp: 68.0°C
+[2026-08-18 11:26:04] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 5.99 ms
+[2026-08-18 11:26:04] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.72 ms
+[2026-08-18 11:26:04] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.79 ms
+[2026-08-18 11:26:04] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.58 ms
+[2026-08-18 11:26:04] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.84 ms
+[2026-08-18 11:26:05] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 118.88 ms
+[2026-08-18 11:26:05] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.08 ms
+[2026-08-18 11:26:05] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.27 ms
+[2026-08-18 11:26:05] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.64 ms
+[2026-08-18 11:26:05] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.83 ms
+[2026-08-18 11:26:05] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.56 ms
+[2026-08-18 11:26:05] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.86 ms
+[2026-08-18 11:26:05] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.61 ms
+[2026-08-18 11:26:05] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.98 ms
+[2026-08-18 11:26:05] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.16 ms
+[2026-08-18 11:26:05] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.02 ms
+[2026-08-18 11:26:05] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.29 ms
+[2026-08-18 11:26:05] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.42 ms
+[2026-08-18 11:26:05] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.74 ms
+[2026-08-18 11:26:06] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 123.56 ms
+[2026-08-18 11:26:06] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.18 ms
+[2026-08-18 11:26:06] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 122.80 ms
+[2026-08-18 11:26:06] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.81 ms
+[2026-08-18 11:26:06] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.15 ms
+[2026-08-18 11:26:06] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.93 ms
+[2026-08-18 11:26:06] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.86 ms
+[2026-08-18 11:26:06] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.02 ms
+[2026-08-18 11:26:06] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.87 ms
+[2026-08-18 11:26:06] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.54 ms
+[2026-08-18 11:26:06] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.94 ms
+[2026-08-18 11:26:06] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 3.05 ms
+[2026-08-18 11:26:06] [INFO] [send_gpu_details] 80, 350, 4096, 69
+[2026-08-18 11:26:06] [INFO] [send_gpu_details] [GPU] Utilization: 80% | Memory: 0.34/4.00 GB | GPU Temp: 69.0°C
+[2026-08-18 11:26:06] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 5.82 ms
+[2026-08-18 11:26:06] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.30 ms
+[2026-08-18 11:26:06] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.06 ms
+[2026-08-18 11:26:06] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.35 ms
+[2026-08-18 11:26:07] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.65 ms
+[2026-08-18 11:26:07] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.15 ms
+[2026-08-18 11:26:07] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.69 ms
+[2026-08-18 11:26:07] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 113.91 ms
+[2026-08-18 11:26:07] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.20 ms
+[2026-08-18 11:26:07] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.06 ms
+[2026-08-18 11:26:07] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.30 ms
+[2026-08-18 11:26:07] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 122.16 ms
+[2026-08-18 11:26:07] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.02 ms
+[2026-08-18 11:26:07] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 112.84 ms
+[2026-08-18 11:26:07] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.72 ms
+[2026-08-18 11:26:07] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.00 ms
+[2026-08-18 11:26:07] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.25 ms
+[2026-08-18 11:26:07] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.16 ms
+[2026-08-18 11:26:07] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.80 ms
+[2026-08-18 11:26:08] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.58 ms
+[2026-08-18 11:26:08] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.30 ms
+[2026-08-18 11:26:08] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.79 ms
+[2026-08-18 11:26:08] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.64 ms
+[2026-08-18 11:26:08] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.69 ms
+[2026-08-18 11:26:08] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.02 ms
+[2026-08-18 11:26:08] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.26 ms
+[2026-08-18 11:26:08] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.18 ms
+[2026-08-18 11:26:08] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 120.39 ms
+[2026-08-18 11:26:08] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.05 ms
+[2026-08-18 11:26:08] [INFO] [send_gpu_details] 82, 350, 4096, 69
+[2026-08-18 11:26:08] [INFO] [send_gpu_details] [GPU] Utilization: 82% | Memory: 0.34/4.00 GB | GPU Temp: 69.0°C
+[2026-08-18 11:26:08] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 5.8 ms
+[2026-08-18 11:26:08] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.05 ms
+[2026-08-18 11:26:08] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.85 ms
+[2026-08-18 11:26:08] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 121.12 ms
+[2026-08-18 11:26:08] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.56 ms
+[2026-08-18 11:26:09] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 118.52 ms
+[2026-08-18 11:26:09] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.63 ms
+[2026-08-18 11:26:09] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 113.38 ms
+[2026-08-18 11:26:09] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.42 ms
+[2026-08-18 11:26:09] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 113.38 ms
+[2026-08-18 11:26:09] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.77 ms
+[2026-08-18 11:26:09] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 113.78 ms
+[2026-08-18 11:26:09] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.83 ms
+[2026-08-18 11:26:09] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.24 ms
+[2026-08-18 11:26:09] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.93 ms
+[2026-08-18 11:26:09] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.36 ms
+[2026-08-18 11:26:09] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.96 ms
+[2026-08-18 11:26:09] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.50 ms
+[2026-08-18 11:26:09] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.74 ms
+[2026-08-18 11:26:10] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.42 ms
+[2026-08-18 11:26:10] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.76 ms
+[2026-08-18 11:26:10] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.44 ms
+[2026-08-18 11:26:10] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.47 ms
+[2026-08-18 11:26:10] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 118.58 ms
+[2026-08-18 11:26:10] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.99 ms
+[2026-08-18 11:26:10] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.68 ms
+[2026-08-18 11:26:10] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.82 ms
+[2026-08-18 11:26:10] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.12 ms
+[2026-08-18 11:26:10] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.97 ms
+[2026-08-18 11:26:10] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.57 ms
+[2026-08-18 11:26:10] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.89 ms
+[2026-08-18 11:26:10] [INFO] [send_gpu_details] 80, 350, 4096, 69
+[2026-08-18 11:26:10] [INFO] [send_gpu_details] [GPU] Utilization: 80% | Memory: 0.34/4.00 GB | GPU Temp: 69.0°C
+[2026-08-18 11:26:10] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 6.34 ms
+[2026-08-18 11:26:10] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.53 ms
+[2026-08-18 11:26:10] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.48 ms
+[2026-08-18 11:26:10] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.14 ms
+[2026-08-18 11:26:11] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 3.40 ms
+[2026-08-18 11:26:11] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 118.71 ms
+[2026-08-18 11:26:11] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.98 ms
+[2026-08-18 11:26:11] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 120.47 ms
+[2026-08-18 11:26:11] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.97 ms
+[2026-08-18 11:26:11] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.98 ms
+[2026-08-18 11:26:11] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.57 ms
+[2026-08-18 11:26:11] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 113.24 ms
+[2026-08-18 11:26:11] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.65 ms
+[2026-08-18 11:26:11] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.88 ms
+[2026-08-18 11:26:11] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.08 ms
+[2026-08-18 11:26:11] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 122.13 ms
+[2026-08-18 11:26:11] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.63 ms
+[2026-08-18 11:26:11] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.82 ms
+[2026-08-18 11:26:12] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.83 ms
+[2026-08-18 11:26:12] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 122.77 ms
+[2026-08-18 11:26:12] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.66 ms
+[2026-08-18 11:26:12] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.76 ms
+[2026-08-18 11:26:12] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.65 ms
+[2026-08-18 11:26:12] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.69 ms
+[2026-08-18 11:26:12] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.79 ms
+[2026-08-18 11:26:12] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.39 ms
+[2026-08-18 11:26:12] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.77 ms
+[2026-08-18 11:26:12] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 113.48 ms
+[2026-08-18 11:26:12] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.99 ms
+[2026-08-18 11:26:12] [INFO] [send_gpu_details] 77, 350, 4096, 69
+[2026-08-18 11:26:12] [INFO] [send_gpu_details] [GPU] Utilization: 77% | Memory: 0.34/4.00 GB | GPU Temp: 69.0°C
+[2026-08-18 11:26:12] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 2.67 ms
+[2026-08-18 11:26:12] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 118.40 ms
+[2026-08-18 11:26:12] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.85 ms
+[2026-08-18 11:26:12] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.33 ms
+[2026-08-18 11:26:13] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.88 ms
+[2026-08-18 11:26:13] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.72 ms
+[2026-08-18 11:26:13] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.90 ms
+[2026-08-18 11:26:13] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.27 ms
+[2026-08-18 11:26:13] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.63 ms
+[2026-08-18 11:26:13] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 119.30 ms
+[2026-08-18 11:26:13] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.87 ms
+[2026-08-18 11:26:13] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.12 ms
+[2026-08-18 11:26:13] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.15 ms
+[2026-08-18 11:26:13] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.35 ms
+[2026-08-18 11:26:13] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.30 ms
+[2026-08-18 11:26:13] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 120.04 ms
+[2026-08-18 11:26:13] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.74 ms
+[2026-08-18 11:26:13] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.82 ms
+[2026-08-18 11:26:14] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.30 ms
+[2026-08-18 11:26:14] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.83 ms
+[2026-08-18 11:26:14] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.07 ms
+[2026-08-18 11:26:14] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.78 ms
+[2026-08-18 11:26:14] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.42 ms
+[2026-08-18 11:26:14] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 119.57 ms
+[2026-08-18 11:26:14] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.61 ms
+[2026-08-18 11:26:14] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.75 ms
+[2026-08-18 11:26:14] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.25 ms
+[2026-08-18 11:26:14] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.28 ms
+[2026-08-18 11:26:14] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.55 ms
+[2026-08-18 11:26:14] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.46 ms
+[2026-08-18 11:26:14] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 7.42 ms
+[2026-08-18 11:26:14] [INFO] [send_gpu_details] 79, 350, 4096, 70
+[2026-08-18 11:26:14] [INFO] [send_gpu_details] [GPU] Utilization: 79% | Memory: 0.34/4.00 GB | GPU Temp: 70.0°C
+[2026-08-18 11:26:14] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 8.58 ms
+[2026-08-18 11:26:14] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 125.00 ms
+[2026-08-18 11:26:15] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.36 ms
+[2026-08-18 11:26:15] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 118.50 ms
+[2026-08-18 11:26:15] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.43 ms
+[2026-08-18 11:26:15] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.69 ms
+[2026-08-18 11:26:15] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 3.03 ms
+[2026-08-18 11:26:15] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.99 ms
+[2026-08-18 11:26:15] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.92 ms
+[2026-08-18 11:26:15] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.57 ms
+[2026-08-18 11:26:15] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.94 ms
+[2026-08-18 11:26:15] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.57 ms
+[2026-08-18 11:26:15] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.00 ms
+[2026-08-18 11:26:15] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.11 ms
+[2026-08-18 11:26:15] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 3.52 ms
+[2026-08-18 11:26:16] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 121.28 ms
+[2026-08-18 11:26:16] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.56 ms
+[2026-08-18 11:26:16] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.04 ms
+[2026-08-18 11:26:16] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.95 ms
+[2026-08-18 11:26:16] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 122.94 ms
+[2026-08-18 11:26:16] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.76 ms
+[2026-08-18 11:26:16] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.89 ms
+[2026-08-18 11:26:16] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.06 ms
+[2026-08-18 11:26:16] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.00 ms
+[2026-08-18 11:26:16] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.32 ms
+[2026-08-18 11:26:16] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.45 ms
+[2026-08-18 11:26:16] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.57 ms
+[2026-08-18 11:26:16] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.33 ms
+[2026-08-18 11:26:16] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.04 ms
+[2026-08-18 11:26:16] [INFO] [send_gpu_details] 78, 350, 4096, 70
+[2026-08-18 11:26:16] [INFO] [send_gpu_details] [GPU] Utilization: 78% | Memory: 0.34/4.00 GB | GPU Temp: 70.0°C
+[2026-08-18 11:26:16] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 5.09 ms
+[2026-08-18 11:26:17] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 118.63 ms
+[2026-08-18 11:26:17] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.49 ms
+[2026-08-18 11:26:17] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 118.71 ms
+[2026-08-18 11:26:17] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.81 ms
+[2026-08-18 11:26:17] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 115.45 ms
+[2026-08-18 11:26:17] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.65 ms
+[2026-08-18 11:26:17] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.98 ms
+[2026-08-18 11:26:17] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.72 ms
+[2026-08-18 11:26:17] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 119.75 ms
+[2026-08-18 11:26:17] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.91 ms
+[2026-08-18 11:26:17] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.76 ms
+[2026-08-18 11:26:17] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.34 ms
+[2026-08-18 11:26:17] [INFO] [collect_subscribers] Updated subscribers: {'1980972331': 'Ram@me', '1716951841': 'Sudhanshu Tiwari'}
+[2026-08-18 11:26:17] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 124.99 ms
+[2026-08-18 11:26:17] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.65 ms
+[2026-08-18 11:26:17] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 122.59 ms
+[2026-08-18 11:26:18] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 0.85 ms
+[2026-08-18 11:26:18] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 124.51 ms
+[2026-08-18 11:26:18] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.05 ms
+[2026-08-18 11:26:18] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.92 ms
+[2026-08-18 11:26:18] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.08 ms
+[2026-08-18 11:26:18] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.02 ms
+[2026-08-18 11:26:18] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.82 ms
+[2026-08-18 11:26:18] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.00 ms
+[2026-08-18 11:26:18] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.09 ms
+[2026-08-18 11:26:18] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 114.57 ms
+[2026-08-18 11:26:18] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.39 ms
+[2026-08-18 11:26:18] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 117.63 ms
+[2026-08-18 11:26:18] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.65 ms
+[2026-08-18 11:26:18] [INFO] [send_gpu_details] 76, 350, 4096, 70
+[2026-08-18 11:26:18] [INFO] [send_gpu_details] [GPU] Utilization: 76% | Memory: 0.34/4.00 GB | GPU Temp: 70.0°C
+[2026-08-18 11:26:18] [INFO] [send_gpu_details] [EDGE HEALTH] Sent successfully (200) | Latency: 8.4 ms
+[2026-08-18 11:26:18] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 123.20 ms
+[2026-08-18 11:26:19] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 1.20 ms
+[2026-08-18 11:26:19] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 125.42 ms
+[2026-08-18 11:26:19] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 3.15 ms
+[2026-08-18 11:26:19] [INFO] [person_detection] Total time taken by YOLO model for 1 frames: 116.00 ms
+[2026-08-18 11:26:19] [INFO] [person_detection] Total time taken for reading 1 frames from SHM: 2.64 ms
+[2026-08-18 11:26:19] [INFO] [person_detection] Stopping pipeline...
+[2026-08-18 11:26:19] [INFO] [person_detection] 
+Stopping all processes...
+[2026-08-18 11:26:19] [INFO] [person_detection] Inference worker KeyboardInterrupt
+[2026-08-18 11:26:19] [INFO] [person_detection] Inference worker exiting
+[2026-08-18 11:26:19] [INFO] [camera_reading] [CAM003] Camera thread exited cleanly.
+[2026-08-18 11:26:19] [INFO] [person_detection] Terminating: inference
