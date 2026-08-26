@@ -105,7 +105,7 @@ def update_subscribers():
     with open(config_path, "w") as configfile:
         config.write(configfile)
 
-    logger.info({subscriber_map})
+    logger.info(f"Updated subscribers: {subscriber_map}")
 
 
 if __name__ == "__main__":

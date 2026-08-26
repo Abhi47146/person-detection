@@ -19,7 +19,7 @@ if __name__ == "__main__":
     start_gpu_resources_thread()
 
     # Always running
-    start_solar_camera_collection_thread()
+    # start_solar_camera_collection_thread()
 
     # Runs according to the SCNs written by camera_monitor()
     main()

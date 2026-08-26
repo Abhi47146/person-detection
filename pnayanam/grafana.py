@@ -1,8 +1,8 @@
 from configparser import ConfigParser
 import json
 import requests 
-from itspelogger import Logger
 from fastapi import HTTPException
+from pnayanam.logger import Logger
 
 class Grafana:
     def __init__(self, configfile="config.ini", logger=None):

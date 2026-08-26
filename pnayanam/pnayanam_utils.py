@@ -312,6 +312,22 @@ class Requirements:
             # self.logger.error(f"ERROR SENDING PAYLOAD TO GUI..! {payload}: {e}")
             self.logger.error(f"ERROR SENDING PAYLOAD TO GUI..!: {e}")
 
+    def update_camera_status_api(self, scn, status):
+        """Updates camera status by camera_scn via PATCH endpoint."""
+        try:
+            url = f"http://{self.gui_ip}:8000/api/cameras/status/{scn}"
+            payload = {"status": status}
+            response = requests.patch(url, json=payload, timeout=3)
+
+            if response.status_code == 200:
+                self.logger.info(f"[{scn}] Camera status successfully updated to '{status}'.")
+            else:
+                self.logger.warning(
+                    f"[{scn}] Failed status update. Code: {response.status_code}, Response: {response.text}"
+                )
+        except Exception as e:
+            self.logger.error(f"[{scn}] Exception occurred while updating status: {e}")
+
     def send_to_tis(self, data, tis_ip, tis_port):
         for _ in range(5):
             try:
@@ -746,15 +762,63 @@ class Requirements:
             except ValueError:
                 continue
 
-    def get_subscribers(self):
+    # def get_subscribers(self):
 
-        subscribers = [
-            chat_id.strip()
-            for chat_id in self.config_in.get("subscribers", "chat_ids").split(",")
-            if chat_id.strip()
-        ]
+    #     subscribers = [
+    #         chat_id.strip()
+    #         for chat_id in self.config_in.get("subscribers", "chat_ids").split(",")
+    #         if chat_id.strip()
+    #     ]
 
-        self.logger.info(f"Loaded subscribers: {subscribers}")
+    #     self.logger.info(f"Loaded subscribers: {subscribers}")
+
+    #     return subscribers
+    #     # return [1980972331,8666481737]
+    def get_subscribers(self, target_site_id=None):
+        """Fetches primary subscriber phone numbers from the API.
+
+        If target_site_id is provided, returns the primary recipient for that specific
+        site. Otherwise, returns all primary recipients across all sites.
+        """
+        api_url = f"http://{self.gui_ip}:8000/api/site-recipients"
+        subscribers = []
+
+        try:
+            response = requests.get(api_url, timeout=5)
+            response.raise_for_status()
+            data = response.json()
+
+            for item in data:
+                # Check if user is a primary recipient
+                if item.get("is_primary"):
+                    # If target_site_id is specified, filter by site_id as well
+                    if (
+                        target_site_id is None
+                        or item.get("site_id") == target_site_id
+                    ):
+                        phone = item.get("phone")
+                        if phone:
+                            # Prepend country code if missing
+                            formatted_phone = (
+                                phone if phone.startswith("+") else f"+91{phone}"
+                            )
+                            subscribers.append(formatted_phone)
+
+            self.logger.info(
+                f"Loaded dynamic primary subscribers for site '{target_site_id}': {subscribers}"
+            )
+
+        except requests.RequestException as e:
+            self.logger.error(
+                f"Failed to fetch subscribers from API: {e}. Falling back to config."
+            )
+            # Fallback to config file in case API is down
+            subscribers = [
+                chat_id.strip()
+                for chat_id in self.config_in.get(
+                    "subscribers", "chat_ids", fallback=""
+                ).split(",")
+                if chat_id.strip()
+            ]
 
         return subscribers
-        # return [1980972331,8666481737]

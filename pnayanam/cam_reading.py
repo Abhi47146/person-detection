@@ -313,7 +313,7 @@ def _camera_reader_thread_rtsp(scn: str, debug, send_gui, rtsp: str, shm_name: s
                         logger.exception(f"[{scn}] send_to_gui failed: {e}")
 
                 # send_camera_obstruction_alert()
-                logger.info(f"Blurred Camera: {blur_score}")
+                # logger.info(f"Blurred Camera: {blur_score}")
 
 
             if not ret or frame is None:
@@ -381,7 +381,7 @@ def _camera_reader_thread_solarcam( scn: str, debug, send_gui, frame_folder, shm
         logger.exception(f"[CameraReader-{scn}] Cannot attach shared memory: {e}")
         return
 
-    offline_frame = _make_offline_frame(H, W, C, "No Frames")
+    #offline_frame = _make_offline_frame(H, W, C, "No Frames")
 
     frame_path = os.path.join(frame_folder, "latest_frame.png")
     logger.info(f"Frame Path is : {frame_path}")
@@ -391,31 +391,70 @@ def _camera_reader_thread_solarcam( scn: str, debug, send_gui, frame_folder, shm
     logger.info(f"[{scn}] Reading frames from: {frame_path}")
 
     try:
+
+        # =======
+
+        camera_status = "active"
         last_frame_mtime = None
+        last_log_time = time.time()
+
         while not stop_event.is_set():
+
+            # Case 1: Frame file missing entirely
+            if not os.path.exists(frame_path):
+                if camera_status != "inactive":
+                    camera_status = "inactive"
+                    requirements.update_camera_status_api(scn, "inactive")
+
+                time.sleep(sleep_t)
+                continue
+
             current_mtime = os.path.getmtime(frame_path)
-            # logger.info(f"[{scn}] Previous mtime={last_frame_mtime}, Current mtime={current_mtime}\n")
-            
-            if (last_frame_mtime is not None and current_mtime == last_frame_mtime):
-                logger.warning(f"[{scn}] No new frame received for {scn}.\n")
-            else:
-                frame = cv2.imread(frame_path)
-                if frame is None:
-                    logger.warning(f"[{scn}] Unable to read {frame_path}")
-                    frame = _make_offline_frame(H, W, C, "No frames")
-                last_frame_mtime = current_mtime
 
-            if frame is None:
-                logger.warning(f"[{scn}] Unable to read {frame_path}")
-                time.sleep(0.02)
+            # Case 2: Frame file exists but HAS NOT updated
+            if current_mtime == last_frame_mtime:
+
+                if time.time() - last_log_time >= 3:
+                    logger.warning(
+                        f"[{scn}] No new frame received for the last 3 seconds. "
+                        f"Skipping SHM write and YOLO processing."
+                    )
+                    last_log_time = time.time()
+
+                    # Trigger API update ONLY when transitioning from active -> inactive
+                    if camera_status != "inactive":
+                        camera_status = "inactive"
+                        requirements.update_camera_status_api(scn, "inactive")
+
+                if sleep_t:
+                    time.sleep(sleep_t)
+
                 continue
 
-            frame = cv2.resize(frame, (W, H))
+            # Case 3: New frame file detected
+            img = cv2.imread(frame_path)
 
-            if frame is None:
-                write_frame_seq(header_arr, buf, offline_frame)
-                time.sleep(0.05)
+            if img is None:
+                logger.warning(f"[{scn}] Failed to read {frame_path}")
+                if sleep_t:
+                    time.sleep(sleep_t)
                 continue
+
+            # Successful frame read: transition back to active/online
+            if camera_status != "active":
+                camera_status = "active"
+                requirements.update_camera_status_api(scn, "active")
+
+            frame = cv2.resize(img, (W, H))
+
+            last_frame_mtime = current_mtime
+            last_log_time = time.time()
+
+            logger.info(f"[{scn}] Loaded new frame.")
+
+
+        # =======
+
 
             # 1. ALERT FOR FRAME IS CORRUPTED/IMPROPER_READ/EMPTY..! Possible reasons: decoder issue, corrupted frame, or temporary stream glitch.
             if requirements.is_invalid_frame(frame):
@@ -495,7 +534,7 @@ def _camera_reader_thread_solarcam( scn: str, debug, send_gui, frame_folder, shm
                         logger.exception(f"[{scn}] send_to_gui failed: {e}")
 
                 # send_camera_obstruction_alert()
-                logger.info(f"Blurred Camera: {blur_score}")
+                # logger.info(f"Blurred Camera: {blur_score}")
 
             write_frame_seq(header_arr, buf, frame)
 

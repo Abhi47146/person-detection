@@ -42,7 +42,8 @@ import struct
 
 from pnayanam.logger import Logger
 
-from pnayanam.telegram_alert import send_person_alert, send_person_count_alert
+#from pnayanam.telegram_alert import send_person_alert, send_person_count_alert
+from pnayanam.whatsapp_alert import send_person_alert, send_person_count_alert
 from pnayanam.collect_subscribers import subscriber_monitor
 from pnayanam.fetch_cam_details import camera_monitor, restart_event
 
@@ -277,7 +278,8 @@ def inference_worker_sharedmem(shm_map, header_map, shapes, yolo_result_queues, 
                     conf=yolo_thresh,
                     iou=0.45,
                     imgsz=640,  
-                    half=True,
+                    # half=True,
+                    #quantize="fp16",
                     verbose=True
                     # verbose=False,
                 )
@@ -371,14 +373,6 @@ def inference_worker_sharedmem(shm_map, header_map, shapes, yolo_result_queues, 
                         site = cam_cfg.get("site_name", "").strip('"')
                         camera_name = cam_cfg.get("name", "").strip('"')
 
-                        a = time.time()
-                        send_person_alert(frame, person_count, scn, camera_name, site)
-                        alert = "Human Detection"
-                        b = time.time()
-                        logger.info(
-                            f"Time taken to send the alert {(b-a)*1000:.2f} MilliSeconds "
-                            f"for image: {frame.shape}..!"
-                        )
                         requirements.add_tracker(tracker_id)
 
                         
@@ -406,7 +400,18 @@ def inference_worker_sharedmem(shm_map, header_map, shapes, yolo_result_queues, 
                         except Exception:
                             logger.exception(f"[{scn}] encode_image failed")
 
-                        # SEND GUI!
+
+                        # SEND to TELEGRAM!
+                        a = time.time()
+                        send_person_alert(frame, person_count, scn, camera_name, site)
+                        alert = "Human Detection"
+                        b = time.time()
+                        logger.info(
+                            f"Time taken to send the alert {(b-a)*1000:.2f} MilliSeconds "
+                            f"for image: {frame.shape}..!"
+                        )
+
+                        # SEND to GUI!
                         timestamp = datetime.now().strftime("%d-%m-%y %H:%M:%S")
                         if debug:
                             logger.info(f"send_to_gui flag:{send_gui}")
@@ -431,9 +436,9 @@ def inference_worker_sharedmem(shm_map, header_map, shapes, yolo_result_queues, 
                                 logger.exception(f"[{scn}] send_to_gui failed: {e}")
 
                 current_time = time.time()
-                if (current_time-last_count_alert_time>=30) and (person_count>0):
-                    send_person_count_alert(person_count)
-                    last_count_alert_time = current_time
+                # if (current_time-last_count_alert_time>=30) and (person_count>0):
+                #     send_person_count_alert(person_count)
+                #     last_count_alert_time = current_time
 
                 
                 # SEND TIS

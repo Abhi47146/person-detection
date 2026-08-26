@@ -33,18 +33,22 @@ def send_image_to_user(chat_id, image_bytes, caption):
     try:
         response = requests.post(
             telegram_url,
-            data={"chat_id": chat_id,"caption": caption},
-            files={"photo": ("alert.jpg", image_bytes, "image/jpeg")},
+            data={
+                "chat_id": chat_id,
+                "caption": caption
+            },
+            files={
+                "photo": ("alert.jpg", image_bytes, "image/jpeg")
+            },
             timeout=10
         )
 
-        if response.status_code != 200:
-            logger.info(f"{response.text}")
+        # logger.info(f"Alert sent to {chat_id}: {response.status_code}")
 
-        logger.info(f"Alert sent to {chat_id}: {response.status_code}")
+        logger.info(f"Chat ID: {chat_id} | Status: {response.status_code} | Response: {response.text}")
 
-    except Exception as e:
-        logger.info(f"Failed for {chat_id}: {e}")
+    except Exception:
+        logger.exception(f"Failed for {chat_id}")
 
 def send_person_alert(image, person_count, scn, camera_name, site):
     subscribers = requirements.get_subscribers()
@@ -52,7 +56,7 @@ def send_person_alert(image, person_count, scn, camera_name, site):
         return
 
     caption = (
-        f"HUMAN DETCETION ALERT!\n\n"
+        f"HUMAN DETECTION ALERT!\n\n"
         f"Total persons detceted: {person_count}\n"
         f"Time : {datetime.now().strftime('%d-%m-%Y %H:%M:%S')}\n\n"
         f"Camera SCN: {scn}\n"

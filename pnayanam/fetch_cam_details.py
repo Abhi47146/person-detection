@@ -3,43 +3,29 @@ import time
 import json
 import requests
 import configparser
-
-from pnayanam.logger import Logger
-
 import threading
 from datetime import datetime
 
+from pnayanam.logger import Logger
+
 restart_event = threading.Event()
 
-CONFIG_FILE = "/var/pnayanam/pnayanam.ini"   # change if needed
+CONFIG_FILE = "/var/pnayanam/pnayanam.ini"  # change if needed
 
 camera_details_cache = []
 
 config_out = configparser.ConfigParser()
-config_out.read("/var/pnayanam/pnayanam.ini")
-cycle_time = config_out.getint("cycle_time", "time") 
+config_out.read(CONFIG_FILE)
+cycle_time = config_out.getint("cycle_time", "time", fallback=30) 
 
-protocol = config_out.get(
-    "gui_ip_address",
-    "protocol",
-    fallback="http"
-)
-
-gui_ip = config_out.get(
-    "gui_ip_address",
-    "ip_address",
-    fallback="127.0.0.1"
-)
-
-port = config_out.get(
-    "gui_ip_address",
-    "port",
-    fallback="8000"
-)
+protocol = config_out.get("gui_ip_address", "protocol", fallback="http")
+gui_ip = config_out.get("gui_ip_address", "ip_address", fallback="127.0.0.1")
+port = config_out.get("gui_ip_address", "port", fallback="8000")
 
 CAMERA_API_URL = f"{protocol}://{gui_ip}:{port}/api/cameras"
 
 logger = Logger("fetch_cam_details")
+
 
 def fetch_camera_details():
     """
@@ -55,27 +41,19 @@ def fetch_camera_details():
         if data is None:
             raise ValueError("Camera API returned None.")
 
-        if isinstance(data, list) and len(data) == 0:
-            raise ValueError("Camera API returned an empty list. No camera data collected.")
-
-        if isinstance(data, dict) and len(data) == 0:
-            raise ValueError("Camera API returned an empty dict. No camera data collected.")
+        if isinstance(data, (list, dict)) and len(data) == 0:
+            raise ValueError("Camera API returned empty data structure.")
 
         return data
 
-
     except requests.exceptions.Timeout:
         logger.info("[CAMERA MONITOR] Request timed out while fetching camera details.")
-
     except requests.exceptions.ConnectionError as e:
         logger.info(f"[CAMERA MONITOR] Connection error: {e}")
-
     except requests.exceptions.RequestException as e:
         logger.info(f"[CAMERA MONITOR] HTTP error: {e}")
-
     except ValueError as e:
-        logger.info(f"[CAMERA MONITOR] No camera data collected: {e}")
-
+        logger.info(f"[CAMERA MONITOR] Validation error: {e}")
     except Exception as e:
         logger.info(f"[CAMERA MONITOR] Unexpected error: {e}")
 
@@ -83,13 +61,10 @@ def fetch_camera_details():
 
 
 def print_camera_details(camera_data):
-    # logger.info("\n===== CAMERA DETAILS =====")
     if not camera_data:
         logger.info("No camera details found.")
         logger.info("==========================\n")
         return
-
-    # logger.info(json.dumps(camera_data, indent=4))
     logger.info("==========================\n")
 
 
@@ -99,28 +74,22 @@ def get_camera_details():
 
 def load_config():
     config = configparser.ConfigParser()
-    config.optionxform = str   # preserve key case if needed
+    config.optionxform = str  # preserve key case
     config.read(CONFIG_FILE)
     return config
 
-
 def restart_application():
     """
-    Restart the current Python process.
-    Since this monitor runs inside the same process as run.py,
-    execv will restart the whole application with updated config.
+    Signal application restart upon configuration modification.
     """
     logger.info("[CAMERA MONITOR] Config changed. Restarting application...")
-    # os.execv(sys.executable, [sys.executable] + sys.argv)
     restart_event.set()
 
 
 def sync_camera_config(camera_list):
-
     config = load_config()
     changed = False
 
-    # Change this if your section name is different
     SCN_SECTION = "camera_scn"
 
     if SCN_SECTION not in config:
@@ -142,136 +111,117 @@ def sync_camera_config(camera_list):
         if not scn:
             continue
 
-        # API fields
         site_name = str(cam.get("site_name", "")).strip()
         name = str(cam.get("name", "")).strip()
-
-        # Resolve stream path
-        stream_url = cam.get("stream_url")
-        SOLAR_BASE_PATH = "/home/itspe/Desktop/p_nayanam/solar_cam/cctv/"
-
-        # Assume not a solar camera
-        is_solar_cam = False
-
-        # Treat None, "null", "", and "None" as solar cameras
-        if ( stream_url is None or str(stream_url).strip().lower() in ("", "null", "none")):
-            is_solar_cam = True
-
-            camera_folder = ( str(cam.get("name", "")) .strip())
-            stream_url = os.path.join(SOLAR_BASE_PATH, camera_folder)
-            logger.info(
-                f"[CAMERA MONITOR] Solar camera detected "
-                f"({scn}) -> {stream_url}"
-            )
-        else:
-            stream_url = str(stream_url).strip()
-
-      
-
         status = str(cam.get("status", "")).strip().lower()
 
+        # Parse is_process boolean safely
         raw_is_process = cam.get("is_process", False)
-
         if isinstance(raw_is_process, bool):
             is_process = raw_is_process
         else:
             is_process = str(raw_is_process).lower() == "true"
 
-        monitoring_start_time = str(
-            cam.get("monitoring_start_time", "00:00:00")
-        ).strip()
+        # Resolve stream path & detect solar cameras
+        stream_url = cam.get("stream_url")
+        SOLAR_BASE_PATH = "/var/pnayanam/cctv/"
+        is_solar_cam = False
 
-        monitoring_end_time = str(
-            cam.get("monitoring_end_time", "23:59:59")
-        ).strip()
+        if stream_url is None or str(stream_url).strip().lower() in ("", "null", "none"):
+            is_solar_cam = True
+            camera_folder = name
+            stream_url = os.path.join(SOLAR_BASE_PATH, camera_folder)
+            logger.info(
+                f"[CAMERA MONITOR] Solar camera detected ({scn}) -> {stream_url}"
+            )
+        else:
+            stream_url = str(stream_url).strip()
 
-        # Store only HH:MM
-        start_time = monitoring_start_time[:5]
-        end_time = monitoring_end_time[:5]
+        # Monitoring Time evaluation for multiple intervals
+        monitoring_times = cam.get("monitoring_time") or []
+        between_time_range = False
+        active_start_time = "00:00"
+        active_end_time = "23:59"
+        now = datetime.now().time()
 
-        # Time window check
-        try:
-            start = datetime.strptime(
-                monitoring_start_time,
-                "%H:%M:%S"
-            ).time()
+        for window in monitoring_times:
+            try:
+                s_str = window.get("start", "00:00").strip()
+                e_str = window.get("end", "23:59").strip()
 
-            end = datetime.strptime(
-                monitoring_end_time,
-                "%H:%M:%S"
-            ).time()
+                s_parse = s_str + ":00" if len(s_str) == 5 else s_str
+                e_parse = e_str + ":00" if len(e_str) == 5 else e_str
 
-            now = datetime.now().time()
+                start = datetime.strptime(s_parse, "%H:%M:%S").time()
+                end = datetime.strptime(e_parse, "%H:%M:%S").time()
 
-            if start <= end:
-                between_time_range = start <= now <= end
-            else:
-                # Overnight schedule
-                between_time_range = (
-                    now >= start or now <= end
-                )
-        except Exception:
-            between_time_range = False
+                if start <= end:
+                    in_window = start <= now <= end
+                else:  # Handles overnight schedules (e.g., 22:00 to 06:00)
+                    in_window = now >= start or now <= end
 
-        is_add = (
-            is_process
-            and between_time_range
-        )
+                if in_window:
+                    between_time_range = True
+                    active_start_time = s_str
+                    active_end_time = e_str
+                    break  # Stop at the first matching active interval
+            except Exception:
+                continue
+
+        # Rely ONLY on is_process and current active window match
+        is_add = is_process and between_time_range
 
         if is_add:
             active_scns_from_payload.append(scn)
 
-        # Create new section
+        # Fallback values if camera is not inside any active window currently
+        if not between_time_range and monitoring_times:
+            start_time = monitoring_times[0].get("start", "00:00")
+            end_time = monitoring_times[-1].get("end", "23:59")
+        else:
+            start_time = active_start_time
+            end_time = active_end_time
+
+        # Configuration dictionary payload
+        camera_config_data = {
+            "site_name": f'"{site_name}"',
+            "name": f'"{name}"',
+            "stream_url": stream_url,
+            "is_process": str(is_process),
+            "is_solar_cam": str(is_solar_cam),
+            "status": status,
+            "debug": "True",
+            "start_time": start_time,
+            "end_time": end_time,
+        }
+
         if not config.has_section(scn):
-            config[scn] = {
-                "site_name": f'"{site_name}"',
-                "name": f'"{name}"',
-                "stream_url": stream_url,
-                "is_process": str(is_process),
-                "is_solar_cam": str(is_solar_cam),
-                "debug": "True",
-                "result_storage_path": f"{scn.lower()}_result.mp4",
-                "start_time": start_time,
-                "end_time": end_time,
-            }
+            config[scn] = camera_config_data
+            config[scn]["result_storage_path"] = f"{scn.lower()}_result.mp4"
             changed = True
             logger.info(f"[CAMERA MONITOR] Added camera: {scn}")
-
         else:
-            updates = {
-                "site_name": f'"{site_name}"',
-                "name": f'"{name}"',
-                "stream_url": stream_url,
-                "is_process": str(is_process),
-                "is_solar_cam": str(is_solar_cam),
-                "start_time": start_time,
-                "end_time": end_time,
-            }
-            for key, value in updates.items():
+            for key, value in camera_config_data.items():
                 old = config.get(scn, key, fallback="").strip()
-                if old != value:
-                    config[scn][key] = value
+                if old != str(value):
+                    config[scn][key] = str(value)
                     changed = True
                     logger.info(f"[CAMERA MONITOR] Updated {key} for {scn}")
+
         logger.info(
-            f"[{scn}] "
-            f"is_process={is_process}, "
-            f"status={status}, "
-            f"in_time={between_time_range}, "
-            f"added={is_add}"
+            f"[{scn}] is_process={is_process}, status={status}, "
+            f"in_time={between_time_range}, added={is_add}"
         )
 
-    # Update active SCN list
+    # Active SCN list update
     new_scns = ",".join(active_scns_from_payload)
     old_scns = ",".join(existing_scns)
     if old_scns != new_scns:
         config[SCN_SECTION]["scns"] = new_scns
         changed = True
-        logger.info(
-            f"[CAMERA MONITOR] Updated active SCNs: {new_scns}"
-        )
+        logger.info(f"[CAMERA MONITOR] Updated active SCNs: {new_scns}")
 
-    # Save
+    # Write changes if modified
     if changed:
         with open(CONFIG_FILE, "w") as f:
             config.write(f)
@@ -283,8 +233,7 @@ def sync_camera_config(camera_list):
 
 def camera_monitor():
     """
-    Continuously fetch camera details every 30 seconds.
-    If config changes based on payload, update config and restart app.
+    Continuously fetch camera details every cycle_time seconds.
     """
     global camera_details_cache
 
@@ -296,12 +245,10 @@ def camera_monitor():
 
             if data is not None:
                 camera_details_cache = data
-                # logger.info(camera_details_cache)
-
                 if isinstance(data, list):
                     sync_camera_config(data)
                 else:
-                    logger.info("[CAMERA MONITOR] Unexpected payload format. Expected list of cameras.")
+                    logger.info("[CAMERA MONITOR] Unexpected payload format. Expected list.")
             else:
                 logger.info("[CAMERA MONITOR] No data collected in this cycle.")
 
