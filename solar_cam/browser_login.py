@@ -2,13 +2,23 @@ from playwright.sync_api import sync_playwright
 import time
 
 
-def login():
+def login(url, email, password):
 
     p = sync_playwright().start()
 
     browser = p.chromium.launch(
         headless=True,
-        slow_mo=100
+        slow_mo=100,
+        args=[
+            "--disable-dev-shm-usage",
+            "--disable-gpu",
+            "--no-sandbox",
+            "--disable-setuid-sandbox",
+            "--disable-extensions",
+            "--disable-background-networking",
+            "--mute-audio",
+            "--js-flags=--max-old-space-size=256",
+        ]
     )
 
     page = browser.new_page()
@@ -18,7 +28,7 @@ def login():
         try:
 
             page.goto(
-                "https://v.dvr163.com/?type=truecloud#/login",
+                url,
                 wait_until="load",
                 timeout=0
             )
@@ -36,32 +46,32 @@ def login():
 
             time.sleep(5)
 
-    email = page.get_by_role(
+    email_field = page.get_by_role(
         "textbox",
         name="Mobile/Email"
     )
 
-    email.wait_for(
+    email_field.wait_for(
         state="visible",
         timeout=0
     )
 
-    email.fill(
-        "ssesignaldornakal@gmail.com"
+    email_field.fill(
+        email
     )
 
-    password = page.get_by_role(
+    password_field = page.get_by_role(
         "textbox",
         name="Password"
     )
 
-    password.wait_for(
+    password_field.wait_for(
         state="visible",
         timeout=0
     )
 
-    password.fill(
-        "DKJ@2025"
+    password_field.fill(
+        password
     )
 
     select_icon = page.locator(

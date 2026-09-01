@@ -1,4 +1,5 @@
 from solar_cam.browser_login import login
+from solar_cam.config import get_cameras_by_site
 import os
 import time
 from datetime import datetime
@@ -7,7 +8,7 @@ from datetime import datetime
 def ensure_fullscreen(
     page,
     window,
-    camera_name
+    label
 ):
 
     attempt = 0
@@ -26,14 +27,14 @@ def ensure_fullscreen(
             if "isfullScreen" in listener_class:
 
                 print(
-                    f"{camera_name}: "
+                    f"{label}: "
                     f"fullscreen confirmed"
                 )
 
                 return True
 
             print(
-                f"{camera_name}: "
+                f"{label}: "
                 f"fullscreen attempt {attempt}"
             )
 
@@ -51,7 +52,7 @@ def ensure_fullscreen(
             except Exception:
 
                 print(
-                    f"{camera_name}: "
+                    f"{label}: "
                     f"video box not visible yet. "
                     f"Retrying..."
                 )
@@ -65,7 +66,7 @@ def ensure_fullscreen(
             if box is None:
 
                 print(
-                    f"{camera_name}: "
+                    f"{label}: "
                     f"video box position not ready. "
                     f"Retrying..."
                 )
@@ -121,7 +122,7 @@ def ensure_fullscreen(
                 )
 
                 print(
-                    f"{camera_name}: "
+                    f"{label}: "
                     f"fullscreen confirmed "
                     f"after {attempt} attempts"
                 )
@@ -131,7 +132,7 @@ def ensure_fullscreen(
             except Exception:
 
                 print(
-                    f"{camera_name}: "
+                    f"{label}: "
                     f"fullscreen attempt "
                     f"{attempt} failed. "
                     f"Retrying..."
@@ -144,7 +145,7 @@ def ensure_fullscreen(
         except Exception as error:
 
             print(
-                f"{camera_name}: "
+                f"{label}: "
                 f"fullscreen attempt error. "
                 f"Retrying..."
             )
@@ -156,28 +157,424 @@ def ensure_fullscreen(
             )
 
 
-def monitor_camera(
-    camera_name,
-    window
-):
+def expand_all_groups( page, label):
 
+    print(
+        f"{label}: "
+        f"expanding sidebar groups..."
+    )
+
+    tree_root = page.locator(
+        '#homeindex-sidebar [role="tree"]'
+    ).first
+
+    try:
+
+        tree_root.wait_for(
+            state="visible",
+            timeout=15000
+        )
+
+    except Exception:
+
+        print(
+            f"{label}: "
+            f"sidebar tree not found, "
+            f"skipping group expansion."
+        )
+
+        return
+
+    max_passes = 10
+
+    for pass_num in range(1, max_passes + 1):
+
+        collapsed_groups = page.locator(
+            '#homeindex-sidebar '
+            'div.el-tree-node[aria-expanded="false"]'
+        ).filter(
+            has=page.locator(
+                'i.el-tree-node__expand-icon:not(.is-leaf)'
+            )
+        )
+
+        count = collapsed_groups.count()
+
+        if count == 0:
+
+            print(
+                f"{label}: "
+                f"all groups expanded "
+                f"(pass {pass_num})."
+            )
+
+            break
+
+        print(
+            f"{label}: "
+            f"expanding {count} group(s) "
+            f"(pass {pass_num})."
+        )
+
+        for i in range(count):
+
+            try:
+
+                expand_icon = collapsed_groups.nth(
+                    i
+                ).locator(
+                    'i.el-tree-node__expand-icon'
+                ).first
+
+                expand_icon.click(
+                    timeout=15000
+                )
+
+                page.wait_for_timeout(400)
+
+            except Exception as error:
+
+                print(
+                    f"{label}: "
+                    f"failed to expand a group "
+                    f"(pass {pass_num}, item {i + 1})"
+                )
+
+                print(error)
+
+        page.wait_for_timeout(500)
+
+    else:
+
+        print(
+            f"{label}: "
+            f"reached max expand passes, "
+            f"continuing anyway."
+        )
+
+    page.wait_for_timeout(500)
+
+    print(
+        f"{label}: "
+        f"finished expanding sidebar groups."
+    )
+
+
+def exit_fullscreen(page, window, label):
+
+    try:
+
+        listener_class = (
+            page.locator("#listener")
+            .get_attribute("class") or ""
+        )
+
+        if "isfullScreen" not in listener_class:
+            return True
+
+        video_box = page.locator(
+            f'#listener '
+            f'div.video-box[data-index="{window}"]'
+        )
+
+        video_box.wait_for(
+            state="visible",
+            timeout=10000
+        )
+
+        box = video_box.bounding_box()
+
+        if box is None:
+
+            print(
+                f"{label}: "
+                f"couldn't locate fullscreen box to exit it."
+            )
+
+            return False
+
+        cx = box["x"] + box["width"] / 2
+        cy = box["y"] + box["height"] / 2
+
+        page.mouse.dblclick(cx, cy)
+
+        page.wait_for_timeout(1000)
+
+        try:
+
+            page.wait_for_function(
+                """
+                () => {
+
+                    const listener =
+                        document.querySelector('#listener');
+
+                    return (
+                        listener &&
+                        !listener.classList.contains(
+                            'isfullScreen'
+                        )
+                    );
+                }
+                """,
+                timeout=5000
+            )
+
+        except Exception:
+
+            print(
+                f"{label}: "
+                f"exit-fullscreen not confirmed, "
+                f"continuing anyway."
+            )
+
+        return True
+
+    except Exception as error:
+
+        print(
+            f"{label}: "
+            f"failed to exit fullscreen"
+        )
+
+        print(error)
+
+        return False
+
+
+def select_layout_9(page,label,screen_button,debug_dir):
+    
+
+    
+    layout_9 = page.locator(
+        'li.el-dropdown-menu__item'
+    ).filter(
+        has=page.locator('p.text:text-is("9")')
+    )
+
+    max_attempts = 10
+
+    for attempt in range(1, max_attempts + 1):
+
+        try:
+
+            screen_button.click(timeout=15000)
+
+            layout_9.wait_for(
+                state="visible",
+                timeout=15000
+            )
+
+            layout_9.click(timeout=15000)
+
+            print(
+                f"{label}: "
+                f"layout 9 selected (attempt {attempt})"
+            )
+
+            return True
+
+        except Exception as error:
+
+            print(
+                f"{label}: "
+                f"layout-9 selection attempt {attempt} "
+                f"failed, retrying..."
+            )
+
+            print(error)
+
+            try:
+
+                os.makedirs(debug_dir, exist_ok=True)
+
+                page.screenshot(
+                    path=os.path.join(
+                        debug_dir,
+                        f"{label}_layout9_attempt{attempt}.png"
+                    )
+                )
+
+                with open(
+                    os.path.join(
+                        debug_dir,
+                        f"{label}_layout9_attempt{attempt}.html"
+                    ),
+                    "w",
+                    encoding="utf-8"
+                ) as f:
+
+                    f.write(page.content())
+
+            except Exception as debug_error:
+
+                print(
+                    f"{label}: "
+                    f"couldn't save debug artifacts"
+                )
+
+                print(debug_error)
+
+            page.wait_for_timeout(2000)
+
+    print(
+        f"{label}: "
+        f"giving up on layout-9 selection after "
+        f"{max_attempts} attempts."
+    )
+
+    return False
+
+
+def capture_camera(page, camera_name, camera_folder, label):
+
+    window = "1"
+
+    try:
+
+        exit_fullscreen(
+            page,
+            window,
+            label
+        )
+
+        video_box = page.locator(
+            f'div.video-box[data-index="{window}"]'
+        )
+
+        video_box.wait_for(
+            state="visible",
+            timeout=15000
+        )
+
+        video_box.click(
+            timeout=10000
+        )
+
+        page.wait_for_timeout(1000)
+
+        camera_node = page.locator(
+            "#homeindex-sidebar "
+            "span.tree_node_name",
+            has_text=camera_name
+        ).first
+
+        try:
+
+            camera_node.wait_for(
+                state="visible",
+                timeout=10000
+            )
+
+        except Exception:
+
+            print(
+                f"{camera_name}: "
+                f"not visible, re-expanding groups..."
+            )
+
+            expand_all_groups(
+                page,
+                label
+            )
+
+            camera_node.wait_for(
+                state="visible",
+                timeout=15000
+            )
+
+        camera_node.click(
+            timeout=10000
+        )
+
+        page.wait_for_timeout(5000)
+
+        os.makedirs(
+            camera_folder,
+            exist_ok=True
+        )
+
+        ensure_fullscreen(
+            page,
+            window,
+            camera_name
+        )
+
+        fs_video_box = page.locator(
+            f'#listener '
+            f'div.video-box[data-index="{window}"]'
+        )
+
+        fs_video_box.wait_for(
+            state="visible",
+            timeout=15000
+        )
+
+        tmp_path = os.path.join(
+            camera_folder,
+            "latest_frame.tmp.png"
+        )
+
+        final_path = os.path.join(
+            camera_folder,
+            "latest_frame.png"
+        )
+
+        fs_video_box.screenshot(
+            path=tmp_path,
+            timeout=10000
+        )
+
+        os.replace(
+            tmp_path,
+            final_path
+        )
+
+        print(
+            f"["
+            f"{datetime.now().strftime('%H:%M:%S')}"
+            f"] "
+            f"{camera_name} updated"
+        )
+
+        return True
+
+    except Exception as error:
+
+        print(
+            f"{camera_name}: "
+            f"capture failed"
+        )
+
+        print(error)
+
+        return False
+
+
+def monitor_site(site_name, site_config):
     p = None
     browser = None
 
     CAMERA_BASE_PATH = "/var/pnayanam/cctv"
-    os.makedirs( CAMERA_BASE_PATH, exist_ok=True)
+    os.makedirs(CAMERA_BASE_PATH,exist_ok=True)
+
+    consecutive_failures = 0
+    MAX_CONSECUTIVE_FAILURES = 5
 
     try:
-        p, browser, page = login()
-        os.makedirs(
-            CAMERA_BASE_PATH,
-            exist_ok=True
+
+        p, browser, page = login(
+            site_config["url"],
+            site_config["email"],
+            site_config["password"],
         )
+
         page.locator(
             "img"
         ).nth(3).click(
             timeout=0
         )
+
         screen_button = page.locator(
             ".screen-btn-box"
         )
@@ -188,357 +585,103 @@ def monitor_camera(
         )
 
         print(
-            f"{camera_name}: "
+            f"{site_name}: "
             f"CCTV page ready"
         )
-        screen_button.click(
-            timeout=0
-        )
 
-        page.wait_for_timeout(
-            1000
-        )
+        page.wait_for_timeout(1000)
 
-        layout_9 = page.get_by_text(
-            "9",
-            exact=True
-        )
-
-        layout_9.wait_for(
-            state="visible",
-            timeout=0
-        )
-
-        layout_9.click(
-            timeout=0
-        )
-
-        page.wait_for_timeout(
-            6000
-        )
-
-        print(
-            f"Loading {camera_name}..."
-        )
-        video_box = page.locator(
-            f'div.video-box[data-index="{window}"]'
-        )
-
-        video_box.wait_for(
-            state="visible",
-            timeout=0
-        )
-
-        video_box.click(
-            timeout=0
-        )
-
-        page.wait_for_timeout(
-            2000
-        )
-        camera_node = page.locator(
-            "#homeindex-sidebar "
-            "span.tree_node_name",
-            has_text=camera_name
-        ).first
-
-        camera_node.wait_for(
-            state="visible",
-            timeout=0
-        )
-
-        camera_node.click(
-            timeout=0
-        )
-        page.wait_for_timeout(
-            6000
-        )
-        safe_camera_name = camera_name
-
-        camera_folder = os.path.join(
-            CAMERA_BASE_PATH,
-
-            
-            safe_camera_name
-        )
-
-        os.makedirs(
-            camera_folder,
-            exist_ok=True
-        )
-
-        print(
-            f"{camera_name} loaded."
-        )
-        ensure_fullscreen(
+        if not select_layout_9(
             page,
-            window,
-            camera_name
-        )
-        video_box = page.locator(
-            f'#listener '
-            f'div.video-box[data-index="{window}"]'
+            site_name,
+            screen_button,
+            os.path.join(CAMERA_BASE_PATH, "_debug")
+        ):
+
+            raise RuntimeError(
+                f"{site_name}: "
+                f"could not select layout 9, restarting session."
+            )
+
+        page.wait_for_timeout(6000)
+
+        expand_all_groups(
+            page,
+            site_name
         )
 
-        video_box.wait_for(
-            state="visible",
-            timeout=0
-        )
-
-        last_camera_refresh = (
-            time.monotonic()
-        )
-
-        REFRESH_INTERVAL = 240
-        tmp_path = os.path.join(
-            camera_folder,
-            "latest_frame.tmp.png"
-        )
-
-        final_path = os.path.join(
-            camera_folder,
-            "latest_frame.png"
-        )
         while True:
-            if (
-                time.monotonic()
-                - last_camera_refresh
-                >= REFRESH_INTERVAL
-            ):
+
+            cameras = get_cameras_by_site().get(
+                site_name,
+                []
+            )
+
+            if not cameras:
 
                 print(
-                    f"Refreshing {camera_name}..."
+                    f"{site_name}: "
+                    f"no cameras configured yet, waiting..."
                 )
 
-                try:
-
-                    camera_node = page.locator(
-                        "#homeindex-sidebar "
-                        "span.tree_node_name",
-                        has_text=camera_name
-                    ).first
-
-                    camera_node.wait_for(
-                        state="visible",
-                        timeout=0
-                    )
-
-                    try:
-
-                        camera_node.click(
-                            force=True,
-                            timeout=5000
-                        )
-
-                        print(
-                            f"{camera_name}: "
-                            f"force click successful"
-                        )
-
-                    except Exception as click_error:
-
-                        print(
-                            f"{camera_name}: "
-                            f"force click failed"
-                        )
-
-                        print(
-                            click_error
-                        )
-                        camera_node.evaluate(
-                            "element => element.click()"
-                        )
-
-                        print(
-                            f"{camera_name}: "
-                            f"JavaScript click successful"
-                        )
-
-                    page.wait_for_timeout(
-                        5000
-                    )
-
-                    ensure_fullscreen(
-                        page,
-                        window,
-                        camera_name
-                    )
-
-                    video_box = page.locator(
-                        f'#listener '
-                        f'div.video-box'
-                        f'[data-index="{window}"]'
-                    )
-
-                    video_box.wait_for(
-                        state="visible",
-                        timeout=0
-                    )
-
-                    print(
-                        f"{camera_name} "
-                        f"refreshed successfully"
-                    )
-
-                except Exception as refresh_error:
-
-                    print(
-                        f"{camera_name}: "
-                        f"refresh failed"
-                    )
-
-                    print(
-                        refresh_error
-                    )
-
-                    print(
-                        f"{camera_name}: "
-                        f"process will continue running"
-                    )
-
-                finally:
-
-                    last_camera_refresh = (
-                        time.monotonic()
-                    )
-            try:
-
-                listener_class = (
-                    page.locator("#listener")
-                    .get_attribute("class") or ""
-                )
-
-            except Exception as listener_error:
-
-                print(
-                    f"{camera_name}: "
-                    f"could not check fullscreen state"
-                )
-
-                print(
-                    listener_error
-                )
-
-                page.wait_for_timeout(
-                    2000
-                )
+                time.sleep(5)
 
                 continue
-            if (
-                "isfullScreen"
-                not in listener_class
-            ):
 
-                print(
-                    f"{camera_name}: "
-                    f"fullscreen lost before screenshot"
-                )
+            for camera_name in cameras:
 
-                ensure_fullscreen(
-                    page,
-                    window,
+                camera_folder = os.path.join(
+                    CAMERA_BASE_PATH,
                     camera_name
                 )
 
-                video_box = page.locator(
-                    f'#listener '
-                    f'div.video-box'
-                    f'[data-index="{window}"]'
+                success = capture_camera(
+                    page,
+                    camera_name,
+                    camera_folder,
+                    site_name
                 )
 
-                video_box.wait_for(
-                    state="visible",
-                    timeout=0
-                )
+                if success:
 
-                print(
-                    f"{camera_name}: "
-                    f"fullscreen restored"
-                )
-            try:
+                    consecutive_failures = 0
 
-                video_box.screenshot(
-                    path=tmp_path,
-                    timeout=10000
-                )
+                else:
 
-                os.replace(
-                    tmp_path,
-                    final_path
-                )
+                    consecutive_failures += 1
 
-                print(
-                    f"["
-                    f"{datetime.now().strftime('%H:%M:%S')}"
-                    f"] "
-                    f"{camera_name} updated"
-                )
+                    if (
+                        consecutive_failures
+                        >= MAX_CONSECUTIVE_FAILURES
+                    ):
 
-            except Exception as screenshot_error:
-
-                print(
-                    f"{camera_name}: "
-                    f"screenshot failed"
-                )
-
-                print(
-                    screenshot_error
-                )
-
-                if os.path.exists(
-                    tmp_path
-                ):
-
-                    try:
-
-                        os.remove(
-                            tmp_path
+                        raise RuntimeError(
+                            f"{site_name}: "
+                            f"{consecutive_failures} consecutive "
+                            f"camera captures failed, restarting "
+                            f"browser session."
                         )
 
-                    except Exception:
+                
+                page.wait_for_timeout(500)
 
-                        pass
-
-                video_box = page.locator(
-                    f'#listener '
-                    f'div.video-box'
-                    f'[data-index="{window}"]'
-                )
-            page.wait_for_timeout(
-                125
-            )
     except KeyboardInterrupt:
 
         print(
-            f"{camera_name} "
+            f"{site_name}: "
             f"stopped by keyboard interrupt."
         )
+
     except Exception as process_error:
 
         print(
-            f"{camera_name}: "
+            f"{site_name}: "
             f"unexpected error"
         )
 
-        print(
-            process_error
-        )
+        print(process_error)
+
     finally:
-        try:
-
-            if (
-                'tmp_path' in locals()
-
-
-            ):
-
-                os.remove(
-                    tmp_path
-                )
-
-        except Exception:
-
-            pass
 
         if browser is not None:
 
@@ -561,6 +704,6 @@ def monitor_camera(
                 pass
 
         print(
-            f"{camera_name}: "
+            f"{site_name}: "
             f"browser and Playwright closed."
         )
