@@ -2,9 +2,6 @@ import time
 import requests
 import configparser
 from pnayanam.logger import Logger
-from importlib.resources import files
-
-
 import os
 
 config_path = os.path.join(
@@ -15,13 +12,12 @@ config_path = os.path.join(
 config = configparser.ConfigParser()
 config.read(config_path)
 
-BOT_TOKEN = config.get("bot_token", "token")
-
+BOT_TOKEN = config.get("bot_token", "token", fallback="")
 telegram_url = f"https://api.telegram.org/bot{BOT_TOKEN}/getUpdates"
 
 last_update_id = 0
-
 logger = Logger("collect_subscribers")
+
 
 def load_existing_subscribers():
     config = configparser.ConfigParser()
@@ -48,31 +44,29 @@ def print_subscribers(subscriber_map):
             logger.info(f"Chat ID: {chat_id} | Owner: {owner}")
 
 
-def subscriber_monitor():
-    # logger.info existing subscribers at startup
-    existing = load_existing_subscribers()
-    logger.info(f"Existing subscribers: {existing}")
-
-    while True:
-        try:
-            update_subscribers()
-        except Exception as e:
-            logger.info(f"Error: {e}")
-        time.sleep(5)
-
-
 def update_subscribers():
     global last_update_id
 
-    response = requests.get(
-        telegram_url,
-        params={"offset": last_update_id + 1, "timeout": 10}
-    )
+    if not BOT_TOKEN:
+        return
 
-    data = response.json()
+    try:
+        response = requests.get(
+            telegram_url,
+            params={"offset": last_update_id + 1, "timeout": 10}
+        )
+        data = response.json()
+    except Exception as e:
+        logger.warning(f"Telegram connection error: {e}")
+        return
 
     if not data.get("ok"):
-        logger.info(f"Telegram API error:{data}")
+        # Suppress conflict log spam
+        if data.get("error_code") == 409:
+            logger.warning("Telegram conflict 409: Another bot instance is active. Sleeping...")
+            time.sleep(10)
+        else:
+            logger.info(f"Telegram API error: {data}")
         return
 
     config = configparser.ConfigParser()
@@ -105,7 +99,17 @@ def update_subscribers():
     with open(config_path, "w") as configfile:
         config.write(configfile)
 
-    logger.info(f"Updated subscribers: {subscriber_map}")
+
+def subscriber_monitor():
+    existing = load_existing_subscribers()
+    logger.info(f"Existing subscribers: {existing}")
+
+    while True:
+        try:
+            update_subscribers()
+        except Exception as e:
+            logger.info(f"Error in subscriber monitor: {e}")
+        time.sleep(10)
 
 
 if __name__ == "__main__":

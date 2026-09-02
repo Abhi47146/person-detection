@@ -119,17 +119,6 @@ class Requirements:
                                     device=directory, desc=f"Failed to create directory: {e}")
             raise
     
-    def clean_text(self, text):
-        if not isinstance(text, str):
-            self.logger.warning(f"Non-string input to clean_text: {text} ({type(text)})")
-            if self.send_to_grafana == 1:
-                self.send_grafana_alert(scn="requirements", alert_type="data_mismatch", severity="medium",
-                                    desc=f"Non-string input to clean_text: {type(text)}")
-            return ""
-        # reg_num = re.sub(r'[^a-zA-Z0-9↑]', '', text)
-        reg_num = re.sub(r'[^a-zA-Z0-9↑]', '', text)
-        reg_num = str(reg_num).strip()
-        return reg_num.upper()
     
     def reconnect_to_camera(self, source_path, logger):
         retry_count = 0
@@ -159,49 +148,6 @@ class Requirements:
                                 device=source_path, desc="Max retries reached for camera reconnection")
         raise Exception(f"Failed to reconnect to camera {source_path} after {max_retries} attempts")
 
-    def is_similar_plate(self, plate1: str, plate2: str, threshold: float = 0.8) -> bool:
-        if not isinstance(plate1, str) or not isinstance(plate2, str):
-            self.logger.warning(f"Non-string plate input to is_similar_plate: plate1={plate1} ({type(plate1)}), plate2={plate2} ({type(plate2)})")
-            if self.send_to_grafana == 1:
-                self.send_grafana_alert(scn="requirements", alert_type="data_mismatch", severity="medium",
-                                    desc="Non-string plate input to is_similar_plate")
-            return False
-        plate1 = str(plate1)
-        plate2 = str(plate2)
-        similarity = SequenceMatcher(None, plate1, plate2).ratio()
-        return similarity >= threshold
-
-    def process_detections(self, frame: np.ndarray, detections: sv.Detections, index: int) -> np.ndarray:
-        if index < len(detections.xyxy):
-            x1, y1, x2, y2 = map(int, detections.xyxy[index])
-            h, w, _ = frame.shape
-            x1, y1, x2, y2 = max(0, x1), max(0, y1), min(w, x2), min(h, y2)
-            cropped_plate = frame[y1:y2, x1:x2]
-            if cropped_plate.size > 0:
-                return cropped_plate
-            self.logger.warning("Invalid cropped plate region")
-            if self.send_to_grafana == 1:
-                self.send_grafana_alert(scn="requirements", alert_type="data_mismatch", severity="medium",
-                                    desc="Invalid cropped plate region")
-        return None
-
-    # def encode_image(self, plate_img_path):
-    #     # Check if file exists
-    #     if not os.path.exists(plate_img_path):
-    #         self.logger.info(f"[DEBUG] File does not exist: {plate_img_path}")
-    #         return None
-
-    #     # Read the image
-    #     img = cv2.imread(plate_img_path)
-    #     if img is None:
-    #         self.logger.info(f"[DEBUG] Failed to load image: {plate_img_path}")
-    #         return None
-
-    #     # Encode image to PNG bytes
-    #     _, buffer = cv2.imencode(".png", img)
-    #     img_b64 = base64.b64encode(buffer).decode("utf-8")
-
-    #     return img_b64
 
     def encode_image(self, image):
         if isinstance(image, str):
@@ -220,285 +166,6 @@ class Requirements:
             return base64.b64encode(buffer).decode("utf-8")
 
         return ""
-
-    def is_crossing_line(self, bbox, line_start, line_end):
-        x1, y1, x2, y2 = bbox
-        bbox_center_y = (y1 + y2) // 2
-        res = bbox_center_y > line_start # for ORR. CEPL
-        # res = bbox_center_y < line_start # for MLFF
-        return res
-
-    def log_entry_once(self, log_file: str, timestamp: str, anpr_camera_scn: str, 
-                   lane_num: int, reg_num: str, tis_enabled, tracker_id, encoded_img, debug,
-                   vehicle_image_path, plate_image_path):  # use this tracker_id for storing unique logs
-        
-        try:
-            log_file = os.path.abspath(os.path.join(self.base_dir, log_file)) if log_file.startswith('i-phalakam/') else log_file
-            self.ensure_directory_exists(os.path.dirname(log_file))
-        except Exception as e:
-            if self.send_to_grafana == 1:
-                self.send_grafana_alert(scn=anpr_camera_scn, alert_type="data_mismatch", severity="high",
-                                    device=log_file, desc=f"Failed to create log directory: {e}")
-            raise
-
-        # Check if the vehicle is already logged
-        if reg_num in self.logged_vehicles:
-            return  # Skip logging if the vehicle is already logged
-
-        # If the log file does not exist, create it with a header
-        if not os.path.exists(log_file):
-            try:
-                with open(log_file, "w") as log_file_handle:
-                    log_file_handle.write(
-                        # "record_scn,tracker_id,timestamp,anpr_camera_scn,lane_num,reg_num\n"
-                        "record_scn,timestamp,anpr_camera_scn,lane_num,reg_num\n"
-                    )
-                if debug:
-                    self.logger.warning(f"Log file created: {log_file}")
-                record_scn = 1
-            except Exception as e:
-                self.logger.error(f"Error creating log file {log_file}: {e}")
-                raise
-        else:
-            # Read the last record_scn from the file
-            try:
-                with open(log_file, "r") as f:
-                    lines = f.readlines()
-                    if len(lines) <= 1:
-                        record_scn = 1
-                    else:
-                        last_line = lines[-1]
-                        last_record_scn = last_line.split(",")[0]
-                        last_record_scn = last_line.split(",")[1]
-                        try:
-                            record_scn = int(last_record_scn) + 1
-                        except ValueError:
-                            record_scn = 1
-            except Exception as e:
-                self.logger.error(f"Error reading log file for record_scn: {e}")
-
-        # Write the entry to the log file
-        try:
-            with open(log_file, "a") as log_file_handle:
-                # STORE IN LOG FILE
-                log_file_handle.write(
-                    # f"{record_scn},{tracker_id},{timestamp},{anpr_camera_scn},{lane_num},{reg_num}\n"
-                    f"{record_scn},{timestamp},{anpr_camera_scn},{lane_num},{reg_num}\n"
-                )
-        except Exception as e:
-            self.logger.error(f"Error writing to log file {log_file}: {e}")
-            raise
-
-        self.logged_vehicles.add(reg_num)
-
-        if debug:
-            # self.logger.warning(f"Logged entry: {record_scn}, {tracker_id}, {timestamp}, {anpr_camera_scn}, {lane_num}, {reg_num}, {encoded_img}")
-            self.logger.warning(f"Logged entry: {record_scn}, {tracker_id}, {timestamp}, {anpr_camera_scn}, {lane_num}, {reg_num}")
-
-    def send_to_gui(self, payload):
-        try:
-            response = requests.post(
-                f"http://{self.gui_ip}:8000/api/alerts",
-                json=payload,
-                timeout=(5, 20)
-            )
-            response.raise_for_status()
-            if self.debug:
-                # self.logger.info(f"GUI data sent successfully to: {self.gui_ip} with PAYLOAD: {payload}")
-                self.logger.info(f"GUI data sent successfully to: {self.gui_ip} with PAYLOAD: ")
-            if response.status_code == 200:
-                self.logger.info("Sent live data to GUI")
-        except Exception as e:
-            # self.logger.error(f"ERROR SENDING PAYLOAD TO GUI..! {payload}: {e}")
-            self.logger.error(f"ERROR SENDING PAYLOAD TO GUI..!: {e}")
-
-    def update_camera_status_api(self, scn, status):
-        """Updates camera status by camera_scn via PATCH endpoint."""
-        try:
-            url = f"http://{self.gui_ip}:8000/api/cameras/status/{scn}"
-            payload = {"status": status}
-            response = requests.patch(url, json=payload, timeout=3)
-
-            if response.status_code == 200:
-                self.logger.info(f"[{scn}] Camera status successfully updated to '{status}'.")
-            else:
-                self.logger.warning(
-                    f"[{scn}] Failed status update. Code: {response.status_code}, Response: {response.text}"
-                )
-        except Exception as e:
-            self.logger.error(f"[{scn}] Exception occurred while updating status: {e}")
-
-    def send_to_tis(self, data, tis_ip, tis_port):
-        for _ in range(5):
-            try:
-                if self.client is None:
-                    self.client = socket.create_connection((tis_ip, tis_port), timeout=5)
-
-                self.logger.info(f"About to Send data to TIS:{data}")
-
-                self.client.sendall((json.dumps(data) + '\n').encode("utf-8"))
-                self.logger.info(f"Sent to TIS: {data}")
-                return
-
-            except Exception as e:
-                self.logger.error(f"TIS error: {e}")
-                try:
-                    if self.client:
-                        self.client.close()
-                except Exception as e:
-                    pass
-
-                self.client = None
-                time.sleep(self.retry_interval)
-
-        self.logger.error("TIS send failed after retries")
-
-    def extract_plate_region(self, frame, bbox):
-        """Safely extract number plate crop"""
-        try:
-            if frame is None or frame.size == 0:
-                return None
-            h, w = frame.shape[:2]
-            x1, y1, x2, y2 = bbox
-            x1 = max(0, int(x1))
-            y1 = max(0, int(y1))
-            x2 = min(w, int(x2))
-            y2 = min(h, int(y2))
-            # Critical validation
-            if x2 <= x1 or y2 <= y1:
-                self.logger.warning(f"Invalid bbox: {bbox}")
-                return None
-            plate_region = frame[y1:y2, x1:x2]
-            if plate_region is None or plate_region.size == 0:
-                self.logger.warning("Empty plate region extracted")
-                return None
-            return plate_region
-        except Exception as e:
-            self.logger.error(f"Error extracting plate region: {e}")
-            return None
-
-    def pole_plate_intersection(self, bounding_box, pole_polygon, debug):
-        try:
-            plate_box = box(*bounding_box)
-            intersects = plate_box.intersects(Polygon(pole_polygon))
-            if intersects:
-                if self.send_to_grafana == 1:
-                    self.send_grafana_alert(scn="requirements", alert_type="data_mismatch", severity="medium",
-                                        desc="Plate obstructed by pole")
-            # if debug:
-            #     self.logger.info(f"Bounding box: {bounding_box}, Pole polygon: {pole_polygon}, Intersects: {intersects}")
-            return intersects
-        except Exception as e:
-            self.logger.error(f"Error checking pole-plate intersection: {e}")
-            if self.send_to_grafana == 1:
-                self.send_grafana_alert(scn="requirements", alert_type="data_mismatch", severity="medium",
-                                    desc=f"Error checking pole-plate intersection: {e}")
-            return False
-        
-    def draw_imaginary_line(self, frame, line_start, line_end):
-        try:
-            cv2.line(frame, line_start, line_end, self.line_color, self.thickness)
-        except Exception as e:
-            self.logger.error(f"Error drawing imaginary line: {e}")
-            if self.send_to_grafana == 1:
-                self.send_grafana_alert(scn="requirements", alert_type="data_mismatch", severity="medium",
-                                    desc=f"Error drawing imaginary line: {e}")
-
-    def draw_imaginary_pole(self, frame, pole_polygon):
-        try:
-            pts = np.array(pole_polygon, np.int32).reshape((-1, 1, 2))
-            cv2.polylines(frame, [pts], isClosed=True, color=self.line_color, thickness=self.thickness)
-        except Exception as e:
-            self.logger.error(f"Error drawing imaginary pole: {e}")
-            if self.send_to_grafana == 1:
-                self.send_grafana_alert(scn="requirements", alert_type="data_mismatch", severity="medium",
-                                    desc=f"Error drawing imaginary pole: {e}")
-
-    # DISPLAYING PLATE TEXT FOR VIDEO PROCESSING
-    def displaying_plate(self, best_plate, best_conf, thresh_conf, bounding_box, pole_polygon, 
-                         debug, frame, tracker_id):
-        try:
-            if best_plate and best_conf >= thresh_conf and not self.pole_plate_intersection(bounding_box, pole_polygon, debug):
-                if len(best_plate) <= 10:
-                    plate_to_display = best_plate 
-                else:
-                    plate_to_display = best_plate[:10]
-
-                text = f"#{tracker_id}: {plate_to_display}, {best_conf:.2f}"
-
-                (text_width, text_height), baseline = cv2.getTextSize(text, self.font, self.font_scale, self.font_thickness)
-
-                text_x = int(bounding_box[0])
-                text_y = int(bounding_box[1]) - 10
-
-                cv2.rectangle(
-                    frame,
-                    (text_x, text_y - text_height - baseline),
-                    (text_x + text_width, text_y + baseline),
-                    self.bg_color,  
-                    # cv2.FILLED
-                    -1
-                )
-                cv2.putText(
-                    frame,
-                    text,
-                    (text_x, text_y),
-                    self.font,
-                    self.font_scale,
-                    self.text_color,  
-                    self.font_thickness
-                )
-        except Exception as e:
-            self.logger.error(f"Error displaying plate: {e}")
-
-    # DISPLAYING VEHICLE BBOX WITH TRACKERID..!
-    def displaying_vehicle(self, class_name, bounding_box, frame, tracker_id):
-        try:
-            if class_name != "Vehicle":
-                return
-
-            text = f"#{tracker_id}: {class_name}"
-
-            # get text size
-            (text_width, text_height), baseline = cv2.getTextSize(
-                text,
-                self.font,
-                self.font_scale,
-                self.font_thickness
-            )
-
-            x1, y1, x2, y2 = bounding_box
-
-            # top-right inside bbox
-            text_x = int(x2 - text_width - 5)
-            text_y = int(y1 + text_height + 5)
-
-            # prevent overflow
-            if text_x < 0:
-                text_x = 0
-
-            # background rectangle
-            cv2.rectangle(
-                frame,
-                (text_x, text_y - text_height - baseline),
-                (text_x + text_width, text_y + baseline),
-                self.bg_color,
-                -1
-            )
-
-            # put text
-            cv2.putText(
-                frame,
-                text,
-                (text_x, text_y),
-                self.font,
-                self.font_scale,
-                self.text_color,
-                self.font_thickness
-            )
-
-        except Exception as e:
-            self.logger.error(f"Error displaying vehicle tracker: {e}")
 
     def cleanup_old_images(self, image_storage_dir: str, retention_hours: int):
         try:
@@ -527,6 +194,41 @@ class Requirements:
             if self.send_to_grafana == 1:
                 self.send_grafana_alert(scn="requirements", alert_type="data_mismatch", severity="high",
                                     device=image_storage_dir, desc=f"Error cleaning up old images: {e}")
+
+    def send_to_gui(self, payload):
+        try:
+            if "site_name" not in payload or not payload["site_name"]:
+                payload["site_name"] = "N/A"
+
+            url = f"http://{self.gui_ip}:{self.gui_port}/api/alerts"
+            response = requests.post(
+                url,
+                json=payload,
+                timeout=(5, 20)
+            )
+            response.raise_for_status()
+            if response.status_code in (200, 201):
+                self.logger.info(f"Live alert successfully dispatched to GUI at {self.gui_ip}")
+        except requests.exceptions.HTTPError as e:
+            self.logger.error(f"HTTP Error sending payload to GUI: {e} | Response: {e.response.text}")
+        except Exception as e:
+            self.logger.error(f"ERROR SENDING PAYLOAD TO GUI: {e}")
+
+    def update_camera_status_api(self, scn, status):
+        """Updates camera status by camera_scn via PATCH endpoint."""
+        try:
+            url = f"http://{self.gui_ip}:8000/api/cameras/status/{scn}"
+            payload = {"status": status}
+            response = requests.patch(url, json=payload, timeout=3)
+
+            if response.status_code == 200:
+                self.logger.info(f"[{scn}] Camera status successfully updated to '{status}'.")
+            else:
+                self.logger.warning(
+                    f"[{scn}] Failed status update. Code: {response.status_code}, Response: {response.text}"
+                )
+        except Exception as e:
+            self.logger.error(f"[{scn}] Exception occurred while updating status: {e}")
 
     def save_images(self, frame: np.ndarray, image_storage_dir: str, scn: str, bbox):
         """Save full frame and cropped person image"""
@@ -568,110 +270,7 @@ class Requirements:
                 )
             return None
 
-    def send_grafana_alert(self, scn: str, alert_type: str, severity: str = "low", device: str = "", desc: str = "", req_payload: dict = None):
-        if not self.send_to_grafana:
-            self.logger.info(f"Grafana alerting disabled, skipping alert: type={alert_type}, scn={scn}")
-            return None
-        self.logger.info(f"Sending Grafana alert: type={alert_type}, scn={scn}, severity={severity}")
-        
-        try:
-            status_code = self.grafana.send_alert(scn, alert_type, severity, device, desc, req_payload)
-            return status_code
-        except HTTPException as e:
-            self.logger.error(f"Failed to send Grafana alert: {e.detail}")
-            raise
-        except Exception as e:
-            self.logger.error(f"Unexpected error sending Grafana alert: {e}")
-            raise HTTPException(status_code=500, detail=f"Unexpected error: {e}")
 
-    def similarity_score(self, str1, str2):
-        score = SequenceMatcher(None, str1, str2).ratio()
-        return score
-
-    def find_best_match(self, detected_text):
-        if not self.candidates or not detected_text:
-            return None, 0.0
-
-        detected_text = detected_text.strip().upper()
-        detected_last4 = detected_text[-4:]
-        best_match = None
-        highest_score = 0.0
-
-        # First-level: match last 4 characters
-        last4_matches = [
-            candidate for candidate in self.candidates
-            if candidate[-4:] == detected_last4
-        ]
-
-        # Case 1: Exactly one match
-        if len(last4_matches) == 1:
-            return last4_matches[0], 1.0
-
-        # Case 2: Multiple last-4 matches — use similarity
-        if last4_matches:
-            for candidate in last4_matches:
-                score = self.similarity_score(detected_text, candidate)
-                if score > highest_score:
-                    highest_score = score
-                    best_match = candidate
-            return best_match, highest_score
-
-        # Case 3: No last-4 match — full DB similarity search
-        for candidate in self.candidates:
-            score = self.similarity_score(detected_text, candidate)
-            if score > highest_score:
-                highest_score = score
-                best_match = candidate
-
-        return best_match
-
-    def is_inside(self, vehicle_bbox, plate_bbox):
-            """Check if plate_bbox is inside vehicle_bbox."""
-            vx1, vy1, vx2, vy2 = vehicle_bbox
-            px1, py1, px2, py2 = plate_bbox
-            return px1 >= vx1 and py1 >= vy1 and px2 <= vx2 and py2 <= vy2
-
-    def associate_plates_to_vehicles(self, detections):
-        """Associate number plates to vehicles based on bounding box inclusion."""
-        associations = {}  # vehicle_id -> plate_bbox
-        vehicle_bboxes = []
-        plate_bboxes = []
-
-        for i in range(len(detections.xyxy)):
-            bbox = detections.xyxy[i].tolist()
-            track_id = detections.tracker_id[i] if detections.tracker_id is not None and len(detections.tracker_id) > 0 else None
-            conf = detections.confidence[i] if detections.confidence is not None and len(detections.confidence) > 0 else 0.0
-            class_name = detections.data['class_name'][i] if detections.data and 'class_name' in detections.data else None
-
-            if class_name == 'Vehicle':
-                vehicle_bboxes.append(bbox + [track_id, conf])
-            elif class_name == 'Number Plate':
-                plate_bboxes.append(bbox + [track_id, conf])
-
-        for v_bbox in vehicle_bboxes:
-            for p_bbox in plate_bboxes:
-                if self.is_inside(v_bbox[:4], p_bbox[:4]):
-                    associations[v_bbox[4]] = p_bbox
-                    plate_bboxes.remove(p_bbox)
-                    break
-
-        return associations
-
-    def clear_past_entrie(self, rows=30):
-        conn = sqlite3.connect(self.DB_PATH)
-        cursor = conn.cursor()
-
-        cursor.execute(f"""
-            DELETE FROM vehicle_logs
-            WHERE id NOT IN (
-                SELECT id FROM vehicle_logs
-                ORDER BY id DESC
-                LIMIT {rows}
-            )
-        """)
-
-        conn.commit()
-        conn.close()
 
     # PNAYANAM ALERTS
 
@@ -774,51 +373,63 @@ class Requirements:
 
     #     return subscribers
     #     # return [1980972331,8666481737]
-    def get_subscribers(self, target_site_id=None):
-        """Fetches primary subscriber phone numbers from the API.
-
-        If target_site_id is provided, returns the primary recipient for that specific
-        site. Otherwise, returns all primary recipients across all sites.
+    def get_subscribers(self, target_site_name=None, target_site_id=None):
         """
-        api_url = f"http://{self.gui_ip}:8000/api/site-recipients"
-        subscribers = []
+        Fetches primary subscriber phone numbers from the API.
+        Filters strictly by site name or site ID if provided.
+        """
+        recipients_url = f"http://{self.gui_ip}:{self.gui_port}/api/site-recipients"
+        sites_url = f"http://{self.gui_ip}:{self.gui_port}/api/sites/active"
+        subscribers = set()
 
         try:
-            response = requests.get(api_url, timeout=5)
+            # 1. Resolve site_id if target_site_name is provided
+            resolved_site_id = target_site_id
+
+            if target_site_name and not resolved_site_id:
+                try:
+                    s_resp = requests.get(sites_url, timeout=3)
+                    if s_resp.status_code == 200:
+                        sites_data = s_resp.json()
+                        target_clean = str(target_site_name).strip().strip('"').lower()
+                        for s in sites_data:
+                            if str(s.get("name", "")).strip().lower() == target_clean:
+                                resolved_site_id = s.get("id")
+                                break
+                except Exception as e:
+                    self.logger.warning(f"Could not resolve site_id for site name '{target_site_name}': {e}")
+
+            # 2. Fetch recipients and filter by primary status & resolved site_id
+            response = requests.get(recipients_url, timeout=5)
             response.raise_for_status()
-            data = response.json()
+            recipients = response.json()
 
-            for item in data:
-                # Check if user is a primary recipient
-                if item.get("is_primary"):
-                    # If target_site_id is specified, filter by site_id as well
-                    if (
-                        target_site_id is None
-                        or item.get("site_id") == target_site_id
-                    ):
-                        phone = item.get("phone")
-                        if phone:
-                            # Prepend country code if missing
-                            formatted_phone = (
-                                phone if phone.startswith("+") else f"+91{phone}"
-                            )
-                            subscribers.append(formatted_phone)
+            for item in recipients:
+                if not item.get("is_primary"):
+                    continue
 
+                # Filter by site_id if resolved
+                if resolved_site_id and item.get("site_id") != resolved_site_id:
+                    continue
+
+                phone = item.get("phone")
+                if phone:
+                    formatted_phone = phone if phone.startswith("+") else f"+91{phone}"
+                    subscribers.add(formatted_phone)
+
+            sub_list = list(subscribers)
             self.logger.info(
-                f"Loaded dynamic primary subscribers for site '{target_site_id}': {subscribers}"
+                f"Loaded dynamic primary subscribers for site '{target_site_name or resolved_site_id}': {sub_list}"
             )
+            return sub_list
 
-        except requests.RequestException as e:
-            self.logger.error(
-                f"Failed to fetch subscribers from API: {e}. Falling back to config."
-            )
-            # Fallback to config file in case API is down
-            subscribers = [
+        except Exception as e:
+            self.logger.error(f"Failed to fetch dynamic subscribers from API: {e}. Falling back to config file.")
+            
+            # Fallback to config file
+            fallback_subs = [
                 chat_id.strip()
-                for chat_id in self.config_in.get(
-                    "subscribers", "chat_ids", fallback=""
-                ).split(",")
+                for chat_id in self.config_in.get("subscribers", "chat_ids", fallback="").split(",")
                 if chat_id.strip()
             ]
-
-        return subscribers
+            return list(set(fallback_subs))

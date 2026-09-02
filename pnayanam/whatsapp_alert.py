@@ -10,7 +10,7 @@ from pnayanam.pnayanam_utils import Requirements
 
 requirements = Requirements()
 
-CONFIG_FILE = os.path.join(os.path.dirname(__file__),"resources","config.ini")
+CONFIG_FILE = os.path.join(os.path.dirname(__file__), "resources", "config.ini")
 config = configparser.ConfigParser()
 config.read(CONFIG_FILE)
 
@@ -27,7 +27,7 @@ SEND_FILE_URL = f"{API_URL}/waInstance{ID_INSTANCE}/sendFileByUpload/{API_TOKEN_
 def _to_chat_id(number):
     """Accepts '+91XXXXXXXXXX' or '91XXXXXXXXXX' and returns
     Green API's chatId format '91XXXXXXXXXX@c.us'."""
-    number = number.strip().lstrip("+")
+    number = str(number).strip().lstrip("+")
     return number if number.endswith("@c.us") else f"{number}@c.us"
 
 
@@ -46,7 +46,6 @@ def send_image_to_user(chat_id, image_bytes, caption):
             timeout=20
         )
         logger.info(f"Chat ID: {to_chat_id} | Status: {response.status_code} | Response: {response.text}")
-
     except Exception:
         logger.exception(f"Failed for {to_chat_id}")
 
@@ -63,19 +62,21 @@ def send_text_to_user(chat_id, caption):
             timeout=10
         )
         logger.info(f"Alert sent to {to_chat_id}: {response.status_code} | {response.text}")
-
     except Exception as e:
         logger.info(f"Failed for {to_chat_id}: {e}")
 
 
 def send_person_alert(image, person_count, scn, camera_name, site):
-    subscribers = requirements.get_subscribers()
+    # Fetch subscribers strictly for the target site
+    subscribers = requirements.get_subscribers(target_site_name=site)
+    
     if not subscribers:
-        return
+        logger.warning(f"[{scn}] No primary subscribers registered for site '{site}'. Alert skipped.")
+        return None
 
     caption = (
         f"HUMAN DETECTION ALERT!\n\n"
-        f"Total persons detceted: {person_count}\n"
+        f"Total persons detected: {person_count}\n"
         f"Time : {datetime.now().strftime('%d-%m-%Y %H:%M:%S')}\n\n"
         f"Camera SCN: {scn}\n"
         f"Camera Name: {camera_name}\n"
@@ -84,11 +85,12 @@ def send_person_alert(image, person_count, scn, camera_name, site):
 
     success, buffer = cv2.imencode(".jpg", image)
     if not success:
-        return
+        return None
 
     image_bytes = buffer.tobytes()
-    logger.info(f"The subscribers are: {subscribers}")
-    with ThreadPoolExecutor(max_workers=len(subscribers)) as executor:
+    logger.info(f"[{scn}] Dispatching alert for site '{site}' to recipients: {subscribers}")
+    
+    with ThreadPoolExecutor(max_workers=max(1, len(subscribers))) as executor:
         for chat_id in subscribers:
             executor.submit(
                 send_image_to_user,
@@ -99,54 +101,15 @@ def send_person_alert(image, person_count, scn, camera_name, site):
     return caption
 
 
-def send_text_alert(caption):
-    subscribers = requirements.get_subscribers()
-
+def send_text_alert(caption, site=None):
+    subscribers = requirements.get_subscribers(target_site_name=site)
     if not subscribers:
         return
 
-    with ThreadPoolExecutor(max_workers=len(subscribers)) as executor:
+    with ThreadPoolExecutor(max_workers=max(1, len(subscribers))) as executor:
         for chat_id in subscribers:
             executor.submit(
                 send_text_to_user,
                 chat_id,
                 caption
             )
-
-def send_person_count_alert(person_count):
-    caption = (
-        f"PERSON OCCUPANCY ALERT\n\n"
-        f"Number Of Persons : {person_count}\n"
-        f"Time : {datetime.now().strftime('%d-%m-%Y %H:%M:%S')}"
-    )
-    send_text_alert(caption)
-
-
-def send_camera_disconnect_alert():
-    caption = (
-        f"CAMERA OFFLINE/DISCONNECTION ALERT\n\n"
-        f"Camera Connection Lost\n"
-        f"Possible reasons: camera offline, cable issue, or network interruption.\n"
-        f"Time : {datetime.now().strftime('%d-%m-%Y %H:%M:%S')}"
-    )
-    send_text_alert(caption)
-
-
-def send_invalid_frame_alert():
-    caption = (
-        f"INVALID/EMPTY FRAMES ALERT\n\n"
-        f"Camera stream is active, but the frame could not be read properly.\n"
-        f"Possible reasons: decoder issue, corrupted frame, or temporary stream glitch.\n"
-        f"Time : {datetime.now().strftime('%d-%m-%Y %H:%M:%S')}"
-    )
-    send_text_alert(caption)
-
-
-def send_camera_obstruction_alert():
-    caption = (
-        f"CAMERA OBSTRUCTION ALERT\n\n"
-        f"Camera view appears blocked, blurred, or covered.\n"
-        f"Possible tampering or obstruction detected.\n"
-        f"Time : {datetime.now().strftime('%d-%m-%Y %H:%M:%S')}"
-    )
-    send_text_alert(caption)
