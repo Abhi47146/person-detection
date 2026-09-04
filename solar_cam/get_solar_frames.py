@@ -1,61 +1,66 @@
-from multiprocessing import Process
 import threading
 import time
-
-from solar_cam.config import get_sites
-from solar_cam.monitor_camera import monitor_site
+from solar_cam.config import get_sites, get_active_solar_cameras_by_site
+from solar_cam.monitor_camera import site_status_monitor, single_camera_capture_worker
 
 
 def site_collection_manager():
-
-    running_processes = {}
+    """
+    Main manager loop:
+    1. Spawns 1 status monitor thread per configured site (runs continuously to report online/offline).
+    2. Spawns dedicated capture worker threads for cameras whose is_process=True and falls in current time schedule.
+    """
+    status_threads = {}
+    capture_threads = {}
+    CAMERA_BASE_PATH = "/var/pnayanam/cctv"
 
     while True:
-
         sites = get_sites()
 
-        # Start newly added sites
+        # 1. Manage site status monitors (1 per site)
         for site_name, site_config in sites.items():
-
-            if (
-                site_name not in running_processes
-                or not running_processes[site_name].is_alive()
-            ):
-
-                p = Process(
-                    target=monitor_site,
+            if site_name not in status_threads or not status_threads[site_name].is_alive():
+                t = threading.Thread(
+                    target=site_status_monitor,
                     args=(site_name, site_config),
                     daemon=True,
+                    name=f"StatusMonitor-{site_name}"
                 )
+                t.start()
+                status_threads[site_name] = t
 
-                p.start()
-                running_processes[site_name] = p
-                time.sleep(5)
+        # 2. Manage scheduled capture workers
+        active_cameras_by_site = get_active_solar_cameras_by_site()
 
-        # Stop removed sites
-        for site_name in list(running_processes.keys()):
-
+        for site_name, active_cams in active_cameras_by_site.items():
             if site_name not in sites:
+                continue
 
-                running_processes[site_name].terminate()
-                running_processes[site_name].join()
+            site_config = sites[site_name]
+            site_config["site_name"] = site_name
 
-                del running_processes[site_name]
+            for cam_info in active_cams:
+                scn = cam_info["scn"]
 
-        time.sleep(5)
+                if scn not in capture_threads or not capture_threads[scn].is_alive():
+                    t = threading.Thread(
+                        target=single_camera_capture_worker,
+                        args=(site_config, cam_info, CAMERA_BASE_PATH),
+                        daemon=True,
+                        name=f"CaptureWorker-{scn}"
+                    )
+                    t.start()
+                    capture_threads[scn] = t
+
+        time.sleep(10)
 
 
 def start_solar_camera_collection_thread():
-    """
-    Starts the site collection manager in a background thread.
-    """
-
     t = threading.Thread(
         target=site_collection_manager,
         daemon=True,
         name="SiteCollectionManager",
     )
-
     t.start()
     return t
 

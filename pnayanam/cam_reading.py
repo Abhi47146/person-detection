@@ -146,6 +146,7 @@ def _camera_reader_thread_rtsp(scn: str, debug, send_gui, rtsp: str, shm_name: s
         return
 
     offline_frame = _make_offline_frame(H, W, C, "No frames")
+    camera_status = "unknown"  # "active" | "inactive" | "unknown" (not yet reported)
 
     cap = connect_to_cam(
         scn=scn,
@@ -163,6 +164,10 @@ def _camera_reader_thread_rtsp(scn: str, debug, send_gui, rtsp: str, shm_name: s
             if cap is None or not getattr(cap, "isOpened", lambda: False)():
                 header_arr[0] = 0
                 write_frame_seq(header_arr, buf, offline_frame)
+
+                if camera_status != "inactive":
+                    camera_status = "inactive"
+                    requirements.update_camera_status_api(scn, "inactive")
 
                 if send_gui == 1:
                     iso_timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -205,6 +210,11 @@ def _camera_reader_thread_rtsp(scn: str, debug, send_gui, rtsp: str, shm_name: s
                 else:
                     header_arr[0] = 0
                     write_frame_seq(header_arr, buf, offline_frame)
+
+                    if camera_status != "inactive":
+                        camera_status = "inactive"
+                        requirements.update_camera_status_api(scn, "inactive")
+
                     try:
                         if cap:
                             cap.release()
@@ -214,6 +224,10 @@ def _camera_reader_thread_rtsp(scn: str, debug, send_gui, rtsp: str, shm_name: s
                     continue
 
             frame = cv2.resize(frame, (W, H))
+
+            if camera_status != "active":
+                camera_status = "active"
+                requirements.update_camera_status_api(scn, "active")
 
             if requirements.is_invalid_frame(frame):
                 alert = "Empty Frame Alert"
@@ -335,7 +349,12 @@ def _camera_reader_thread_solarcam(scn: str, debug, send_gui, frame_folder, shm_
             if not os.path.exists(frame_path):
                 if camera_status != "inactive":
                     camera_status = "inactive"
-                    requirements.update_camera_status_api(scn, "inactive")
+                    # NOTE: true online/offline for solar cams is now reported
+                    # by solar_cam/monitor_camera.py's dedicated status page,
+                    # which reads the DVR portal directly and isn't tied to
+                    # whether this camera is currently scheduled (is_process +
+                    # time window). We still write the offline placeholder
+                    # frame below so shared memory doesn't hold a stale image.
                     header_arr[0] = 0
                     write_frame_seq(header_arr, buf, offline_frame)
 
@@ -351,7 +370,6 @@ def _camera_reader_thread_solarcam(scn: str, debug, send_gui, frame_folder, shm_
 
                     if camera_status != "inactive":
                         camera_status = "inactive"
-                        requirements.update_camera_status_api(scn, "inactive")
                         header_arr[0] = 0
                         write_frame_seq(header_arr, buf, offline_frame)
 
@@ -369,7 +387,6 @@ def _camera_reader_thread_solarcam(scn: str, debug, send_gui, frame_folder, shm_
 
             if camera_status != "active":
                 camera_status = "active"
-                requirements.update_camera_status_api(scn, "active")
 
             frame = cv2.resize(img, (W, H))
             last_frame_mtime = current_mtime
@@ -482,7 +499,9 @@ def start_camera_readers(camera_scns, send_gui, debug, shm_map, header_map, fram
             logger.warning(f"[{scn}] No stream configured. Skipping.")
             continue
 
-        if os.path.isdir(stream_source):
+        is_solar_cam = str(cam_conf.get("is_solar_cam", "False")).strip().lower() in ("true", "1", "yes")
+
+        if is_solar_cam:
             target = _camera_reader_thread_solarcam
             logger.info(f"[{scn}] Source: SOLAR CAMERA ({stream_source})")
         else:

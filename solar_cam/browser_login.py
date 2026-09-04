@@ -21,7 +21,13 @@ def login(url, email, password):
         ]
     )
 
-    page = browser.new_page()
+    # NOTE: browser.new_page() is a convenience shortcut that only supports a
+    # single page for its lifetime - a second call to .new_page() on the
+    # context it implicitly creates raises "Please use browser.new_context()".
+    # Since this project now opens multiple pages per site (one status page +
+    # one page per actively-processing camera), we need an explicit context.
+    context = browser.new_context()
+    page = context.new_page()
 
     while True:
 
